@@ -76,9 +76,19 @@ ul.task-list li input[type="checkbox"] {
 
 (function() {
 
+    if (sessionStorage.getItem("authenticated") === "true") {
+
+        return;
+
+    }
+
     var geslo = prompt("Vnesite geslo za dostop:");
 
-    if (geslo !== "uspesnost2025") {
+    if (geslo === "uspesnost2025") {
+
+        sessionStorage.setItem("authenticated", "true");
+
+    } else {
 
         window.stop();
 
