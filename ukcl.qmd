@@ -1,0 +1,246 @@
+---
+title: "UKC Ljubljana"
+sidebar: ukcl-sidebar
+page-layout: article
+format:
+  html:
+    toc: true
+    toc-location: right
+    toc-title: "Na tej strani"
+    toc-depth: 4
+    include-after-body: reflow.html
+---
+
+```{r}
+#| label: setup
+#| include: false
+#| warning: false
+#| message: false 
+
+source("./R/setup_paketi.R")
+source("./R/funkcije_num_format_reactable.R")
+source("./R/uvoz_podatkov.R")
+source("./R/osnovni_podatki.R")
+source("./R/podatki_st_raz_fte_leto.R")
+source("./ukcl/podatki_stevilo_projektov.R")
+source("./ukcl/podatki_za_tabele_grafe.R")
+source("./ukcl/funkcije_tabele.R")
+source("./ukcl/slika_fin_sredstva.R")
+source("./ukcl/podatki_za_raz_uspesnost.R")
+source("./ukcl/SLIKE_raziskovalna_uspesnost_tocke.R")
+```
+
+# Osnovni podatki
+
+V spodnji tabeli je prikazano ***trenutno stanje registriranih raziskovalcev*** na Javni agenciji za raziskovanje in inovacijsko dejavnost Republike Slovenije (ARIS), na dan **`r format(datum_posodobitve, "%d.%b%Y")`**. Vir podatkov je [Sicris](https://cris.cobiss.net/ecris/si/sl/organization/618){target="_blank"}.
+
+```{r}
+#| echo: false
+
+tbl_01  ## Število raziskovalcev, raz skupin in programskih skupin
+```
+
+\**FTE = Full-time equivalent (delež zaposlitve - status 'Raziskovalec').*\
+\*\**ARIS projekti, ki so v teku.*
+
+Bolj podrobni podatki o posameznem raziskovalcu so objavljeni na zavihku [Raziskovalci](raziskovalci.qmd)
+
+## Vrednotenje in citiranost
+
+V spodnji tabeli so prikazani osnovni rezultati bibliografskih kazalcev raziskovalne uspešnosti po metodologiji ARIS, za celoten UKC Ljubljana. Za bolj podrobne rezultate po letih in dodatne kazalnike, glej poglavje [Raziskovalna uspešnost](#ukc-uspesnost).
+
+Poleg pregleda za celoten UKCL je možen pregled tudi po:
+
+-   [Programskih skupinah](programske_skupine.qmd)
+
+-   [Raziskovalnih skupinah](raziskovalne_skupine.qmd)
+
+-   [Posameznih raziskovalcih](raziskovalci.qmd)
+
+```{r}
+#| echo: false
+
+tbl_02  ## Število točk in citatov
+```
+
+::: {.callout-note collapse="true"}
+# Legenda
+
+A'' - izjemni dosežki\
+A' - zelo kvalitetni dosežki\
+$A^{1/2}$ - pomembni dosežki\
+CI10 - število čistih citatov znanstvenih del v zadnjih 10 letih (2015-2025)\
+CImax - najodmevnejše delo v zadnjih 10 letih (2015-2025)\
+h-indeks v zadnjih 10 letih (2015-2025)
+:::
+
+***Kazalniki raziskovalne uspešnosti UKC Ljubljana, na dan: `r format(datum_posodobitve, "%d.%b%Y")`.***
+
+```{r}
+#| echo: false
+
+tbl_03    # Osnovni kazalniki za celoten UKCL
+```
+
+\**Točke/Razisk = število točka na raziskovalca*\
+\*\**Točke/FTE = število točka na število raziskovalcev po FTE*\
+
+Za pregled rezultatov po letih glej poglavje [Raziskovalna uspešnost](#ukc-uspesnost).
+
+## Finančna sredstva
+
+V spodnji tabeli so prikazana pridobljena ***finančna sredstva*** pridobljena po posameznem sklopu v posameznem letu. V prvih štirih stolpcih (ARIS programi, ARIS projekti, Klinična preskušanja in Mednarodni projekti) so prikazani *zunanji viri financiranja.*
+
+```{r}
+#| echo: false
+
+tbl_04    # Finančna sredstva po letih
+```
+
+### Finančna sredstva po letih in posameznih sklopih
+
+```{r}
+#| echo: false
+
+html_output
+```
+
+***Podatki za 2025 še niso na voljo!***
+
+## Raziskovalni projekti po letih
+
+V spodnji tabeli so prikazani ***projekti, ki so bili v teku na dan 31.12.*** v posameznem letu.
+
+```{r}
+#| echo: false
+
+tab_05 # število tekočih projektov
+
+```
+
+\* *Zanesljivi podatki za klinična preskušanja zdravil in medicinskih pripomočkov za pretekla leta niso na voljo.*
+
+\*\* *Podatki za EU in mednarodne projekte so še nepopolni.*
+
+# Raziskovalne skupine {#raziskovalne-skupine}
+
+V spodnji tabeli so prikazane ***Raziskovalne skupine*** registrirane pri ARIS.
+
+Za podrobnejši pregled o raziskovalnih skupinah glej: ["Raziskovalne skupine"](raziskovalne_skupine.qmd).
+
+::: {.callout-tip collapse="true" title=""}
+#### *S klikom na posamezen stolpec se spremeni vrstni red skupin.*
+:::
+
+```{r}
+#| echo: false
+
+tbl_06  # Raziskovalne skupine UKCL
+```
+
+\**FTE = Full-time equivalent (delež zaposlitve - status 'Raziskovalec').*\
+\*\**Programi = ARIS raziskovalni programi, ki so v teku in je vodilna ustanova UKC Ljubljana*
+
+# Programske skupine (ARIS) {#programske-skupine}
+
+## UKCL vodilna ustanova
+
+V spodnji tabeli je prikazan seznam ***ARIS raziskovalnih programov*** (programskih skupin), ki *so v teku* in kjer je vodilna ustanova UKC Ljubljana.\
+Bolj podrobni rezultati o raziskovalnih programih in programskih skupinah so dostopni na zavihku [Programske skupine](programske_skupine.qmd). 
+
+```{r}
+#| echo: false
+
+tbl_07 # Programske skupine
+```
+
+\**FTE = Full-time equivalent (delež zaposlitve - status 'Raziskovalec').*\
+\*\**Št. org = število raziskovalnih organizacij, ki sodelujejo pri raziskovalnem programu.*
+
+## UKCL sodelujoča organizacija
+
+V spodnji tabeli je prikazan seznam aktivnih ARIS raziskovalnih programov, pri katerih je UKC Ljubljana sodelujoča organizacija.
+
+```{r}
+#| echo: false
+
+tbl_08 ## Programske skupine, UKCL sodeluje
+```
+
+# Raziskovalna uspešnost {#ukc-uspesnost}
+
+## **A1 Točke**
+
+### Upoštevane točke     
+
+::: panel-tabset
+### Točke/FTE
+ 
+```{r}
+#| echo: false
+panel1_fte
+```
+
+### Točke/raziskovalec
+
+```{r}
+#| echo: false
+panel1_raz
+```
+:::
+
+### A''
+::: panel-tabset
+### A''/FTE
+
+
+```{r}
+#| echo: false
+panel2_fte
+```
+
+### A''/raziskovalec
+
+
+```{r}
+#| echo: false
+panel2_raz
+```
+:::
+
+### A'
+
+::: panel-tabset
+### A'/FTE
+
+
+```{r}
+#| echo: false
+panel3_fte
+```
+
+### A'/raziskovalec
+
+
+```{r}
+#| echo: false
+panel3_raz
+```
+:::
+
+### A^1/2^
+::: panel-tabset
+### A^1/2^/FTE
+
+```{r}
+#| echo: false
+panel4_fte
+```
+
+### A^1/2^/raziskovalec
+
+```{r}
+#| echo: false
+panel4_raz
+```
+:::

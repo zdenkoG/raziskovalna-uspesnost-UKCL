@@ -1,0 +1,46 @@
+<script>
+// Ponovno izriši Highcharts grafe ko se preklaplja med tabi
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('Reflow script loaded');
+  
+  // Počakaj na tab klike
+  var tabs = document.querySelectorAll('.nav-link');
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      console.log('Tab clicked');
+      setTimeout(function() {
+        // Najdi vse Highcharts grafe in jih ponovno izriši
+        if (typeof Highcharts !== 'undefined') {
+          Highcharts.charts.forEach(function(chart) {
+            if (chart !== undefined && chart !== null) {
+              chart.reflow();
+            }
+          });
+        }
+      }, 100);
+    });
+  });
+  
+  // Ponovno izriši ob spremembi velikosti okna
+  window.addEventListener('resize', function() {
+    if (typeof Highcharts !== 'undefined') {
+      Highcharts.charts.forEach(function(chart) {
+        if (chart !== undefined && chart !== null) {
+          chart.reflow();
+        }
+      });
+    }
+  });
+  
+  // Ponovno izriši vse grafe ob prvem nalaganju
+  setTimeout(function() {
+    if (typeof Highcharts !== 'undefined') {
+      Highcharts.charts.forEach(function(chart) {
+        if (chart !== undefined && chart !== null) {
+          chart.reflow();
+        }
+      });
+    }
+  }, 500);
+});
+</script>

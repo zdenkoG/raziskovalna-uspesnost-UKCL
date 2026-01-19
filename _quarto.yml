@@ -1,0 +1,89 @@
+project:
+  type: website
+  output-dir: docs
+website:
+  title: "Raziskovalna uspešnost UKCL"
+  favicon: "images/favicon.png"
+  
+  # Navigacija v headerju
+  navbar:
+    background: "#3660a0"
+    foreground: "#ffffff"
+    logo: "images/logo.png"
+    left:
+      - text: "Domov"
+        href: index.qmd
+        icon: house-fill
+      - text: "UKCL"
+        href: ukcl.qmd
+        icon: building
+      - text: "Programske skupine"
+        href: programske_skupine.qmd
+        icon: diagram-3-fill
+      - text: "Raziskovalne skupine"
+        href: raziskovalne_skupine.qmd
+        icon: people-fill
+      - text: "Raziskovalci"
+        href: raziskovalci.qmd
+        icon: person-fill
+    right:
+      - text: "Metodologija"
+        icon: book
+        menu:
+          - text: "Viri podatkov"
+            href: viri-podatkov.qmd
+          - text: "Izračuni kazalnikov"
+            href: izracuni-kazalnikov.qmd
+  
+  # Levi sidebar - različen za vsako stran
+  sidebar:
+    - id: ukcl-sidebar
+      title: "Kazalniki"
+      style: "docked"
+      background: "#f8f9fa"
+      contents:
+        - text: "Osnovni podatki"
+          href: ukcl.qmd#osnovni-podatki
+        - text: "Raziskovalne skupine"
+          href: ukcl.qmd#raziskovalne-skupine
+        - text: "Programske skupine"
+          href: ukcl.qmd#programske-skupine
+        - text: "<span style='color: coral;'>Raziskovalna uspešnost</span>"
+          href: ukcl.qmd#ukc-uspesnost
+    
+    - id: programske-sidebar
+      title: "Kazalniki"
+      style: "docked"
+      background: "#f8f9fa"
+      contents:
+        - text: "Osnovni podatki"
+          href: programske_skupine.qmd#osnovni-podatki
+        - text: "Upoštevane točke"
+          href: programske_skupine.qmd#upostevane-tocke
+        - text: "Citati"
+          href: programske_skupine.qmd#citati
+  
+  # Noga strani
+  page-footer:
+    center: |
+      © 2026 Center za klinične raziskave UKC Ljubljana | [Kontakt](mailto:info.ckr@kclj.si)
+    background: "#1e3a5f"
+format:
+  html:
+    theme: 
+      - cosmo
+      - custom.scss
+    css: styles.css
+    toc: true
+    toc-location: right
+    toc-title: "Na tej strani"
+    toc-depth: 4
+    code-fold: false
+    code-tools: false
+    anchor-sections: true
+    smooth-scroll: true
+    
+execute:
+  echo: false
+  warning: false
+  message: false

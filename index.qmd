@@ -1,0 +1,208 @@
+---
+title: "Raziskovalna uspešnost"
+subtitle: "Pregled raziskovalne dejavnosti UKC Ljubljana"
+sidebar: false
+toc: false
+---
+
+
+```{r}
+#| label: setup
+#| include: false
+
+# =======================================================================================
+## Skripte za uvoz podatkov - zaženejo se, ko želimo posodobiti podatke
+
+# source("./skripte_uvoz_podatkov/posodobi_VSE_podatke.R")              ## Podatki iz sicrisa - API
+# source("./skripte_uvoz_podatkov/posodobi_HTML_podatke.R")             ## Podatki iz sicrisa - HTML po letih
+# ========================================================================================
+
+source("./R/setup_paketi.R")
+source("./R/uvoz_podatkov.R")
+source("./R/funkcije_num_format_reactable.R")
+source("./R/osnovni_podatki.R")
+```
+
+
+## Dobrodošli
+
+Spletna stran prikazuje raziskovalno uspešnost UKC Ljubljana. Izberite želeno področje za podrobnejši pregled kazalnikov.
+
+::: callout-note
+## Zadnja posodobitev podatkov iz Sicris-a; **`r format(datum_posodobitve, "%d.%b%Y")`**
+:::
+
+------------------------------------------------------------------------
+
+## Osnovni podatki
+
+::::::: grid
+::: {.g-col-12 .g-col-md-4}
+```{r}
+#| echo: false
+value_box(
+  title = "Število raziskovalcev",
+  value = HTML(paste0(
+    st_raz, 
+    "<br><span style='font-size: 0.6em; font-weight: normal;'>FTE: ", 
+    round(fte, 1), 
+    "</span>"
+  )),
+  showcase = bs_icon("person-fill"),
+  theme = value_box_theme(bg = "#FBB4AE", fg = "#333333"),
+  href = "programske-skupine.html",
+  height = "200px"  
+)
+```
+:::
+::: {.g-col-12 .g-col-md-4}
+```{r}
+#| echo: false
+value_box(
+  title = "Število programskih skupin",
+  value = st_prog_sk,
+  showcase = bs_icon("diagram-3-fill"),
+  theme = value_box_theme(bg = "#CCEBC5", fg = "#333333"),  # Pastelno zelena
+  href = "programske-skupine.html",
+  height = "200px"  
+)
+```
+:::
+
+::: {.g-col-12 .g-col-md-4}
+
+```{r}
+#| echo: false
+value_box(
+  title = "Število raziskovalnih skupin",
+  value = st_raz_sk,
+  showcase = bs_icon("people-fill"),
+  theme = value_box_theme(bg = "#B3CDE3", fg = "#333333"),  # Pastelno modra
+  href = "programske-skupine.html",
+  height = "200px"  
+)
+```
+:::
+
+
+::: {.g-col-12 .g-col-md-4}
+```{r}
+#| echo: false
+value_box(
+  title = "Število ARIS projektov",
+  value = st_aris_proj,
+  showcase = bs_icon("briefcase-fill"),
+  theme = value_box_theme(bg = "#DECBE4", fg = "#333333"),  # Pastelno vijolična
+  href = "programske-skupine.html",
+  height = "200px"  
+)
+```
+:::
+
+::: {.g-col-12 .g-col-md-4}
+```{r}
+#| echo: false
+value_box(
+  title = "Upoštevane točke",
+  value = format(upostevane_tocke, big.mark = ".", decimal.mark = ","),
+  showcase = bs_icon("star-fill"),
+  theme = value_box_theme(bg = "#FED9A6", fg = "#333333"),  # Pastelno oranžna
+  href = "programske-skupine.html",
+  height = "200px"  
+)
+```
+:::
+
+::: {.g-col-12 .g-col-md-4}
+```{r}
+#| echo: false
+value_box(
+  title = paste0("Znanstvene publikacije (", zadnje_leto, ")"),
+  value = HTML(paste0(
+    publ[nrow(publ), 2], 
+    "<br><span style='font-size: 0.5em; font-weight: normal;'>od tega ", 
+    publ[nrow(publ), 3], 
+    " kot A''</span>"
+  )),
+  showcase = bs_icon("award-fill"),
+  theme = value_box_theme(bg = "#FFFFCC", fg = "#333333"),  # Pastelno rumena
+  href = "programske-skupine.html",
+  height = "200px"  
+)
+```
+:::
+:::::::
+
+------------------------------------------------------------------------
+
+## Izberite področje
+
+::::::: grid
+::: {.g-col-12 .g-col-md-6}
+```{r}
+#| echo: false
+card(
+  card_header(
+    style = "background-color: #4a7ba7; color: white;",
+    tags$h3(
+      bs_icon("building", size = "1.5em"),
+      " UKC Ljubljana",
+      style = "margin: 0; color: white;"
+    )
+  ),
+  card_body(
+    p("Pregled raziskovalne uspešnosti bolnišnice kot celote."),
+    tags$ul(
+      tags$li("Skupni kazalniki"),
+      tags$li("Trendi skozi čas"),
+      tags$li("Primerjave")
+    )
+  ),
+  card_footer(
+    tags$a(
+      href = "ukcl.html",
+      class = "btn btn-lg w-100",
+      style = "background-color: #4a7ba7; color: white; border: none;",
+      bs_icon("arrow-right-circle"),
+      " Odpri"
+    )
+  ),
+  full_screen = FALSE
+)
+```
+:::
+
+::: {.g-col-12 .g-col-md-6}
+```{r}
+#| echo: false
+card(
+  card_header(
+    style = "background-color: #4a7ba7; color: white;",
+    tags$h3(
+      bs_icon("diagram-3-fill", size = "1.5em"),
+      " Programske skupine",
+      style = "margin: 0; color: white;"
+    )
+  ),
+  card_body(
+    p("Pregled uspešnosti programskih skupin in projektov."),
+    tags$ul(
+      tags$li("Aktivne programske skupine"),
+      tags$li("Financiranje"),
+      tags$li("Rezultati")
+    )
+  ),
+  card_footer(
+    tags$a(
+      href = "programske-skupine.html",
+      class = "btn btn-lg w-100",
+      style = "background-color: #4a7ba7; color: white; border: none;",
+      bs_icon("arrow-right-circle"),
+      " Odpri"
+    )
+  ),
+  full_screen = FALSE
+)
+```
+:::
+:::::::

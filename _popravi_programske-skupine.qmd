@@ -1,0 +1,359 @@
+---
+title: "Programske skupine"
+subtitle: "Pregled programskih skupin in projektov"
+sidebar: programske-sidebar
+format:
+  html:
+    toc: true
+    toc-location: right
+    toc-title: "Na tej strani"
+    toc-depth: 3
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+# Uporabljeni paketi:
+# - readr: branje CSV datotek
+# - dplyr: manipulacija podatkov
+# - highcharter: interaktivni grafi z možnostjo izvoza
+# - DT: interaktivne tabele z izvozom
+# - bslib: Bootstrap komponente
+# - bsicons: Bootstrap ikone
+# - htmltools: HTML elementi
+# - crosstalk: povezovanje filtrov s tabelami
+
+library(readr)
+library(dplyr)
+library(highcharter)
+library(DT)
+library(bslib)
+library(bsicons)
+library(htmltools)
+library(crosstalk)
+```
+
+```{r}
+
+```
+
+::: {.callout-tip}
+## Navodila za izvoz podatkov
+
+**Izvoz grafa kot sliko (PNG, JPEG, PDF, SVG):**
+
+1. Premaknite miško nad graf
+2. V zgornjem desnem kotu grafa se prikaže meni (☰)
+3. Kliknite na meni in izberite želeni format za prenos
+
+**Izvoz podatkov iz grafa (CSV, XLS):**
+
+1. Premaknite miško nad graf  
+2. V zgornjem desnem kotu kliknite na meni (☰)
+3. Izberite "View data table" za prikaz podatkov
+4. Nato izberite "Download CSV" ali "Download XLS"
+
+**Izvoz iz tabel:**
+
+- Uporabite gumbe nad tabelo: `CSV`, `Excel`, `PDF`, `Copy`
+:::
+
+---
+
+## Osnovni podatki {#osnovni-podatki}
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-3}
+```{r}
+#| echo: false
+value_box(
+  title = "Aktivne programske skupine",
+  value = nrow(ukc),
+  showcase = bs_icon("diagram-3-fill"),
+  theme = "primary"
+)
+```
+:::
+
+::: {.g-col-12 .g-col-md-3}
+```{r}
+#| echo: false
+value_box(
+  title = "Skupaj članov",
+  value = fte,
+  showcase = bs_icon("people-fill"),
+  theme = "success"
+)
+```
+:::
+
+::: {.g-col-12 .g-col-md-3}
+```{r}
+#| echo: false
+value_box(
+  title = "Skupno financiranje",
+  value = fte,
+  showcase = bs_icon("currency-euro"),
+  theme = "info"
+)
+```
+:::
+
+::: {.g-col-12 .g-col-md-3}
+```{r}
+#| echo: false
+value_box(
+  title = "Skupaj projektov",
+  value = st_raz,
+  showcase = bs_icon("folder-fill"),
+  theme = "warning"
+)
+```
+:::
+
+:::
+
+---
+
+### Filter za tabelo
+
+```{r}
+#| echo: false
+
+filter_select(
+  id = "filter_prog",
+  label = "Filtriraj po programski skupini:",
+  sharedData = shared_prog,
+  group = ~naziv,
+  multiple = TRUE
+)
+```
+
+### Tabela programskih skupin
+
+```{r}
+#| echo: false
+
+datatable(
+  shared_prog,
+  extensions = 'Buttons',
+  options = list(
+    pageLength = 10,
+    dom = 'Bfrtip',
+    buttons = c('copy', 'csv', 'excel', 'pdf'),
+    language = list(search = "Išči:")
+  ),
+  colnames = c("Koda", "Naziv", "Vodja", "Od", "Do", "Člani", 
+               "Financiranje (EUR)", "Projekti", "Točke", "Citati", 
+               "H-indeks", "Publikacije", "Obdobje", "Točke/člana"),
+  selection = 'none'
+)
+```
+
+---
+
+### Projekti v okviru programskih skupin
+
+```{r}
+#| echo: false
+
+df_sorted <- df_prog %>% arrange(desc(projekti))
+
+highchart() %>%
+  hc_chart(type = "bar") %>%
+  hc_title(text = "Število povezanih projektov po programskih skupinah") %>%
+  hc_xAxis(categories = df_sorted$koda) %>%
+  hc_yAxis(title = list(text = "Število projektov")) %>%
+  hc_add_series(
+    name = "Projekti",
+    data = df_sorted$projekti,
+    color = "#1e3a5f"
+  ) %>%
+  hc_plotOptions(bar = list(
+    dataLabels = list(enabled = TRUE)
+  )) %>%
+  hc_tooltip(pointFormat = "<b>{point.y}</b> projektov") %>%
+  hc_legend(enabled = FALSE) %>%
+  hc_exporting(enabled = TRUE,
+               buttons = list(contextButton = list(menuItems = c("downloadPNG", "downloadJPEG", "downloadPDF", "downloadSVG", "separator", "viewData", "downloadCSV", "downloadXLS"))))
+```
+
+---
+
+## Upoštevane točke {#upostevane-tocke}
+
+### Letno financiranje
+
+```{r}
+#| echo: false
+
+df_sorted_fin <- df_prog %>% arrange(desc(letno_financiranje_eur))
+
+highchart() %>%
+  hc_chart(type = "bar") %>%
+  hc_title(text = "Letno financiranje programskih skupin") %>%
+  hc_xAxis(categories = df_sorted_fin$koda) %>%
+  hc_yAxis(title = list(text = "Letno financiranje (tisoč EUR)")) %>%
+  hc_add_series(
+    name = "Financiranje",
+    data = round(df_sorted_fin$letno_financiranje_eur / 1000, 1),
+    color = "#28a745"
+  ) %>%
+  hc_plotOptions(bar = list(
+    dataLabels = list(enabled = TRUE, format = "{point.y} k€")
+  )) %>%
+  hc_tooltip(pointFormat = "<b>{point.y}</b> tisoč EUR") %>%
+  hc_legend(enabled = FALSE) %>%
+  hc_exporting(enabled = TRUE,
+               buttons = list(contextButton = list(menuItems = c("downloadPNG", "downloadJPEG", "downloadPDF", "downloadSVG", "separator", "viewData", "downloadCSV", "downloadXLS"))))
+```
+
+### Točke po programskih skupinah
+
+```{r}
+#| echo: false
+
+df_sorted_tocke <- df_prog %>% arrange(desc(tocke))
+
+highchart() %>%
+  hc_chart(type = "column") %>%
+  hc_title(text = "Upoštevane točke po programskih skupinah") %>%
+  hc_xAxis(categories = df_sorted_tocke$koda) %>%
+  hc_yAxis(title = list(text = "Upoštevane točke")) %>%
+  hc_add_series(
+    name = "Točke",
+    data = df_sorted_tocke$tocke,
+    colorByPoint = TRUE
+  ) %>%
+  hc_colors(c("#1e3a5f", "#28a745", "#17a2b8", "#ffc107", "#dc3545")) %>%
+  hc_plotOptions(column = list(
+    dataLabels = list(enabled = TRUE)
+  )) %>%
+  hc_tooltip(pointFormat = "<b>{point.y}</b> točk") %>%
+  hc_legend(enabled = FALSE) %>%
+  hc_exporting(enabled = TRUE,
+               buttons = list(contextButton = list(menuItems = c("downloadPNG", "downloadJPEG", "downloadPDF", "downloadSVG", "separator", "viewData", "downloadCSV", "downloadXLS"))))
+```
+
+### Točke na člana
+
+```{r}
+#| echo: false
+
+df_sorted_tocke_clan <- df_prog %>% arrange(desc(tocke_na_clana))
+
+highchart() %>%
+  hc_chart(type = "column") %>%
+  hc_title(text = "Točke na člana po programskih skupinah") %>%
+  hc_xAxis(categories = df_sorted_tocke_clan$koda) %>%
+  hc_yAxis(title = list(text = "Točke na člana")) %>%
+  hc_add_series(
+    name = "Točke/člana",
+    data = df_sorted_tocke_clan$tocke_na_clana,
+    color = "#17a2b8"
+  ) %>%
+  hc_plotOptions(column = list(
+    dataLabels = list(enabled = TRUE, format = "{point.y:.2f}")
+  )) %>%
+  hc_tooltip(pointFormat = "<b>{point.y:.2f}</b> točk na člana") %>%
+  hc_legend(enabled = FALSE) %>%
+  hc_exporting(enabled = TRUE,
+               buttons = list(contextButton = list(menuItems = c("downloadPNG", "downloadJPEG", "downloadPDF", "downloadSVG", "separator", "viewData", "downloadCSV", "downloadXLS"))))
+```
+
+---
+
+## Citati {#citati}
+
+### Citati po programskih skupinah
+
+```{r}
+#| echo: false
+
+df_sorted_citati <- df_prog %>% arrange(desc(citati))
+
+highchart() %>%
+  hc_chart(type = "bar") %>%
+  hc_title(text = "Število citatov po programskih skupinah") %>%
+  hc_xAxis(categories = df_sorted_citati$koda) %>%
+  hc_yAxis(title = list(text = "Število citatov")) %>%
+  hc_add_series(
+    name = "Citati",
+    data = df_sorted_citati$citati,
+    color = "#ffc107"
+  ) %>%
+  hc_plotOptions(bar = list(
+    dataLabels = list(enabled = TRUE)
+  )) %>%
+  hc_tooltip(pointFormat = "<b>{point.y}</b> citatov") %>%
+  hc_legend(enabled = FALSE) %>%
+  hc_exporting(enabled = TRUE,
+               buttons = list(contextButton = list(menuItems = c("downloadPNG", "downloadJPEG", "downloadPDF", "downloadSVG", "separator", "viewData", "downloadCSV", "downloadXLS"))))
+```
+
+### H-indeks po programskih skupinah
+
+```{r}
+#| echo: false
+
+df_sorted_h <- df_prog %>% arrange(desc(h_indeks))
+
+highchart() %>%
+  hc_chart(type = "column") %>%
+  hc_title(text = "H-indeks po programskih skupinah") %>%
+  hc_xAxis(categories = df_sorted_h$koda) %>%
+  hc_yAxis(title = list(text = "H-indeks")) %>%
+  hc_add_series(
+    name = "H-indeks",
+    data = df_sorted_h$h_indeks,
+    color = "#28a745"
+  ) %>%
+  hc_plotOptions(column = list(
+    dataLabels = list(enabled = TRUE)
+  )) %>%
+  hc_tooltip(pointFormat = "H-indeks: <b>{point.y}</b>") %>%
+  hc_legend(enabled = FALSE) %>%
+  hc_exporting(enabled = TRUE,
+               buttons = list(contextButton = list(menuItems = c("downloadPNG", "downloadJPEG", "downloadPDF", "downloadSVG", "separator", "viewData", "downloadCSV", "downloadXLS"))))
+```
+
+---
+
+## Primerjava programskih skupin
+
+### Scatter plot: Člani vs. Publikacije
+
+```{r}
+#| echo: false
+
+highchart() %>%
+  hc_chart(type = "bubble", zoomType = "xy") %>%
+  hc_title(text = "Razmerje med številom članov in publikacijami") %>%
+  hc_subtitle(text = "Velikost kroga = število točk") %>%
+  hc_xAxis(title = list(text = "Število članov")) %>%
+  hc_yAxis(title = list(text = "Število publikacij")) %>%
+  hc_add_series(
+    name = "Programske skupine",
+    data = lapply(1:nrow(df_prog), function(i) {
+      list(
+        x = df_prog$stevilo_clanov[i],
+        y = df_prog$publikacije[i],
+        z = df_prog$tocke[i],
+        name = df_prog$naziv[i],
+        koda = df_prog$koda[i]
+      )
+    }),
+    color = "#1e3a5f"
+  ) %>%
+  hc_tooltip(
+    pointFormat = "<b>{point.name}</b><br/>
+                   Koda: {point.koda}<br/>
+                   Člani: {point.x}<br/>
+                   Publikacije: {point.y}<br/>
+                   Točke: {point.z}"
+  ) %>%
+  hc_exporting(enabled = TRUE,
+               buttons = list(contextButton = list(menuItems = c("downloadPNG", "downloadJPEG", "downloadPDF", "downloadSVG", "separator", "viewData", "downloadCSV", "downloadXLS"))))
+```
