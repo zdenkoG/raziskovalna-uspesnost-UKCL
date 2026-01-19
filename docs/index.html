@@ -68,6 +68,28 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
+
+
+
+
+<script>
+
+(function() {
+
+    var geslo = prompt("Vnesite geslo za dostop:");
+
+    if (geslo !== "raziskovalna uspesnost 2025") {
+
+        document.body.innerHTML = "<h1 style='text-align:center; margin-top:50px;'>Dostop zavrnjen</h1>";
+
+        throw new Error("Napačno geslo");
+
+    }
+
+})();
+
+</script>
+
 <link href="site_libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
 
 <script src="site_libs/bslib-component-js-0.9.0/components.min.js"></script>

@@ -70,6 +70,28 @@ ul.task-list li input[type="checkbox"] {
 <style>html{ scroll-behavior: smooth; }</style>
 
 
+
+
+<script>
+
+(function() {
+
+    var geslo = prompt("Vnesite geslo za dostop:");
+
+    if (geslo !== "raziskovalna uspesnost 2025") {
+
+        document.body.innerHTML = "<h1 style='text-align:center; margin-top:50px;'>Dostop zavrnjen</h1>";
+
+        throw new Error("Napačno geslo");
+
+    }
+
+})();
+
+</script>
+
+
+
 <link rel="stylesheet" href="styles.css">
 </head>
 

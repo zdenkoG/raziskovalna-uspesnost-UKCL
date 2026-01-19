@@ -76,6 +76,7 @@ format:
       - cosmo
       - custom.scss
     css: styles.css
+    include-in-header: zascita.html
     toc: true
     toc-location: right
     toc-title: "Na tej strani"
