@@ -167,7 +167,9 @@ V spodnji tabeli je prikazan seznam aktivnih ARIS raziskovalnih programov, pri k
 tbl_08 ## Programske skupine, UKCL sodeluje
 ```
 
-# Raziskovalna uspešnost {#ukc-uspesnost}
+# Raziskovalna uspešnost {#ukc-uspesnost}      
+
+Spodaj so prikazani rezultati raziskovalne uspešnosti po letih v UKCL.
 
 ## **A1 Točke**
 
