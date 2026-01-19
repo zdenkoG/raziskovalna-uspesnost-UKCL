@@ -1,6 +1,8 @@
 project:
   type: website
   output-dir: docs
+  resources:
+    - robots.txt
 website:
   title: "Raziskovalna uspešnost UKCL"
   favicon: "images/favicon.png"
