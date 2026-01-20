@@ -165,25 +165,59 @@ V spodnji tabeli je prikazan seznam aktivnih ARIS raziskovalnih programov, pri k
 #| echo: false
 
 tbl_08 ## Programske skupine, UKCL sodeluje
-```
+```     
 
-# Raziskovalna uspešnost {#ukc-uspesnost}      
 
-Spodaj so prikazani rezultati raziskovalne uspešnosti po letih v UKCL.
+# Raziskovalna uspešnost {#ukc-uspesnost}
 
-## **A1 Točke**
+V tem delu so predstavljeni rezultati raziskovalne uspešnosti UKC Ljubljana kot celote. Vir podatkov je spletna platforma Sicris (za bolj podrobne informacije o virih podatkov glej: (viri podatkov)\[POPRAVI LINK\].
 
-### Upoštevane točke     
+Prikazani so rezultati za **A1 objave (pridobljene točke) in citiranost po letih**.\
+Pri rezultatih ***A1 objav*** so prikazane točke za:
+
+-   Skupno število upoštevanih točk;
+
+-   A'' – izjemni dosežki;
+
+-   A' – zelo kvalitetni dosežki;
+
+-   A ½ - pomembni dosežki.
+
+Pri rezultatih o ***Citiranosti*** je prikazano:
+
+-   CI10 - število čistih citatov znanstvenih del v zadnjih 10 letih;
+
+-   CImax - najodmevnejše delo v zadnjih 10 letih;
+
+-   h-indeks v zadnjih 10 letih.
+
+Poleg prikaza skupnega števila točk, so izračunani tudi kazalniki uspešnosti, ki kažejo dosežke (število točk oz. citatov) glede na FTE (full time eqvivalent = delež zaposlitve za raziskovalno dejavnost) in glede na skupno število raziskovalcev (število zaposlenih, ki so pri ARIS-u registrirani kot raziskovalci).
+
+Za podrobnejši opis metodologije izračuna kazalnikov glej (metodologija)\[POPRAVI LINK\].
+
+\
+Raziskovalna uspešnost je predstavljena na dva načina:
+
+1.  Skupno število točk/citatov **v petletnem obdobju** (npr. pri rezultatu za 2025 je prikazano število pridobljenih točk v *obdobju od 01.01.2021 do 31.12.2025*).
+
+2.  Število točk pridobljenih v **posameznem letu** (npr. pri rezultatu za 2025 je prikazano število pridobljenih točk v *obdobju od 01.01.2025 do 31.12.2025*).
+
+
+## Petletno obdobje
+
+### **A1 Točke**
+
+#### Upoštevane točke
 
 ::: panel-tabset
-### Točke/FTE
- 
+#### Točke/FTE
+
 ```{r}
 #| echo: false
 panel1_fte
 ```
 
-### Točke/raziskovalec
+#### Točke/raziskovalec
 
 ```{r}
 #| echo: false
@@ -191,18 +225,17 @@ panel1_raz
 ```
 :::
 
-### A''
-::: panel-tabset
-### A''/FTE
+#### A''
 
+::: panel-tabset
+#### A''/FTE
 
 ```{r}
 #| echo: false
 panel2_fte
 ```
 
-### A''/raziskovalec
-
+#### A''/raziskovalec
 
 ```{r}
 #| echo: false
@@ -210,19 +243,17 @@ panel2_raz
 ```
 :::
 
-### A'
+#### A'
 
 ::: panel-tabset
-### A'/FTE
-
+#### A'/FTE
 
 ```{r}
 #| echo: false
 panel3_fte
 ```
 
-### A'/raziskovalec
-
+#### A'/raziskovalec
 
 ```{r}
 #| echo: false
@@ -230,19 +261,30 @@ panel3_raz
 ```
 :::
 
-### A^1/2^
+#### A^1/2^
+
 ::: panel-tabset
-### A^1/2^/FTE
+#### A^1/2^/FTE
 
 ```{r}
 #| echo: false
 panel4_fte
 ```
 
-### A^1/2^/raziskovalec
+#### A^1/2^/raziskovalec
 
 ```{r}
 #| echo: false
 panel4_raz
 ```
 :::
+ 
+ 
+### **Citiranost**
+
+
+## Posamezno leto
+
+### **A1 Točke**
+
+#### Upoštevane točke
