@@ -14,7 +14,7 @@ setDT(raz)
 
 raz23 <- readRDS("./data/raz_fte_leta/raz2023.RDS")   # Število raziskovalcev in FTE po letih
 
-raz24 <- readRDS("./data/raz_fte_leta/raz2024.RDS")
+raz24 <- readRDS("./data/raz_fte_leta/raz2024.RDS")   
 
 raz25 <- readRDS("./data/raz_fte_leta/raz25.RDS")
 

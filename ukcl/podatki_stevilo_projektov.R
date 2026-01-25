@@ -126,19 +126,15 @@ projekti_cas <- bind_rows(
 # ----------------------------------------------
 
 novi_projekti <- projekti_cas %>% 
-  # Ekstrakcija leta iz datuma začetka
   mutate(leto_zacetka = year(zacetek)) %>% 
-  # Filtriranje od 2018 dalje
-  filter(leto_zacetka >= 2018) %>% 
-  # Štetje po sklop in leto
+  filter(leto_zacetka >= 2018,
+         leto_zacetka <= zadnje_leto) %>% 
   group_by(sklop, leto_zacetka) %>% 
   summarise(n_projektov = n(), .groups = "drop") %>% 
-  # Preoblikovanje v široko obliko (leta kot stolpci)
   arrange(leto_zacetka) %>% 
   pivot_wider(
     names_from = leto_zacetka,
     values_from = n_projektov,
-    names_prefix = "l",
     values_fill = 0
   )
 

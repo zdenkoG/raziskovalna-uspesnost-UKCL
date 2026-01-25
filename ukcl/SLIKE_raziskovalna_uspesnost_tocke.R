@@ -98,7 +98,8 @@ izracunaj_y_limiti <- function(values) {
 #' @return Highchart objekt
 narisi_lollipop_sprememb_tocke <- function(data, 
                                            kategorija,
-                                           naslov = "Letna sprememba točk") {
+                                           naslov_lp = "Letna sprememba točk",
+                                           y_os = "Sprememba točk") {
   
   # Pripravi podatke
   podatki <- izracunaj_spremembe_tocke(data, kategorija)
@@ -116,13 +117,13 @@ narisi_lollipop_sprememb_tocke <- function(data,
       height = 400,
       backgroundColor = "#FFFFFF"  # Belo ozadje
     ) %>%
-    hc_title(text = naslov) %>%
+    hc_title(text = naslov_lp) %>%
     hc_xAxis(
       categories = podatki$leto,
       title = list(text = "Leto")
     ) %>%
     hc_yAxis(
-      title = list(text = "Sprememba točk"),
+      title = list(text = y_os),
       labels = list(format = "{value:,.0f}"),
       min = limiti$min,
       max = limiti$max,
@@ -321,8 +322,12 @@ create_panel_2x2 <- function(data,
                              kategorija,
                              naslov = kategorija,
                              barva = "#3660a0",
+                             yaxis_label = "Točke",
+                             title_label = "Točke po letih",
                              kazalnik = "kaz_fte",
-                             kazalnik_label = "Kazalnik (točke/FTE)") {
+                             kazalnik_label = "Kazalnik (točke/FTE)",
+                             naslov_lp = "Letna sprememba točk",
+                             y_os = "Sprememba točk") {
   
   # Filtriraj podatke za izbrano kategorijo
   podatki_kat <- data %>%
@@ -360,13 +365,13 @@ create_panel_2x2 <- function(data,
       height = 400,
       backgroundColor = "#FFFFFF"  # Belo ozadje
     ) %>%
-    hc_title(text = "Točke po letih") %>%
+    hc_title(text = title_label) %>%
     hc_xAxis(
       categories = podatki_kat$leto,
       title = list(text = "Leto")
     ) %>%
     hc_yAxis(
-      title = list(text = "Točke"),
+      title = list(text = yaxis_label),
       labels = list(format = "{value:,.0f}")
     ) %>%
     hc_add_series(
@@ -382,6 +387,7 @@ create_panel_2x2 <- function(data,
       pointFormat = "<b>{point.y:,.1f}</b> točk",
       headerFormat = "<span style='font-size:10px'>{point.key}</span><br/>"
     ) %>%
+    hc_legend(enabled = FALSE) %>% 
     hc_exporting(
       enabled = TRUE,
       chartOptions = list(
@@ -422,6 +428,7 @@ create_panel_2x2 <- function(data,
                            sub("Kazalnik \\((.+)\\)", "\\1", kazalnik_label)),
       headerFormat = "<span style='font-size:10px'>{point.key}</span><br/>"
     ) %>%
+    hc_legend(enabled = FALSE) %>% 
     hc_exporting(
       enabled = TRUE,
       chartOptions = list(
@@ -435,7 +442,8 @@ create_panel_2x2 <- function(data,
   graf_sprememba_tocke <- narisi_lollipop_sprememb_tocke(
     data, 
     kategorija,
-    "Letna sprememba točk"
+    naslov_lp,
+    y_os
   )
   
   # Graf 4: Sprememba kazalnika (spodaj desno)
@@ -486,6 +494,11 @@ create_panel_2x2 <- function(data,
   )
 }
 
+
+
+# =================================
+# =================================
+
 # UPORABA
 # -------
 
@@ -496,6 +509,8 @@ panel1_fte <- create_panel_2x2(
   "Upoštevane točke", 
   "Upoštevane točke", 
   "#3660a0",
+  yaxis_label = "Točke",
+  title_label = "Točke po letih",
   kazalnik = "kaz_fte",
   kazalnik_label = "Kazalnik (točke/FTE)"
 )
@@ -505,6 +520,8 @@ panel2_fte <- create_panel_2x2(
   "A'' - izjemni dosežki", 
   "A'' - izjemni dosežki", 
   "#4a7bc8",
+  yaxis_label = "Točke",
+  title_label = "Točke po letih",
   kazalnik = "kaz_fte",
   kazalnik_label = "Kazalnik (točke/FTE)"
 )
@@ -514,6 +531,8 @@ panel3_fte <- create_panel_2x2(
   "A' - zelo kvalitetni dosežki", 
   "A' - zelo kvalitetni dosežki", 
   "#5d8dd3",
+  yaxis_label = "Točke",
+  title_label = "Točke po letih",
   kazalnik = "kaz_fte",
   kazalnik_label = "Kazalnik (točke/FTE)"
 )
@@ -523,6 +542,8 @@ panel4_fte <- create_panel_2x2(
   "A1/2 - pomembni dosežki", 
   "A1/2 - pomembni dosežki", 
   "#7099db",
+  yaxis_label = "Točke",
+  title_label = "Točke po letih",
   kazalnik = "kaz_fte",
   kazalnik_label = "Kazalnik (točke/FTE)"
 )
@@ -534,6 +555,8 @@ panel1_raz <- create_panel_2x2(
   "Upoštevane točke", 
   "Upoštevane točke", 
   "#b0b0b0",
+  yaxis_label = "Točke",
+  title_label = "Točke po letih",
   kazalnik = "kaz_raz",
   kazalnik_label = "Kazalnik (točke/raziskovalec)"
 )
@@ -543,6 +566,8 @@ panel2_raz <- create_panel_2x2(
   "A'' - izjemni dosežki", 
   "A'' - izjemni dosežki", 
   "#7a7a7a",
+  yaxis_label = "Točke",
+  title_label = "Točke po letih",
   kazalnik = "kaz_raz",
   kazalnik_label = "Kazalnik (točke/raziskovalec)"
 )
@@ -552,6 +577,8 @@ panel3_raz <- create_panel_2x2(
   "A' - zelo kvalitetni dosežki", 
   "A' - zelo kvalitetni dosežki", 
   "#9a9a9a",
+  yaxis_label = "Točke",
+  title_label = "Točke po letih",
   kazalnik = "kaz_raz",
   kazalnik_label = "Kazalnik (točke/raziskovalec)"
 )
@@ -561,9 +588,104 @@ panel4_raz <- create_panel_2x2(
   "A1/2 - pomembni dosežki", 
   "A1/2 - pomembni dosežki", 
   "#b0b0b0",
+  yaxis_label = "Točke",
+  title_label = "Točke po letih",
   kazalnik = "kaz_raz",
   kazalnik_label = "Kazalnik (točke/raziskovalec)"
 )
+
+
+
+# ---------------------------------
+
+## CITATI
+
+# CI10
+
+panel1_fte_cit <- create_panel_2x2(
+  tabela_kaz_citati_ukcl %>% rename(objave = citiranost, tocke = citati), 
+  "CI10", 
+  "Število čistih citatov znanstvenih del v zadnjih 10 letih",
+  "#3660a0",
+  yaxis_label = "Citati",
+  title_label = "Citati po letih",
+  kazalnik = "kaz_fte",
+  kazalnik_label = "Kazalnik (citati/FTE)",
+  naslov_lp = "Letna sprememba citatov",
+  y_os = "Sprememba citatov"
+)
+
+panel1_raz_cit <- create_panel_2x2(
+  tabela_kaz_citati_ukcl %>% rename(objave = citiranost, tocke = citati), 
+  "CI10", 
+  "Število čistih citatov znanstvenih del v zadnjih 10 letih", 
+  "#b0b0b0",
+  yaxis_label = "Citati",
+  title_label = "Citati po letih",
+  kazalnik = "kaz_raz",
+  kazalnik_label = "Kazalnik (citati/raziskovalec)",
+  naslov_lp = "Letna sprememba citatov",
+  y_os = "Sprememba citatov"
+)
+
+
+# CImax
+
+panel2_fte_cit <- create_panel_2x2(
+  tabela_kaz_citati_ukcl %>% rename(objave = citiranost, tocke = citati), 
+  "CImax", 
+  "Najodmevnejše delo v zadnjih 10 letih",
+  "#3660a0",
+  yaxis_label = "Citati",
+  title_label = "Citati po letih",
+  kazalnik = "kaz_fte",
+  kazalnik_label = "Kazalnik (citati/FTE)",
+  naslov_lp = "Letna sprememba citatov",
+  y_os = "Sprememba citatov"
+)
+
+panel2_raz_cit <- create_panel_2x2(
+  tabela_kaz_citati_ukcl %>% rename(objave = citiranost, tocke = citati), 
+  "CImax", 
+  "Najodmevnejše delo v zadnjih 10 letih", 
+  "#b0b0b0",
+  yaxis_label = "Citati",
+  title_label = "Citati po letih",
+  kazalnik = "kaz_raz",
+  kazalnik_label = "Kazalnik (citati/raziskovalec)",
+  naslov_lp = "Letna sprememba citatov",
+  y_os = "Sprememba citatov"
+)
+
+# h-indeks
+
+panel3_fte_cit <- create_panel_2x2(
+  tabela_kaz_citati_ukcl %>% rename(objave = citiranost, tocke = citati), 
+  "h-indeks", 
+  "H-indeks v zadnjih 10 letih",
+  "#3660a0",
+  yaxis_label = "h-indeks",
+  title_label = "h-indeks po letih",
+  kazalnik = "kaz_fte",
+  kazalnik_label = "Kazalnik (h-indeks/FTE)",
+  naslov_lp = "Letna sprememba H-indeks",
+  y_os = "Sprememba h-indeks"
+)
+
+panel3_raz_cit <- create_panel_2x2(
+  tabela_kaz_citati_ukcl %>% rename(objave = citiranost, tocke = citati), 
+  "h-indeks", 
+  "H-indeks v zadnjih 10 letih", 
+  "#b0b0b0",
+  yaxis_label = "h-indeks",
+  title_label = "h-indeks po letih",
+  kazalnik = "kaz_raz",
+  kazalnik_label = "Kazalnik (h-indeks/raziskovalec)",
+  naslov_lp = "Letna sprememba H-indeks",
+  y_os = "Sprememba h-indeks"
+)
+
+#---------------------------------------------------------
 
 # === UNIVERZALNA UPORABA ===
 

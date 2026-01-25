@@ -3,6 +3,14 @@
 start_time <- Sys.time()
 
 
+library(httr)
+library(jsonlite)
+library(tidyverse)
+library(data.table)
+library(parallel)
+
+#--------------------------------------------------------------
+
 ## Ukcl prva stran
 source("./skripte_uvoz_podatkov/uvoz_podatkov_ukcl.R")
 

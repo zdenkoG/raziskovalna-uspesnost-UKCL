@@ -12,6 +12,8 @@ website:
     background: "#3660a0"
     foreground: "#ffffff"
     logo: "images/logo.png"
+    logo-alt: "UKCL logo"
+    logo-height: 180px  # ali 80px za večji logo
     left:
       - text: "Domov"
         href: index.qmd
@@ -33,9 +35,9 @@ website:
         icon: book
         menu:
           - text: "Viri podatkov"
-            href: viri-podatkov.qmd
+            href: viri_podatkov.qmd
           - text: "Izračuni kazalnikov"
-            href: izracuni-kazalnikov.qmd
+            href: izracuni_kazalnikov.qmd
   
   # Levi sidebar - različen za vsako stran
   sidebar:
@@ -90,3 +92,5 @@ execute:
   echo: false
   warning: false
   message: false
+  freeze: false  # Izklopi freeze
+  cache: false   # Izklopi cache

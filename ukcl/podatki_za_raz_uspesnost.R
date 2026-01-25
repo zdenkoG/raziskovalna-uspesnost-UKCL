@@ -101,9 +101,6 @@ use_first_row_as_header <- function(df) {
 }
 
 
-## FUNKCIIJA ZA EKSTRAHIRANJE PODATKOV IZ TABELE IZ HTML-JA 
-## prvi del tabele - točke v tem obdobju
-
 #' Ekstrahiraj podatke o točkah iz HTML datoteke
 #'
 #' @description
@@ -111,16 +108,22 @@ use_first_row_as_header <- function(df) {
 #' \itemize{
 #'   \item Šifro raziskovalne skupine iz H1 naslova (besedilo znotraj [ ])
 #'   \item Leto iz H2 naslova (besedilo znotraj ( ))
-#'   \item Tretjo tabelo iz HTML-ja (vrstice 1-5), pri čemer uporabi prvo vrstico kot imena stolpcev
+#'   \item Tretjo tabelo iz HTML-ja, pri čemer uporabi prvo vrstico kot imena stolpcev
 #' }
 #'
 #' @param html_file Pot do HTML datoteke, ki vsebuje raziskovalne podatke
+#' @param which_slice Kateri slice tabele naj ekstrahira. Možnosti:
+#' \itemize{
+#'   \item \code{"first"} - Vrstice 1-5 (privzeto)
+#'   \item \code{"second"} - Vrstice 7-10
+#' }
 #'
 #' @return Data frame z naslednjimi stolpci:
 #' \itemize{
 #'   \item \code{sifra_skupine} - Šifra raziskovalne skupine (ekstrahirana iz H1)
 #'   \item \code{leto} - Leto podatkov (ekstrahirano iz H2)
 #'   \item \code{source_file} - Ime izvorne HTML datoteke
+#'   \item \code{slice_type} - Tip slice-a ("first" ali "second")
 #'   \item Ostali stolpci iz tretje tabele (imena iz prve vrstice)
 #' }
 #'
@@ -132,9 +135,9 @@ use_first_row_as_header <- function(df) {
 #'   \item Iz H2 naslova z regularnim izrazom ekstrahira leto (besedilo med ( in ))
 #'   \item Ekstrahira tretjo tabelo iz HTML dokumenta
 #'   \item Obdela podvojena imena stolpcev (če obstajajo)
-#'   \item Vzame vrstice 1-5 iz tabele
+#'   \item Glede na parameter \code{which_slice} vzame vrstice 1-5 ali 7-10
 #'   \item Uporabi funkcijo \code{use_first_row_as_header()} za pretvorbo prve vrstice v imena stolpcev
-#'   \item Doda metadata stolpce (šifra, leto, ime datoteke)
+#'   \item Doda metadata stolpce (šifra, leto, ime datoteke, tip slice-a)
 #' }
 #'
 #' @note
@@ -151,25 +154,43 @@ use_first_row_as_header <- function(df) {
 #'   \item HTML mora vsebovati H1 z besedilom v obliki "... [ŠIFRA] ..."
 #'   \item HTML mora vsebovati H2 z besedilom v obliki "... (LETO) ..."
 #'   \item HTML mora vsebovati vsaj 3 tabele
-#'   \item Tretja tabela mora imeti vsaj 5 vrstic
+#'   \item Tretja tabela mora imeti vsaj 5 vrstic (za first slice) ali 10 vrstic (za second slice)
 #'   \item Funkcija \code{use_first_row_as_header()} mora biti na voljo
 #' }
 #'
 #' @examples
 #' \dontrun{
-#' # Ekstrahiraj podatke iz ene datoteke
-#' tocke_df <- extract_tocke("podatki/skupina_P1-0123_2024.html")
+#' # Ekstrahiraj prvi slice (vrstice 1-5) iz ene datoteke
+#' tocke_first <- extract_tocke("podatki/skupina_P1-0123_2024.html", which_slice = "first")
 #' 
-#' # Obdelaj več datotek
+#' # Ekstrahiraj drugi slice (vrstice 7-10) iz ene datoteke
+#' tocke_second <- extract_tocke("podatki/skupina_P1-0123_2024.html", which_slice = "second")
+#' 
+#' # Obdelaj več datotek - oba slice-a
 #' html_files <- list.files("podatki", pattern = "\\.html$", full.names = TRUE)
-#' vsi_podatki <- lapply(html_files, extract_tocke) %>% 
-#'   bind_rows()
+#' 
+#' library(purrr)
+#' library(dplyr)
+#' 
+#' vsi_podatki_first <- map_dfr(html_files, ~extract_tocke(.x, which_slice = "first"))
+#' vsi_podatki_second <- map_dfr(html_files, ~extract_tocke(.x, which_slice = "second"))
+#' 
+#' # Ali združi oba slice-a skupaj
+#' vsi_podatki <- bind_rows(
+#'   map_dfr(html_files, ~extract_tocke(.x, which_slice = "first")),
+#'   map_dfr(html_files, ~extract_tocke(.x, which_slice = "second"))
+#' )
 #' }
 #'
 #' @seealso \code{\link{use_first_row_as_header}}
 #'
 #' @export
-extract_tocke <- function(html_file) {
+extract_tocke <- function(html_file, which_slice = "tocke") {
+  
+  # Validate which_slice parameter
+  if (!which_slice %in% c("tocke", "citati")) {
+    stop("Parameter 'which_slice' mora biti 'tocke' ali 'citati'")
+  }
   
   # Read HTML
   html <- read_html(html_file)
@@ -198,26 +219,40 @@ extract_tocke <- function(html_file) {
     names(table3_raw) <- make.unique(names(table3_raw), sep = "_")
   }
   
-  # Create first slice (rows 1-5) and use row 1 as header
-  table3a <- table3_raw %>% 
-    slice(1:5) %>% 
+  # Določi kateri slice uporabiti
+  if (which_slice == "tocke") {
+    slice_rows <- 1:5
+  } else {  # which_slice == "second"
+    slice_rows <- 7:10
+  }
+  
+  # Create slice and use first row as header
+  table3_slice <- table3_raw %>% 
+    slice(slice_rows) %>% 
     use_first_row_as_header() %>% 
     mutate(
       sifra_skupine = sifra,
       leto = leto,
       source_file = basename(html_file),
+      slice_type = which_slice,  # Dodaj info o tem kateri slice je
       .before = 1
     )
   
-  return(table3a)
+  return(table3_slice)
 }
 
+#-----------------------------------------
+#-----------------------------------------
 
 ## Prirpava tabele iz vseh HTML-jev
 
+# ---------------------------
 # Tabela točke po letih
-tocke_po_letih <- map_dfr(html_files, extract_tocke) %>% 
-  select(2, 4, 5) 
+#----------------------------
+
+tocke_po_letih <- map_dfr(html_files, ~extract_tocke(.x, which_slice = "tocke")) %>% 
+  select(2,5, 6) 
+
 
 colnames(tocke_po_letih) <- c(
   "obd",
@@ -225,7 +260,7 @@ colnames(tocke_po_letih) <- c(
   "tocke"
 )
 
-## Prirpava tabele za točke za kazalnike po letih
+## Prirpava tabele za točke za KAZALNIKE po letih
 
 tabela_kaz_tocke_ukcl <- tocke_po_letih %>% 
   mutate(tocke = as.numeric(tocke)) %>% 
@@ -237,9 +272,92 @@ tabela_kaz_tocke_ukcl <- tocke_po_letih %>%
   ) %>% 
   mutate(kaz_fte = round(tocke/fte, 1),
          kaz_raz = round(tocke/st_raz, 1))
-  
 
 
 
+#----------------------------------------------------
 
 
+# ---------------------------------------------------------
+# Prirpava tabel za izpise pred grafi - po obdobjih - TOČKE
+# ---------------------------------------------------------
+
+## Upoštevane točke
+
+tabela_kaz_tocke_ukcl %>% 
+  filter(objave == "Upoštevane točke") %>% 
+  arrange(desc(leto)) -> up_tocke_obd
+
+
+## Izjemni dosežki - A''
+
+tabela_kaz_tocke_ukcl %>% 
+  filter(objave == "A'' - izjemni dosežki") %>% 
+  arrange(desc(leto)) -> a2_obd
+
+
+## Kvalitetni dosežki
+
+tabela_kaz_tocke_ukcl %>% 
+  filter(objave == "A' - zelo kvalitetni dosežki") %>% 
+  arrange(desc(leto)) -> a1_obd
+
+## Pomembni dosežki
+
+tabela_kaz_tocke_ukcl %>% 
+  filter(objave == "A1/2 - pomembni dosežki") %>% 
+  arrange(desc(leto)) -> a1_2_obd
+
+#---------------------------------------------------------------
+
+
+# ---------------------------
+# Tabela CITATI po letih
+#----------------------------
+
+citati_po_letih <- map_dfr(html_files, ~extract_tocke(.x, which_slice = "citati")) %>% 
+  select(2,5, 7) 
+
+
+colnames(citati_po_letih) <- c(
+  "obd",
+  "citiranost",
+  "citati"
+)
+
+## Prirpava tabele za citate za KAZALNIKE po letih
+
+tabela_kaz_citati_ukcl <- citati_po_letih %>% 
+  mutate(citati = as.numeric(citati)) %>% 
+  separate(obd, c("od", "leto"), sep = "-", remove = FALSE) %>% 
+  select(-od) %>% 
+  left_join(
+    raz_fte_leto,
+    by = "leto"
+  ) %>% 
+  mutate(kaz_fte = round(citati/fte, 1),
+         kaz_raz = round(citati/st_raz, 1)) %>% 
+  arrange(desc(leto)) %>% 
+  mutate(
+    obd = str_extract(citiranost, "(?<=\\()\\d{4}-\\d{4}(?=\\))")  ## Popravek obdobij - 10 letno
+  ) %>% 
+  mutate(citiranost = case_when(grepl("CI10", citiranost) ~ "CI10",
+                                grepl("CIma", citiranost) ~ "CImax",
+                                grepl("h-in", citiranost) ~ "h-indeks"))
+
+
+# ----------------------------------------------------------
+# Prirpava tabel za izpise pred grafi - po obdobjih - CITATI
+# ----------------------------------------------------------
+
+## CI10
+tabela_kaz_citati_ukcl %>% 
+  filter(citiranost == "CI10") -> ci10 
+
+## CImax
+tabela_kaz_citati_ukcl %>% 
+  filter(citiranost == "CImax") -> cimax
+
+## h-indeks
+tabela_kaz_citati_ukcl %>% 
+  filter(citiranost == "h-indeks") -> hind

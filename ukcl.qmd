@@ -27,6 +27,7 @@ source("./ukcl/podatki_za_tabele_grafe.R")
 source("./ukcl/funkcije_tabele.R")
 source("./ukcl/slika_fin_sredstva.R")
 source("./ukcl/podatki_za_raz_uspesnost.R")
+source("./ukcl/funkcije_tabele_raziskovalna_uspesnost.R")
 source("./ukcl/SLIKE_raziskovalna_uspesnost_tocke.R")
 ```
 
@@ -63,7 +64,7 @@ Poleg pregleda za celoten UKCL je možen pregled tudi po:
 tbl_02  ## Število točk in citatov
 ```
 
-::: {.callout-note collapse="true"}
+::: {.callout-note collapse="false"}
 # Legenda
 
 A'' - izjemni dosežki\
@@ -97,7 +98,19 @@ V spodnji tabeli so prikazana pridobljena ***finančna sredstva*** pridobljena p
 tbl_04    # Finančna sredstva po letih
 ```
 
-### Finančna sredstva po letih in posameznih sklopih
+### Sredstva po letih
+
+Na spodnjih slikah so prikazana pridobljena sredstva za raziskovalno dejavnost, v milijon EUR (€).
+
+::: {.callout-tip collapse="false"}
+V zgornjem desnem kotu je meni (☰) kliknite in izberite:
+
+-   pogled slike preko celega zaslona
+
+-   prenos slike (različni formati)
+
+-   prenos podatkov iz slike (csv ali xlsx)
+:::
 
 ```{r}
 #| echo: false
@@ -107,6 +120,16 @@ html_output
 
 ***Podatki za 2025 še niso na voljo!***
 
+### Zunanja sredstva
+
+Na spodnji sliki so na levi strani prikazana zunanja finančna sredstva, ki so bila pridobljena za raziskovalno dejavnost, v posameznem letu. Za primerjavo, so na desni strani prikazana sredstva UKC Ljubljana (terciarni projekti).
+
+```{r}
+#| echo: false
+
+panel_financna
+```
+
 ## Raziskovalni projekti po letih
 
 V spodnji tabeli so prikazani ***projekti, ki so bili v teku na dan 31.12.*** v posameznem letu.
@@ -114,13 +137,19 @@ V spodnji tabeli so prikazani ***projekti, ki so bili v teku na dan 31.12.*** v 
 ```{r}
 #| echo: false
 
-tab_05 # število tekočih projektov
+tbl_05 # število tekočih projektov
 
 ```
 
 \* *Zanesljivi podatki za klinična preskušanja zdravil in medicinskih pripomočkov za pretekla leta niso na voljo.*
 
 \*\* *Podatki za EU in mednarodne projekte so še nepopolni.*
+
+### Število novih projektov v posameznem letu
+
+```{r}
+tbl_05_1 # število novih projektov
+```
 
 # Raziskovalne skupine {#raziskovalne-skupine}
 
@@ -134,8 +163,7 @@ Za podrobnejši pregled o raziskovalnih skupinah glej: ["Raziskovalne skupine"](
 
 ```{r}
 #| echo: false
-
-tbl_06  # Raziskovalne skupine UKCL
+tbl_06
 ```
 
 \**FTE = Full-time equivalent (delež zaposlitve - status 'Raziskovalec').*\
@@ -150,7 +178,6 @@ Bolj podrobni rezultati o raziskovalnih programih in programskih skupinah so dos
 
 ```{r}
 #| echo: false
-
 tbl_07 # Programske skupine
 ```
 
@@ -165,25 +192,24 @@ V spodnji tabeli je prikazan seznam aktivnih ARIS raziskovalnih programov, pri k
 #| echo: false
 
 tbl_08 ## Programske skupine, UKCL sodeluje
-```     
-
+```
 
 # Raziskovalna uspešnost {#ukc-uspesnost}
 
-V tem delu so predstavljeni rezultati raziskovalne uspešnosti UKC Ljubljana kot celote. Vir podatkov je spletna platforma Sicris (za bolj podrobne informacije o virih podatkov glej: (viri podatkov)\[POPRAVI LINK\].
+V tem delu so predstavljeni rezultati raziskovalne uspešnosti UKC Ljubljana kot celote. Vir podatkov je spletna platforma Sicris (za bolj podrobne informacije o virih podatkov glej: ["Viri podatkov"](viri_podatkov.qmd)
 
 Prikazani so rezultati za **A1 objave (pridobljene točke) in citiranost po letih**.\
-Pri rezultatih ***A1 objav*** so prikazane točke za:
+Pri rezultatih [**A1 objav**](#a1-tocke) so prikazane točke za:
 
--   Skupno število upoštevanih točk;
+-   [Skupno število upoštevanih točk](#tocke);
 
--   A'' – izjemni dosežki;
+-   [A'' – izjemni dosežki](#izjemni-dosezki);
 
--   A' – zelo kvalitetni dosežki;
+-   [A' – zelo kvalitetni dosežki](#kvalitetni-dosezki);
 
--   A ½ - pomembni dosežki.
+-   [A ½ - pomembni dosežki](#pomembni-dosezki).
 
-Pri rezultatih o ***Citiranosti*** je prikazano:
+Pri rezultatih o [**Citiranosti**](#citiranost) je prikazano:
 
 -   CI10 - število čistih citatov znanstvenih del v zadnjih 10 letih;
 
@@ -193,21 +219,42 @@ Pri rezultatih o ***Citiranosti*** je prikazano:
 
 Poleg prikaza skupnega števila točk, so izračunani tudi kazalniki uspešnosti, ki kažejo dosežke (število točk oz. citatov) glede na FTE (full time eqvivalent = delež zaposlitve za raziskovalno dejavnost) in glede na skupno število raziskovalcev (število zaposlenih, ki so pri ARIS-u registrirani kot raziskovalci).
 
-Za podrobnejši opis metodologije izračuna kazalnikov glej (metodologija)\[POPRAVI LINK\].
+Za podrobnejši opis metodologije izračuna kazalnikov glej (["Izračuni kazalnikov"](izracuni_kazalnikov.qmd)).
 
 \
 Raziskovalna uspešnost je predstavljena na dva načina:
 
-1.  Skupno število točk/citatov **v petletnem obdobju** (npr. pri rezultatu za 2025 je prikazano število pridobljenih točk v *obdobju od 01.01.2021 do 31.12.2025*).
+1.  Skupno število točk/citatov v [**petletnem obdobju**](#petletno-obdobje) (npr. pri rezultatu za 2025 je prikazano število pridobljenih točk v *obdobju od 01.01.2021 do 31.12.2025*).
 
-2.  Število točk pridobljenih v **posameznem letu** (npr. pri rezultatu za 2025 je prikazano število pridobljenih točk v *obdobju od 01.01.2025 do 31.12.2025*).
+2.  Število točk pridobljenih v [**posameznem letu**](#posamezno-leto) (npr. pri rezultatu za 2025 je prikazano število pridobljenih točk v *obdobju od 01.01.2025 do 31.12.2025*).
 
+## [V obdobju]{.underline} {#petletno-obdobje}
 
-## Petletno obdobje
+V tem delu so prikazani rezultati zbranih točk in citatov v **petletnih obdobjih**.
 
-### **A1 Točke**
+Primer: Rezultat za leto 2025 je seštevek točk, ki jih je UKCL pridobil v obdobju od 2021-2025.
 
-#### Upoštevane točke
+***Citati so šteti za preteklih 10 let** (skladno z metodologijo na sicris-u)*
+
+::: callout-warning
+## Metodološka opomba
+
+Podatki o številu raziskovalcev in FTE za leta od 2019 - 2022 niso na voljo, zato je za izračun uporabljen podatek iz leta 2023.
+:::
+
+### *A1 Točke* {#a1-tocke}
+
+#### Upoštevane točke {#tocke}
+
+V spodnji tabeli je prikazano ***število upoštevanih točk*** v posameznem ***petletnem obdobju.***
+
+```{r}
+izpis_tab_razUsp_obd(up_tocke_obd)  ## Izpis tabele vse upoštevane točke
+```
+
+<br>
+
+Spodaj so zgornji rezultati prikazeni še grafično, na ločenih zavihkih: FTE / Raziskovalec.
 
 ::: panel-tabset
 #### Točke/FTE
@@ -225,13 +272,24 @@ panel1_raz
 ```
 :::
 
-#### A''
+#### A'' {#izjemni-dosezki}
+
+V spodnji tabeli je prikazano število upoštevanih točk za ***izjemne dosežke - A''*** v posameznem ***petletnem obdobju.***
+
+```{r}
+izpis_tab_razUsp_obd(a2_obd)  ## Izpis tabele A'' točke
+```
+
+<br>
+
+Spodaj so zgornji rezultati prikazeni še grafično, na ločenih zavihkih: FTE / Raziskovalec.
 
 ::: panel-tabset
 #### A''/FTE
 
 ```{r}
 #| echo: false
+
 panel2_fte
 ```
 
@@ -239,11 +297,22 @@ panel2_fte
 
 ```{r}
 #| echo: false
+
 panel2_raz
 ```
 :::
 
-#### A'
+#### A' {#kvalitetni-dosezki}
+
+V spodnji tabeli je prikazano število upoštevanih točk za ***zelo kvalitetne dosežke - A'*** v posameznem ***petletnem obdobju.***
+
+```{r}
+izpis_tab_razUsp_obd(a1_obd)  ## Izpis tabele A' točke
+```
+
+<br>
+
+Spodaj so zgornji rezultati prikazeni še grafično, na ločenih zavihkih: FTE / Raziskovalec.
 
 ::: panel-tabset
 #### A'/FTE
@@ -261,7 +330,17 @@ panel3_raz
 ```
 :::
 
-#### A^1/2^
+#### A^1/2^ {#pomembni-dosezki}
+
+V spodnji tabeli je prikazano število upoštevanih točk za ***pomembne dosežke - A^1/2^\`*** v posameznem ***petletnem obdobju.***
+
+```{r}
+izpis_tab_razUsp_obd(a1_2_obd)  ## Izpis tabele A1/2 točke
+```
+
+<br>
+
+Spodaj so zgornji rezultati prikazeni še grafično, na ločenih zavihkih: FTE / Raziskovalec.
 
 ::: panel-tabset
 #### A^1/2^/FTE
@@ -278,13 +357,123 @@ panel4_fte
 panel4_raz
 ```
 :::
+
+### *Citiranost* {#citiranost}
+
+V tem delu so rezultati o citiranosti del, ki so jih objavili zaposleni v UKC Ljubljana. Prikazani so rezultati za:
+
+-   [CI10](#CI10) - število čistih citatov znanstvenih del v zadnjih 10 letih;
+
+-   [CImax](#CImax) - najodmevnejše delo v zadnjih 10 letih;
+
+-   [h-indeks](#h-indeks) v zadnjih 10 letih.
+
+Poleg prikaza skupnega števila citatov, so izračunani tudi kazalniki uspešnosti, ki kažejo dosežke (število citatov oz. h-indeks) glede na FTE (full time eqvivalent = delež zaposlitve za raziskovalno dejavnost) in glede na skupno število raziskovalcev (število zaposlenih, ki so pri ARIS-u registrirani kot raziskovalci).
+
+Za podrobnejši opis metodologije izračuna kazalnikov glej (["Izračuni kazalnikov"](izracuni_kazalnikov.qmd)).
+
+<br> 
+
+::: {.callout-warning collapse="false"}
+## Metodološka opomba
+
+Podatki o številu raziskovalcev in FTE za leta od 2019 - 2022 niso na voljo, zato je za izračun uporabljen podatek iz leta 2023.
+:::
+
+
+#### Čisti citati {#CI10}                      
+       
+       
+V spodnji tabeli je prikazano število ***čistih citatov*** v posameznem ***desetletnem obdobju.***              
+
+```{r}
+izpis_tab_razUsp_obd(ci10)
+```
+
+<br>
+
+Spodaj so zgornji rezultati prikazeni še grafično, na ločenih zavihkih: FTE / Raziskovalec.
+
+::: panel-tabset
+#### CI10/FTE
+
+```{r}
+#| echo: false
+panel1_fte_cit
+```
+
+#### CI10/raziskovalec
+
+```{r}
+#| echo: false
+panel1_raz_cit
+```
+:::
+
+#### Najodmevnejše delo {#CImax}                 
+    
+    
+V spodnji tabeli je prikazano število ***čistih citatov najodmevnejšega dela*** v posameznem ***desetletnem obdobju.***      
+
+```{r}
+izpis_tab_razUsp_obd(cimax)
+```
+
+<br>
+
+Spodaj so zgornji rezultati prikazeni še grafično, na ločenih zavihkih: FTE / Raziskovalec.
+
+
+::: panel-tabset
+#### CImax/FTE
+
+```{r}
+#| echo: false
+panel2_fte_cit
+```
+
+#### CImax/raziskovalec
+
+```{r}
+#| echo: false
+panel2_raz_cit
+```
+:::
+
+#### H-indeks {#h-indeks}           
  
  
-### **Citiranost**
+V spodnji tabeli je prikazan ***H-indeks*** v posameznem ***desetletnem obdobju.***    
+
+```{r}
+izpis_tab_razUsp_obd(hind)
+```
+
+<br>
+
+Spodaj so zgornji rezultati prikazeni še grafično, na ločenih zavihkih: FTE / Raziskovalec.
 
 
-## Posamezno leto
+::: panel-tabset
+#### H-indeks/FTE
 
-### **A1 Točke**
+```{r}
+#| echo: false
+panel3_fte_cit
+```
+
+#### H-indeks/raziskovalec
+
+```{r}
+#| echo: false
+panel3_raz_cit
+```
+::: 
+
+
+
+## [V letu]{.underline} {#posamezno-leto}
+
+### *A1 Točke*
 
 #### Upoštevane točke

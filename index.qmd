@@ -17,10 +17,10 @@ toc: false
 # source("./skripte_uvoz_podatkov/posodobi_HTML_podatke.R")             ## Podatki iz sicrisa - HTML po letih
 # ========================================================================================
 
-source("./R/setup_paketi.R")
-source("./R/uvoz_podatkov.R")
-source("./R/funkcije_num_format_reactable.R")
-source("./R/osnovni_podatki.R")
+source("./R/setup_paketi.R")                        ## Naloži pakete
+source("./R/uvoz_podatkov.R")                       ## Uvoz podatkov
+source("./R/funkcije_num_format_reactable.R")       ## Funkcije za izpis tabel (format števil)
+source("./R/osnovni_podatki.R")                     ## Izračun osnovnih podatkov
 ```
 
 

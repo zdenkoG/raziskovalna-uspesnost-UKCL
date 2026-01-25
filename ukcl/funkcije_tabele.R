@@ -192,63 +192,44 @@ tbl_04 <- reactable(
 numeric_cols <- setdiff(names(rezultat), "sklop")
 
 # Ustvari reactable tabelo z heatmap po vrsticah
-tab_05 <- reactable(rezultat,
-                    columns = list(
-                      sklop = colDef(
-                        align = "right", 
-                        name = "Sklop",
-                        minWidth = 120,
-                        style = list(
-                          color = "black"
-                        )
-                      )
-                    ),
-                    defaultColDef = colDef(
-                      minWidth = 80,
-                      # Heatmap styling - izračunaj min/max za vsako vrstico posebej
-                      style = function(value, index) {
-                        # Preveri če je vrednost NA ali ni numerična
-                        if (is.na(value) || !is.numeric(value)) {
-                          return(list(
-                            background = "#f8f9fa",  # Svetlo siva za NA
-                            color = "#adb5bd",       # Siva barva teksta
-                            fontStyle = "italic"
-                          ))
-                        }
-                        
-                        # Pridobi vrednosti za trenutno vrstico (samo numerični stolpci)
-                        row_values <- unlist(rezultat[index, numeric_cols])
-                        # Odstrani NA vrednosti
-                        row_values <- row_values[!is.na(row_values)]
-                        
-                        # Izračunaj min in max za to vrstico
-                        min_val <- min(row_values, na.rm = TRUE)
-                        max_val <- max(row_values, na.rm = TRUE)
-                        
-                        # Dodaj 20% pribitek na max vrednost za svetlejši gradient
-                        max_val_adjusted <- max_val * 1.20
-                        
-                        # Za veljavne numerične vrednosti uporabi heatmap
-                        list(
-                          background = heatmap_color(value, min_val, max_val_adjusted),
-                          fontWeight = "500"
-                        )
-                      },
-                      # Formatiranje prikaza NA vrednosti
-                      cell = function(value) {
-                        if (is.na(value)) return("—")  # Em dash za NA
-                        value
-                      }
-                    ),
-                    striped = FALSE,
-                    bordered = TRUE,
-                    highlight = TRUE,
-                    compact = TRUE,
-                    searchable = TRUE,
-                    theme = reactableTheme(
-                      cellStyle = list(borderBottom = "1px solid #ddd")
+tbl_05 <- reactable(rezultat,
+                              columns = list(
+                                sklop = colDef(
+                                  align = "left", 
+                                  name = "Sklop",
+                                  minWidth = 120
+                                )
+                              ),
+                              defaultColDef = colDef(
+                                align = "center"
+                              ),
+                              striped = FALSE,
+                              bordered = TRUE,
+                              highlight = TRUE,
+                              compact = TRUE
                     )
-)
+
+
+                    
+
+
+# -------------------------------
+# Novi projekti v posameznem letu
+# -------------------------------
+
+tbl_05_1 <- reactable(
+  novi_projekti,
+    columns = list(
+      sklop = colDef(name = "Sklop", align = "left",
+                     minWidth = 150)
+    ),
+    defaultColDef = 
+      colDef(align = "center"),
+    striped = FALSE,
+    bordered = TRUE,
+    highlight = TRUE,
+    compact = TRUE
+  )
 
 
 # --------------------------------
@@ -375,7 +356,7 @@ kc_prog_num <- tabela_programi_zunanji %>%
   mutate(` ` = "", .before = 1)  # Prazen stolpec
 
 tbl_08 <- reactable(
-  tabela_programi_zunanji,
+  kc_prog_num,
   columns = list(
     ` ` = colDef(
       name = "#",
