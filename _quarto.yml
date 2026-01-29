@@ -53,7 +53,7 @@ website:
         - text: "Programske skupine"
           href: ukcl.qmd#programske-skupine
         - text: "<span style='color: coral;'>Raziskovalna uspešnost</span>"
-          href: ukcl.qmd#ukc-uspesnost
+          href: ukcl/raziskovalna_uspesnost_ukcl.qmd
     
     - id: programske-sidebar
       title: "Kazalniki"

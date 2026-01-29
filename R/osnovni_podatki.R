@@ -25,7 +25,7 @@ fte <-  raz[vloga == "Raziskovalec", sum(researchload)/100]    ## Število FTE (
 
 ## Datum posodobljenih podatkov
 
-datum_posodobitve <- readRDS("./data/datum_posodobitve.RDS")
+datum_posodobitve <- readRDS(here("data/datum_posodobitve.RDS"))
 
 
 # Raziskovalne skupine - število raziskovalnih skupin

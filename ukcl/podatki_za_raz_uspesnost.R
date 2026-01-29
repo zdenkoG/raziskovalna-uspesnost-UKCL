@@ -19,7 +19,7 @@
 # Izbere se obdobje preteklih 5 let
 
 # Pot do HTML datotek
-html_folder <- "./uspesnost_HTML/"
+html_folder <- here("uspesnost_HTML/")
 
 # Linki do vseh datotek v mapi, ki se končajo z .html
 html_files <- list.files(html_folder, pattern = "\\.html$", full.names = TRUE)

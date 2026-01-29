@@ -1,0 +1,611 @@
+---
+title: "UKC Ljubljana"
+editor: visual
+---
+
+```{r}
+library(here)
+source(here("R/setup_paketi.R"))
+source(here("R/funkcije_num_format_reactable.R"))
+source(here("R/uvoz_podatkov.R"))
+source(here("R/osnovni_podatki.R"))
+source(here("R/podatki_st_raz_fte_leto.R"))
+source(here("ukcl/podatki_za_raz_uspesnost.R"))
+source(here("ukcl/funkcije_tabele_raziskovalna_uspesnost.R"))
+source(here("ukcl/podatki_za_tabele_grafe.R"))
+source(here("ukcl/slika_fin_sredstva.R"))
+source(here("ukcl/SLIKE_raziskovalna_uspesnost_tocke.R"))
+source(here("ukcl/podatki_raziskovalna_uspesnost_leto.R"))
+source(here("ukcl/SLIKE_raziskovalna_uspesnost_tocke_LETO.R"))
+```
+
+
+
+
+
+# Raziskovalna uspešnost {#ukc-uspesnost}
+
+V tem delu so predstavljeni rezultati raziskovalne uspešnosti UKC Ljubljana kot celote. Vir podatkov je spletna platforma Sicris (za bolj podrobne informacije o virih podatkov glej: ["Viri podatkov"](viri_podatkov.qmd)
+
+Prikazani so rezultati za **A1 objave (pridobljene točke) in citiranost po letih**.\
+Pri rezultatih [**A1 objav**](#a1-tocke) so prikazane točke za:
+
+-   [Skupno število upoštevanih točk](#tocke);
+
+-   [A'' – izjemni dosežki](#izjemni-dosezki);
+
+-   [A' – zelo kvalitetni dosežki](#kvalitetni-dosezki);
+
+-   [A ½ - pomembni dosežki](#pomembni-dosezki).
+
+Pri rezultatih o [**Citiranosti**](#citiranost) je prikazano:
+
+-   CI10 - število čistih citatov znanstvenih del v zadnjih 10 letih;
+
+-   CImax - najodmevnejše delo v zadnjih 10 letih;
+
+-   h-indeks v zadnjih 10 letih.
+
+Poleg prikaza skupnega števila točk, so izračunani tudi kazalniki uspešnosti, ki kažejo dosežke (število točk oz. citatov) glede na FTE (full time eqvivalent = delež zaposlitve za raziskovalno dejavnost) in glede na skupno število raziskovalcev (število zaposlenih, ki so pri ARIS-u registrirani kot raziskovalci).
+
+Za podrobnejši opis metodologije izračuna kazalnikov glej (["Izračuni kazalnikov"](izracuni_kazalnikov.qmd)).
+
+\
+Raziskovalna uspešnost je predstavljena na dva načina:
+
+1.  Skupno število točk/citatov v [**petletnem obdobju**](#petletno-obdobje) (npr. pri rezultatu za 2025 je prikazano število pridobljenih točk v *obdobju od 01.01.2021 do 31.12.2025*).
+
+2.  Število točk pridobljenih v [**posameznem letu**](#posamezno-leto) (npr. pri rezultatu za 2025 je prikazano število pridobljenih točk v *obdobju od 01.01.2025 do 31.12.2025*).
+
+## [V obdobju]{.underline} {#petletno-obdobje}
+
+V tem delu so prikazani rezultati zbranih točk in citatov v **petletnih obdobjih**.
+
+Primer: Rezultat za leto 2025 je seštevek točk, ki jih je UKCL pridobil v obdobju od 2021-2025.
+
+***Citati so šteti za preteklih 10 let** (skladno z metodologijo na sicris-u)*
+
+::: callout-warning
+## Metodološka opomba
+
+Podatki o številu raziskovalcev in FTE za leta od 2019 - 2022 niso na voljo, zato je za izračun uporabljen podatek iz leta 2023.
+:::
+
+### *A1 Točke* {#a1-tocke}
+
+
+#### Upoštevane točke {#tocke}
+
+V spodnji tabeli je prikazano ***število upoštevanih točk*** v posameznem ***petletnem obdobju.***
+
+
+
+
+```{r}
+izpis_tab_razUsp_obd(up_tocke_obd)  ## Izpis tabele vse upoštevane točke
+```
+
+
+
+
+<br>
+
+Spodaj so zgornji rezultati prikazeni še grafično, na ločenih zavihkih: FTE / Raziskovalec.
+
+::: panel-tabset
+#### Točke/FTE
+
+
+
+
+```{r}
+#| echo: false
+panel1_fte
+```
+
+
+
+
+#### Točke/raziskovalec
+
+
+
+
+```{r}
+#| echo: false
+panel1_raz
+```
+
+
+
+:::
+
+#### A'' {#izjemni-dosezki}
+
+V spodnji tabeli je prikazano število upoštevanih točk za ***izjemne dosežke - A''*** v posameznem ***petletnem obdobju.***
+
+
+
+
+```{r}
+izpis_tab_razUsp_obd(a2_obd)  ## Izpis tabele A'' točke
+```
+
+
+
+
+<br>
+
+Spodaj so zgornji rezultati prikazeni še grafično, na ločenih zavihkih: FTE / Raziskovalec.
+
+::: panel-tabset
+#### A''/FTE
+
+
+
+
+```{r}
+#| echo: false
+
+panel2_fte
+```
+
+
+
+
+#### A''/raziskovalec
+
+
+
+
+```{r}
+#| echo: false
+
+panel2_raz
+```
+
+
+
+:::
+
+#### A' {#kvalitetni-dosezki}
+
+V spodnji tabeli je prikazano število upoštevanih točk za ***zelo kvalitetne dosežke - A'*** v posameznem ***petletnem obdobju.***
+
+
+
+
+```{r}
+izpis_tab_razUsp_obd(a1_obd)  ## Izpis tabele A' točke
+```
+
+
+
+
+<br>
+
+Spodaj so zgornji rezultati prikazeni še grafično, na ločenih zavihkih: FTE / Raziskovalec.
+
+::: panel-tabset
+#### A'/FTE
+
+
+
+
+```{r}
+#| echo: false
+panel3_fte
+```
+
+
+
+
+#### A'/raziskovalec
+
+
+
+
+```{r}
+#| echo: false
+panel3_raz
+```
+
+
+
+:::
+
+#### A^1/2^ {#pomembni-dosezki}
+
+V spodnji tabeli je prikazano število upoštevanih točk za ***pomembne dosežke - A^1/2^\`*** v posameznem ***petletnem obdobju.***
+
+
+
+
+```{r}
+izpis_tab_razUsp_obd(a1_2_obd)  ## Izpis tabele A1/2 točke
+```
+
+
+
+
+<br>
+
+Spodaj so zgornji rezultati prikazeni še grafično, na ločenih zavihkih: FTE / Raziskovalec.
+
+::: panel-tabset
+#### A^1/2^/FTE
+
+
+
+
+```{r}
+#| echo: false
+panel4_fte
+```
+
+
+
+
+#### A^1/2^/raziskovalec
+
+
+
+
+```{r}
+#| echo: false
+panel4_raz
+```
+
+
+
+:::
+
+### *Citiranost* {#citiranost}
+
+V tem delu so rezultati o citiranosti del, ki so jih objavili zaposleni v UKC Ljubljana. Prikazani so rezultati za:
+
+-   [CI10](#CI10) - število čistih citatov znanstvenih del v zadnjih 10 letih;
+
+-   [CImax](#CImax) - najodmevnejše delo v zadnjih 10 letih;
+
+-   [h-indeks](#h-indeks) v zadnjih 10 letih.
+
+Poleg prikaza skupnega števila citatov, so izračunani tudi kazalniki uspešnosti, ki kažejo dosežke (število citatov oz. h-indeks) glede na FTE (full time eqvivalent = delež zaposlitve za raziskovalno dejavnost) in glede na skupno število raziskovalcev (število zaposlenih, ki so pri ARIS-u registrirani kot raziskovalci).
+
+Za podrobnejši opis metodologije izračuna kazalnikov glej (["Izračuni kazalnikov"](izracuni_kazalnikov.qmd)).
+
+<br> 
+
+::: {.callout-warning collapse="false"}
+## Metodološka opomba
+
+Podatki o številu raziskovalcev in FTE za leta od 2019 - 2022 niso na voljo, zato je za izračun uporabljen podatek iz leta 2023.
+:::
+
+
+#### Čisti citati {#CI10}                      
+       
+       
+V spodnji tabeli je prikazano število ***čistih citatov*** v posameznem ***desetletnem obdobju.***              
+
+
+
+
+```{r}
+izpis_tab_razUsp_obd(ci10)
+```
+
+
+
+
+<br>
+
+Spodaj so zgornji rezultati prikazeni še grafično, na ločenih zavihkih: FTE / Raziskovalec.
+
+::: panel-tabset
+#### CI10/FTE
+
+
+
+
+```{r}
+#| echo: false
+panel1_fte_cit
+```
+
+
+
+
+#### CI10/raziskovalec
+
+
+
+
+```{r}
+#| echo: false
+panel1_raz_cit
+```
+
+
+
+:::
+
+#### Najodmevnejše delo in H-indeks {#CImax}                 
+    
+    
+V spodnji tabeli je prikazano število ***čistih citatov najodmevnejšega dela ter H-indeks*** v posameznem ***desetletnem obdobju.***      
+
+
+
+
+```{r}
+izpis_tab_razUsp_obd(cimax_hind)
+```
+
+
+
+
+<br>
+
+Spodaj so zgornji rezultati prikazeni še grafično.
+
+
+#### CImax/H-indeks
+
+
+
+
+```{r}
+#| echo: false
+panel_citati_hindeks
+```
+
+
+
+
+
+
+## [V letu]{.underline} {#posamezno-leto}          
+
+
+V tem delu so prikazani rezultati zbranih točk v **posameznem letu**.
+
+Primer: Rezultat za leto 2025 je seštevek točk, ki jih je UKCL pridobil v obdobju od 01.01.2025 - 31.12.2025.
+
+
+::: callout-important
+## Metodološka opomba
+
+Podatki o številu raziskovalcev in FTE za leta pred 2023 niso na voljo, zato je za izračun uporabljen podatek iz leta 2023.
+:::
+
+
+#### Upoštevane točke {#tocke_leto}
+
+V spodnji tabeli je prikazano ***število upoštevanih točk*** v ***posameznem letu.***
+
+
+
+
+```{r}
+colnames(up_tocke_leto) <- c(
+  "Leto",
+  "objave",
+  "Št. upotevanih točk",
+  "Št. raziskovalcev",
+  "FTE",
+  "Točke/FTE",
+  "Točke/raziskovalec"
+)
+
+izpis_tab_razUsp_obd(up_tocke_leto %>% slice(1:8))  ## Izpis tabele vse upoštevane točke
+```
+
+
+
+
+<br>
+
+Spodaj so zgornji rezultati prikazeni še grafično, na ločenih zavihkih: FTE / Raziskovalec.
+
+::: panel-tabset
+#### Točke/FTE
+
+
+
+
+```{r}
+#| echo: false
+panel1_fte_leto
+```
+
+
+
+
+#### Točke/raziskovalec
+
+
+
+
+```{r}
+#| echo: false
+panel1_raz_leto
+```
+
+
+
+:::
+
+
+#### A'' {#a2_leto}
+
+V spodnji tabeli je prikazano število upoštevanih točk za ***izjemne dosežke - A''*** v ***posameznem letu.***
+
+
+
+
+```{r}
+colnames(a2_leto) <- c(
+  "Leto",
+  "objave",
+  "A'' točke",
+  "Št. raziskovalcev",
+  "FTE",
+  "Točke/FTE",
+  "Točke/raziskovalec"
+)
+
+izpis_tab_razUsp_obd(a2_leto %>% slice(1:8))  ## Izpis tabele vse upoštevane točke
+```
+
+
+
+
+<br>
+
+Spodaj so zgornji rezultati prikazeni še grafično, na ločenih zavihkih: FTE / Raziskovalec.
+
+::: panel-tabset
+#### Točke/FTE
+
+
+
+
+```{r}
+#| echo: false
+panel2_fte_leto
+```
+
+
+
+
+#### Točke/raziskovalec
+
+
+
+
+```{r}
+#| echo: false
+panel2_raz_leto
+```
+
+
+
+:::
+
+
+
+#### A' {#a1_leto}
+
+V spodnji tabeli je prikazano število upoštevanih točk za ***zelo kvalitetne dosežke - A'*** v ***posameznem letu.***
+
+
+
+
+```{r}
+colnames(a1_leto) <- c(
+  "Leto",
+  "objave",
+  "A' točke",
+  "Št. raziskovalcev",
+  "FTE",
+  "Točke/FTE",
+  "Točke/raziskovalec"
+)
+
+izpis_tab_razUsp_obd(a1_leto %>% slice(1:8))  ## Izpis tabele vse upoštevane točke
+```
+
+
+
+
+<br>
+
+Spodaj so zgornji rezultati prikazeni še grafično, na ločenih zavihkih: FTE / Raziskovalec.
+
+::: panel-tabset
+#### Točke/FTE
+
+
+
+
+```{r}
+#| echo: false
+panel3_fte_leto
+```
+
+
+
+
+#### Točke/raziskovalec
+
+
+
+
+```{r}
+#| echo: false
+panel3_raz_leto
+```
+
+
+
+:::
+
+
+
+#### A^1/2^ {#pomembni-dosezki_leto}
+
+V spodnji tabeli je prikazano število upoštevanih točk za ***pomembne dosežke - A^1/2^\`*** v ***posameznem letu.***
+
+
+
+
+```{r}
+colnames(a1_2_leto) <- c(
+  "Leto",
+  "objave",
+  "A1/2 točke",
+  "Št. raziskovalcev",
+  "FTE",
+  "Točke/FTE",
+  "Točke/raziskovalec"
+)
+
+izpis_tab_razUsp_obd(a1_2_leto %>% slice(1:8))  ## Izpis tabele vse upoštevane točke
+```
+
+
+
+
+<br>
+
+Spodaj so zgornji rezultati prikazeni še grafično, na ločenih zavihkih: FTE / Raziskovalec.
+
+::: panel-tabset
+#### Točke/FTE
+
+
+
+
+```{r}
+#| echo: false
+panel4_fte_leto
+```
+
+
+
+
+#### Točke/raziskovalec
+
+
+
+
+```{r}
+#| echo: false
+panel4_raz_leto
+```
+
+
+
+:::
+

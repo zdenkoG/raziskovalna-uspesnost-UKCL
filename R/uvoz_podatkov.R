@@ -7,15 +7,16 @@ library(data.table)
 # --------------------------------------------------------
 # Predhodno prirpavljeni podatki iz sicrisa - RAZISKOVALCI
 # --------------------------------------------------------
+library(here)
 
 
-raz <- readRDS("./data/raziskovalci.RDS")             # Raziskovalci                  'uvoz_podatkov_raziskovalci.R'
+raz <- readRDS(here("data/raziskovalci.RDS"))             # Raziskovalci                  'uvoz_podatkov_raziskovalci.R'
 setDT(raz)
 
 
 
 ## Raziskovalci po letih - samo FTE
-data_dir <- "./data/raz_fte_leta"                                # Pot do direktorija
+data_dir <- here("data/raz_fte_leta")                                # Pot do direktorija
 
 rds_files <- list.files(path = data_dir,                        # Najdi vse .RDS datoteke
                         pattern = "\\.RDS$", full.names = TRUE)
@@ -33,7 +34,7 @@ for (file in rds_files) {                                      # Preberi vse dat
 # -----------------------------------------------------------------------
 
 
-raz_prog <- readRDS("./data/prog_raziskovalci.RDS") %>%       ##                           'uvoz_podatkov_programi.R'
+raz_prog <- readRDS(here("data/prog_raziskovalci.RDS")) %>%       ##                           'uvoz_podatkov_programi.R'
   rename(sicris_id_prog = project_id)
 setDT(raz_prog)
 
@@ -42,15 +43,15 @@ setDT(raz_prog)
 # Predhodno prirpavljeni podatki iz sicrisa - PROJEKTI - TOČKE
 # ------------------------------------------------------------
 
-ukc <- readRDS("./data/ukcl_podatki.RDS")          # Podatki iz prve strani UKCL (sicris) - 'uvoz_podatkov_ukcl.R'
+ukc <- readRDS(here("data/ukcl_podatki.RDS"))          # Podatki iz prve strani UKCL (sicris) - 'uvoz_podatkov_ukcl.R'
 setDT(ukc)
 
-aris <- readRDS("./data/aris_projekti.RDS")        # ARIS projekti
+aris <- readRDS(here("data/aris_projekti.RDS"))        # ARIS projekti
 setDT(aris)
 
 ##############
 
-prog <- readRDS("./data/programi.RDS")             # Programi
+prog <- readRDS(here("data/programi.RDS"))             # Programi
 setDT(prog)
 
 ## Dopolnimo s podatki o članih in raziskovalcih - PROGRAMI
@@ -71,10 +72,10 @@ prog <- prog %>%
 ###################
 
 
-skup <- readRDS("./data/raziskovalne_skupine.RDS") # Raziskovalne skupine
+skup <- readRDS(here("data/raziskovalne_skupine.RDS")) # Raziskovalne skupine
 setDT(skup)
 
-publ <- read_excel("./data/publikacije.xlsx")      # Publikacije
+publ <- read_excel(here("data/publikacije.xlsx"))      # Publikacije
 setDT(publ)
 
 #---------------------------------------------------------
@@ -87,7 +88,7 @@ setDT(publ)
 # REDCap - evidence CKR
 #-------------------------------
 
-source("./skripte_uvoz_podatkov/REDCap_evidence_CKR.R")
+source(here("skripte_uvoz_podatkov/REDCap_evidence_CKR.R"))
 
 
 #---------------------------------------------------------
@@ -97,4 +98,5 @@ source("./skripte_uvoz_podatkov/REDCap_evidence_CKR.R")
 # RAZISKOVALCI IN TOČKE PO POSAMEZNEM LETU
 # ---------------------------------------------
 
-raziskovalci_leto <- readRDS("./data/raziskovalci_leto.RDS")
+raziskovalci_leto <- readRDS(here("data/raziskovalci_leto.RDS"))
+
