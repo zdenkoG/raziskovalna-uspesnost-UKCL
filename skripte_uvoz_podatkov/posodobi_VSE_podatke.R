@@ -26,6 +26,7 @@ source("./skripte_uvoz_podatkov/uvoz_podatkov_proj_aris.R")
 ## Programi ARIS
 source("./skripte_uvoz_podatkov/uvoz_podatkov_programi.R")
 
+
 #---------------------------------------------------------------
 
 datum_posodobitve <- Sys.Date()
@@ -42,3 +43,8 @@ end_time - start_time
 ### Skripta za posodobitev za vseh 50k raziskovalcev - samo občasno (cca 10 min na več jedrih)
 
 # source("./skripte_uvoz_podatkov/VSI_raziskovalci_delez_zaposlitve.R")
+
+
+### Skripta za uvoz podatkov o točkah in raziskovalcih po letih - posodobi ko se posodobijo html-ji
+
+# source("./skripte_uvoz_podatkov/html_po_letih_tocke_raziskovalci.R")

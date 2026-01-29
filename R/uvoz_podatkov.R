@@ -91,3 +91,10 @@ source("./skripte_uvoz_podatkov/REDCap_evidence_CKR.R")
 
 
 #---------------------------------------------------------
+
+
+# -----------------------------------------
+# RAZISKOVALCI IN TOČKE PO POSAMEZNEM LETU
+# ---------------------------------------------
+
+raziskovalci_leto <- readRDS("./data/raziskovalci_leto.RDS")
