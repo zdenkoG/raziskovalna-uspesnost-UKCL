@@ -356,8 +356,17 @@ tabela_kaz_citati_ukcl %>%
 
 ## CImax
 tabela_kaz_citati_ukcl %>% 
-  filter(citiranost == "CImax") -> cimax
+  filter(citiranost == "CImax") %>% 
+  select(-c(kaz_fte, kaz_raz)) -> cimax           ## Odstranimo kazalnike, ker niso smiselni
 
 ## h-indeks
 tabela_kaz_citati_ukcl %>% 
-  filter(citiranost == "h-indeks") -> hind
+  filter(citiranost == "h-indeks") %>% 
+  select(-c(kaz_fte, kaz_raz)) -> hind            ## Odstranimo kazalnike, ker niso smiselni
+
+## Združimo cimax in h-indeks
+cimax %>% 
+  left_join(hind %>% 
+              select(leto, h_ind = citati)) %>% 
+  select(1:4, 7, 5:6) -> cimax_hind
+

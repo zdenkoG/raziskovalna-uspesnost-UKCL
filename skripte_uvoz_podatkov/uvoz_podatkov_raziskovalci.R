@@ -70,9 +70,9 @@ id_raz <- raz %>%
 
 names(id_raz) <- NULL
 
-# ==========================================
-# PAMETNA NASTAVITEV ŠTEVILA JEDER
-# ==========================================
+# ===================================================
+# PAMETNA NASTAVITEV ŠTEVILA JEDER (paket "parallel")
+# ===================================================
 
 num_cores <- detectCores()  ## Samodejno zazna število jeder
 
@@ -393,12 +393,24 @@ raziskovalci <- raziskovalci %>%
   mutate(datum = Sys.Date())
 
 
+#------------------------------------------
+
 
 # =================
 # Shranimo podatke
 # =================
 
+## VSE skupaj
+
 saveRDS(raziskovalci, "./data/raziskovalci.RDS")
+
+
+## Samo deleže zaposlitve (data/raz_fte_leto/)
+
+raziskovalci %>% 
+  filter(vloga == "Raziskovalec") %>% 
+  select(sicris_id_raz, ime, st_raz, del_zap = researchload) %>% 
+  saveRDS(file = paste0("./data/raz_fte_leta/raz", format(Sys.Date(), "%Y"), ".RDS"))   ## Določimo da shrani v pravo mapo v obliki "raz2026"
 
 
 

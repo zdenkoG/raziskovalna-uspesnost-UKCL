@@ -410,65 +410,28 @@ panel1_raz_cit
 ```
 :::
 
-#### Najodmevnejše delo {#CImax}                 
+#### Najodmevnejše delo in H-indeks {#CImax}                 
     
     
-V spodnji tabeli je prikazano število ***čistih citatov najodmevnejšega dela*** v posameznem ***desetletnem obdobju.***      
+V spodnji tabeli je prikazano število ***čistih citatov najodmevnejšega dela ter H-indeks*** v posameznem ***desetletnem obdobju.***      
 
 ```{r}
-izpis_tab_razUsp_obd(cimax)
+izpis_tab_razUsp_obd(cimax_hind)
 ```
 
 <br>
 
-Spodaj so zgornji rezultati prikazeni še grafično, na ločenih zavihkih: FTE / Raziskovalec.
+Spodaj so zgornji rezultati prikazeni še grafično.
 
 
-::: panel-tabset
-#### CImax/FTE
-
-```{r}
-#| echo: false
-panel2_fte_cit
-```
-
-#### CImax/raziskovalec
+#### CImax/H-indeks
 
 ```{r}
 #| echo: false
-panel2_raz_cit
-```
-:::
-
-#### H-indeks {#h-indeks}           
- 
- 
-V spodnji tabeli je prikazan ***H-indeks*** v posameznem ***desetletnem obdobju.***    
-
-```{r}
-izpis_tab_razUsp_obd(hind)
+panel_citati_hindeks
 ```
 
-<br>
 
-Spodaj so zgornji rezultati prikazeni še grafično, na ločenih zavihkih: FTE / Raziskovalec.
-
-
-::: panel-tabset
-#### H-indeks/FTE
-
-```{r}
-#| echo: false
-panel3_fte_cit
-```
-
-#### H-indeks/raziskovalec
-
-```{r}
-#| echo: false
-panel3_raz_cit
-```
-::: 
 
 
 

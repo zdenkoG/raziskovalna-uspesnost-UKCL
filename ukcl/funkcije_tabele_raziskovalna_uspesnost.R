@@ -69,27 +69,16 @@ colnames(ci10) <- c(
   "Citati/raziskovalec"
 )
 
-colnames(cimax) <- c(
+## Najodmevnejše delo in h-indeks
+
+colnames(cimax_hind) <- c(
   "Obdobje",
   "Leto",
   "objave",
   "Najodmevnejše delo",
-  "Št. raziskovalcev",
-  "FTE",
-  "Citati/FTE",
-  "Citati/raziskovalec"
-)
-
-
-colnames(hind) <- c(
-  "Obdobje",
-  "Leto",
-  "objave",
   "H-indeks",
   "Št. raziskovalcev",
-  "FTE",
-  "H-indeks/FTE",
-  "H-indeks/raziskovalec"
+  "FTE"
 )
 
 

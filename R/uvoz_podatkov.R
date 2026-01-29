@@ -9,21 +9,31 @@ library(data.table)
 # --------------------------------------------------------
 
 
-raz <- readRDS("./data/raziskovalci.RDS")             # Raziskovalci
+raz <- readRDS("./data/raziskovalci.RDS")             # Raziskovalci                  'uvoz_podatkov_raziskovalci.R'
 setDT(raz)
 
-raz23 <- readRDS("./data/raz_fte_leta/raz2023.RDS")   # Število raziskovalcev in FTE po letih
 
-raz24 <- readRDS("./data/raz_fte_leta/raz2024.RDS")   
 
-raz25 <- readRDS("./data/raz_fte_leta/raz25.RDS")
+## Raziskovalci po letih - samo FTE
+data_dir <- "./data/raz_fte_leta"                                # Pot do direktorija
+
+rds_files <- list.files(path = data_dir,                        # Najdi vse .RDS datoteke
+                        pattern = "\\.RDS$", full.names = TRUE)
+
+for (file in rds_files) {                                      # Preberi vse datoteke in jih shrani z imeni - npr. raz25
+  # Izlušči ime brez poti in končnice
+  obj_name <- tools::file_path_sans_ext(basename(file))
+  # Preberi in shrani v globalno okolje
+  assign(obj_name, readRDS(file), envir = .GlobalEnv)
+}
+
 
 # -----------------------------------------------------------------------
 # Predhodno prirpavljeni podatki iz sicrisa - RAZISKOVALCI - po programu
 # -----------------------------------------------------------------------
 
 
-raz_prog <- readRDS("./data/prog_raziskovalci.RDS") %>% 
+raz_prog <- readRDS("./data/prog_raziskovalci.RDS") %>%       ##                           'uvoz_podatkov_programi.R'
   rename(sicris_id_prog = project_id)
 setDT(raz_prog)
 
@@ -32,7 +42,7 @@ setDT(raz_prog)
 # Predhodno prirpavljeni podatki iz sicrisa - PROJEKTI - TOČKE
 # ------------------------------------------------------------
 
-ukc <- readRDS("./data/ukcl_podatki.RDS")          # Podatki iz prve strani UKCL (sicris)
+ukc <- readRDS("./data/ukcl_podatki.RDS")          # Podatki iz prve strani UKCL (sicris) - 'uvoz_podatkov_ukcl.R'
 setDT(ukc)
 
 aris <- readRDS("./data/aris_projekti.RDS")        # ARIS projekti

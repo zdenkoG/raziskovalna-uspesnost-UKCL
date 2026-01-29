@@ -496,6 +496,7 @@ create_panel_2x2 <- function(data,
 
 
 
+
 # =================================
 # =================================
 
@@ -628,62 +629,339 @@ panel1_raz_cit <- create_panel_2x2(
   y_os = "Sprememba citatov"
 )
 
+#--------------------------------------------------------
 
-# CImax
+# -----------------------------------------------------
+# Funkcija za sliko CImax in H-indeks, brez kazalnikov
+# -----------------------------------------------------
 
-panel2_fte_cit <- create_panel_2x2(
-  tabela_kaz_citati_ukcl %>% rename(objave = citiranost, tocke = citati), 
-  "CImax", 
-  "Najodmevnejše delo v zadnjih 10 letih",
-  "#3660a0",
-  yaxis_label = "Citati",
-  title_label = "Citati po letih",
-  kazalnik = "kaz_fte",
-  kazalnik_label = "Kazalnik (citati/FTE)",
-  naslov_lp = "Letna sprememba citatov",
-  y_os = "Sprememba citatov"
+#' Nariši panel 2x2 za CImax in H-indeks
+#'
+#' @param data Tibble/data.frame s stolpci: Leto, objave, `Najodmevnejše delo`, `H-indeks`
+#' @param naslov Naslov panela
+#' @param barva_cimax Barva za grafe CImax
+#' @param barva_hind Barva za grafe H-indeks
+#'
+#' @return HTML div s štirimi grafi v 2x2 mreži
+create_panel_citati_hindeks <- function(data, 
+                                        naslov = "Citati in H-indeks",
+                                        barva_cimax = "#3660a0",
+                                        barva_hind = "#2d8659") {
+  
+  # Pripravi podatke za CImax
+  podatki_cimax <- data %>%
+    arrange(Leto) %>%
+    mutate(
+      # Absolutna sprememba citatov
+      sprememba_abs = `Najodmevnejše delo` - lag(`Najodmevnejše delo`),
+      # Relativna sprememba v %
+      sprememba_pct = ((sprememba_abs) / lag(`Najodmevnejše delo`)) * 100,
+      # Barva glede na predznak
+      barva = ifelse(sprememba_abs >= 0, "#2d8659", "#c73a3a")
+    )
+  
+  # Pripravi podatke za H-indeks
+  podatki_hind <- data %>%
+    arrange(Leto) %>%
+    mutate(
+      # Absolutna sprememba H-indeksa
+      sprememba_abs = `H-indeks` - lag(`H-indeks`),
+      # Relativna sprememba v %
+      sprememba_pct = ((sprememba_abs) / lag(`H-indeks`)) * 100,
+      # Barva glede na predznak
+      barva = ifelse(sprememba_abs >= 0, "#2d8659", "#c73a3a")
+    )
+  
+  # Graf 1: CImax po letih (zgoraj levo)
+  graf_cimax <- highchart() %>%
+    hc_chart(
+      type = "column", 
+      height = 400,
+      backgroundColor = "#FFFFFF"
+    ) %>%
+    hc_title(text = "Najodmevnejše delo (citati) po letih") %>%
+    hc_xAxis(
+      categories = podatki_cimax$Leto,
+      title = list(text = "Leto")
+    ) %>%
+    hc_yAxis(
+      title = list(text = "Število citatov"),
+      labels = list(format = "{value:,.0f}")
+    ) %>%
+    hc_add_series(
+      name = "Citati",
+      data = round(podatki_cimax$`Najodmevnejše delo`, 0),
+      color = barva_cimax,
+      dataLabels = list(
+        enabled = TRUE,
+        format = "{point.y:,.0f}"
+      )
+    ) %>%
+    hc_tooltip(
+      pointFormat = "<b>{point.y:,.0f}</b> citatov",
+      headerFormat = "<span style='font-size:10px'>{point.key}</span><br/>"
+    ) %>%
+    hc_legend(enabled = FALSE) %>% 
+    hc_exporting(
+      enabled = TRUE,
+      chartOptions = list(
+        chart = list(backgroundColor = "#FFFFFF")
+      )
+    )
+  
+  # Graf 2: H-indeks po letih (zgoraj desno)
+  graf_hind <- highchart() %>%
+    hc_chart(
+      type = "column", 
+      height = 400,
+      backgroundColor = "#FFFFFF"
+    ) %>%
+    hc_title(text = "H-indeks po letih") %>%
+    hc_xAxis(
+      categories = podatki_hind$Leto,
+      title = list(text = "Leto")
+    ) %>%
+    hc_yAxis(
+      title = list(text = "H-indeks"),
+      labels = list(format = "{value:,.0f}")
+    ) %>%
+    hc_add_series(
+      name = "H-indeks",
+      data = round(podatki_hind$`H-indeks`, 0),
+      color = barva_hind,
+      dataLabels = list(
+        enabled = TRUE,
+        format = "{point.y:,.0f}"
+      )
+    ) %>%
+    hc_tooltip(
+      pointFormat = "<b>{point.y:,.0f}</b>",
+      headerFormat = "<span style='font-size:10px'>{point.key}</span><br/>"
+    ) %>%
+    hc_legend(enabled = FALSE) %>% 
+    hc_exporting(
+      enabled = TRUE,
+      chartOptions = list(
+        chart = list(backgroundColor = "#FFFFFF")
+      )
+    )
+  
+  # Odstrani prvo leto (nima spremembe) za lollipop grafe
+  podatki_cimax_sprememba <- podatki_cimax %>% filter(!is.na(sprememba_abs))
+  podatki_hind_sprememba <- podatki_hind %>% filter(!is.na(sprememba_abs))
+  
+  # Izračunaj optimalne limite za CImax
+  limiti_cimax <- izracunaj_y_limiti(podatki_cimax_sprememba$sprememba_abs)
+  
+  # Graf 3: Sprememba CImax (spodaj levo)
+  graf_sprememba_cimax <- highchart() %>%
+    hc_chart(
+      type = "line",
+      height = 400,
+      backgroundColor = "#FFFFFF"
+    ) %>%
+    hc_title(text = "Letna sprememba števila citatov") %>%
+    hc_xAxis(
+      categories = podatki_cimax_sprememba$Leto,
+      title = list(text = "Leto")
+    ) %>%
+    hc_yAxis(
+      title = list(text = "Sprememba števila citatov"),
+      labels = list(format = "{value:,.0f}"),
+      min = limiti_cimax$min,
+      max = limiti_cimax$max,
+      plotLines = list(
+        list(
+          value = 0,
+          color = "#333333",
+          width = 2,
+          zIndex = 5
+        )
+      )
+    ) %>%
+    hc_add_series(
+      name = "Sprememba",
+      data = lapply(1:nrow(podatki_cimax_sprememba), function(i) {
+        list(
+          y = round(podatki_cimax_sprememba$sprememba_abs[i], 0),
+          color = podatki_cimax_sprememba$barva[i],
+          marker = list(
+            enabled = TRUE,
+            radius = 8,
+            fillColor = podatki_cimax_sprememba$barva[i]
+          )
+        )
+      }),
+      lineWidth = 0,
+      states = list(hover = list(lineWidthPlus = 0)),
+      dataLabels = list(
+        enabled = TRUE,
+        format = "{point.y:,.0f}",
+        style = list(fontWeight = "bold", fontSize = "11px"),
+        y = -15,
+        verticalAlign = "bottom"
+      )
+    ) %>%
+    hc_add_series(
+      type = "errorbar",
+      name = "Palčki",
+      data = lapply(1:nrow(podatki_cimax_sprememba), function(i) {
+        list(
+          low = 0,
+          high = round(podatki_cimax_sprememba$sprememba_abs[i], 0),
+          color = podatki_cimax_sprememba$barva[i]
+        )
+      }),
+      whiskerLength = 0,
+      stemWidth = 3,
+      showInLegend = FALSE,
+      enableMouseTracking = FALSE
+    ) %>%
+    hc_tooltip(
+      shared = FALSE,
+      pointFormat = "<b>{point.y:,.0f}</b> citatov",
+      headerFormat = "<span style='font-size:10px'>{point.key}</span><br/>"
+    ) %>%
+    hc_legend(enabled = FALSE) %>%
+    hc_exporting(
+      enabled = TRUE,
+      chartOptions = list(
+        chart = list(backgroundColor = "#FFFFFF")
+      )
+    )
+  
+  # Izračunaj optimalne limite za H-indeks
+  limiti_hind <- izracunaj_y_limiti(podatki_hind_sprememba$sprememba_abs)
+  
+  # Graf 4: Sprememba H-indeks (spodaj desno)
+  graf_sprememba_hind <- highchart() %>%
+    hc_chart(
+      type = "line",
+      height = 400,
+      backgroundColor = "#FFFFFF"
+    ) %>%
+    hc_title(text = "Letna sprememba H-indeksa") %>%
+    hc_xAxis(
+      categories = podatki_hind_sprememba$Leto,
+      title = list(text = "Leto")
+    ) %>%
+    hc_yAxis(
+      title = list(text = "Sprememba H-indeksa"),
+      labels = list(format = "{value:,.0f}"),
+      min = limiti_hind$min,
+      max = limiti_hind$max,
+      plotLines = list(
+        list(
+          value = 0,
+          color = "#333333",
+          width = 2,
+          zIndex = 5
+        )
+      )
+    ) %>%
+    hc_add_series(
+      name = "Sprememba",
+      data = lapply(1:nrow(podatki_hind_sprememba), function(i) {
+        list(
+          y = round(podatki_hind_sprememba$sprememba_abs[i], 0),
+          color = podatki_hind_sprememba$barva[i],
+          marker = list(
+            enabled = TRUE,
+            radius = 8,
+            fillColor = podatki_hind_sprememba$barva[i]
+          )
+        )
+      }),
+      lineWidth = 0,
+      states = list(hover = list(lineWidthPlus = 0)),
+      dataLabels = list(
+        enabled = TRUE,
+        format = "{point.y:,.0f}",
+        style = list(fontWeight = "bold", fontSize = "11px"),
+        y = -15,
+        verticalAlign = "bottom"
+      )
+    ) %>%
+    hc_add_series(
+      type = "errorbar",
+      name = "Palčki",
+      data = lapply(1:nrow(podatki_hind_sprememba), function(i) {
+        list(
+          low = 0,
+          high = round(podatki_hind_sprememba$sprememba_abs[i], 0),
+          color = podatki_hind_sprememba$barva[i]
+        )
+      }),
+      whiskerLength = 0,
+      stemWidth = 3,
+      showInLegend = FALSE,
+      enableMouseTracking = FALSE
+    ) %>%
+    hc_tooltip(
+      shared = FALSE,
+      pointFormat = "<b>{point.y:,.0f}</b>",
+      headerFormat = "<span style='font-size:10px'>{point.key}</span><br/>"
+    ) %>%
+    hc_legend(enabled = FALSE) %>%
+    hc_exporting(
+      enabled = TRUE,
+      chartOptions = list(
+        chart = list(backgroundColor = "#FFFFFF")
+      )
+    )
+  
+  # Ustvari HTML panel s štirimi grafi v 2x2 mreži
+  browsable(
+    div(
+      style = "margin-bottom: 40px;",
+      # Naslov
+      h3(naslov, style = "color: #3660a0; margin-bottom: 15px;"),
+      
+      # Vrstica 1: CImax in H-indeks
+      div(
+        style = "display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 20px;",
+        # Graf 1: CImax
+        div(
+          style = "flex: 1; min-width: 400px;",
+          graf_cimax
+        ),
+        # Graf 2: H-indeks
+        div(
+          style = "flex: 1; min-width: 400px;",
+          graf_hind
+        )
+      ),
+      
+      # Vrstica 2: Spremembe
+      div(
+        style = "display: flex; gap: 20px; flex-wrap: wrap;",
+        # Graf 3: Sprememba CImax
+        div(
+          style = "flex: 1; min-width: 400px;",
+          graf_sprememba_cimax
+        ),
+        # Graf 4: Sprememba H-indeks
+        div(
+          style = "flex: 1; min-width: 400px;",
+          graf_sprememba_hind
+        )
+      )
+    )
+  )
+}
+
+
+# Ustvari panel za citati in H-indeks iz združene tabele
+panel_citati_hindeks <- create_panel_citati_hindeks(
+  data = cimax_hind,
+  naslov = "Citati in H-indeks",
+  barva_cimax = "#3660a0",  # modra za citati
+  barva_hind = "#2d8659"    # zelena za H-indeks
 )
 
-panel2_raz_cit <- create_panel_2x2(
-  tabela_kaz_citati_ukcl %>% rename(objave = citiranost, tocke = citati), 
-  "CImax", 
-  "Najodmevnejše delo v zadnjih 10 letih", 
-  "#b0b0b0",
-  yaxis_label = "Citati",
-  title_label = "Citati po letih",
-  kazalnik = "kaz_raz",
-  kazalnik_label = "Kazalnik (citati/raziskovalec)",
-  naslov_lp = "Letna sprememba citatov",
-  y_os = "Sprememba citatov"
-)
+# Prikaži panel
+panel_citati_hindeks
 
-# h-indeks
-
-panel3_fte_cit <- create_panel_2x2(
-  tabela_kaz_citati_ukcl %>% rename(objave = citiranost, tocke = citati), 
-  "h-indeks", 
-  "H-indeks v zadnjih 10 letih",
-  "#3660a0",
-  yaxis_label = "h-indeks",
-  title_label = "h-indeks po letih",
-  kazalnik = "kaz_fte",
-  kazalnik_label = "Kazalnik (h-indeks/FTE)",
-  naslov_lp = "Letna sprememba H-indeks",
-  y_os = "Sprememba h-indeks"
-)
-
-panel3_raz_cit <- create_panel_2x2(
-  tabela_kaz_citati_ukcl %>% rename(objave = citiranost, tocke = citati), 
-  "h-indeks", 
-  "H-indeks v zadnjih 10 letih", 
-  "#b0b0b0",
-  yaxis_label = "h-indeks",
-  title_label = "h-indeks po letih",
-  kazalnik = "kaz_raz",
-  kazalnik_label = "Kazalnik (h-indeks/raziskovalec)",
-  naslov_lp = "Letna sprememba H-indeks",
-  y_os = "Sprememba h-indeks"
-)
 
 #---------------------------------------------------------
 

@@ -42,10 +42,11 @@ url <- "https://cris.cobiss.net/ecris/si/sl/service/researcher/search?query=*&li
   
 
 a <- GET(url, add_headers(Authorization = jwt_token))
-r <- fromJSON(content(a, 'text'))
+
+vsi_raz <- fromJSON(content(a, 'text'))
     
     
-id_raz <- r$id
+id_raz <- vsi_raz$id
 
 
 # ==========================================
@@ -54,7 +55,6 @@ id_raz <- r$id
 
 
 num_cores <- detectCores()
-cat("Število razpoložljivih jeder:", num_cores, "\n")
 
 if (num_cores > 16) {
   cores_to_use <- floor(num_cores * 0.8)
@@ -66,7 +66,6 @@ if (num_cores > 16) {
   cores_to_use <- max(1, num_cores)
 }
 
-cat("Uporabljam", cores_to_use, "jeder za procesiranje\n")
 
 # ==========================================
 # ENOSTAVNA FUNKCIJA
@@ -81,10 +80,17 @@ pridobi_podatke_vseh_raz <- function(id_raz) {
     x1 <- fromJSON(content(a, 'text'))
     
     rezultat <- data.frame(
-      sicris_id_raz = id_raz,
-      researchload = if(!is.null(x1$employs) && "researchload" %in% names(x1$employs)) {
+      sicris_id_raz = id_raz,                                                                ## sicris_id_raz
+      researchload = if(!is.null(x1$employs) && "researchload" %in% names(x1$employs)) {     ## Delež zaposlitve
         x1$employs$researchload[1]
       } else NA_real_,
+      org = if(!is.null(x1$employs) && "orgName" %in% names(x1$employs)) {                   ## Organizacija kjer je zaposlen
+        x1$employs$orgName[1]
+      } else NA,
+      org_id = if(!is.null(x1$employs) && "orgCode" %in% names(x1$employs)) {                ## Organizacija šifra
+        x1$employs$orgCode[1]
+      } else NA,
+      vloga = x1$type,
       stringsAsFactors = FALSE
     )
     
@@ -103,10 +109,6 @@ pridobi_podatke_vseh_raz <- function(id_raz) {
 # PARALELNI IZVOZ PODATKOV
 # ==========================================
 
-cat("\n===========================================\n")
-cat("Uvažam podatke za", length(id_raz), "raziskovalcev\n")
-cat("Uporabljam", cores_to_use, "jeder\n")
-cat("===========================================\n\n")
 
 start_time <- Sys.time()
 
@@ -124,8 +126,6 @@ vsi_podatki_raz <- parLapplyLB(cl, id_raz, function(x) {
 stopCluster(cl)
 
 end_time <- Sys.time()
-cas_izvajanja <- round(difftime(end_time, start_time, units = "mins"), 2)
-cat("\n✓ Uvoz končan v", cas_izvajanja, "minutah\n")
 
 # ==========================================
 # PRIPRAVA KONČNE TABELE
