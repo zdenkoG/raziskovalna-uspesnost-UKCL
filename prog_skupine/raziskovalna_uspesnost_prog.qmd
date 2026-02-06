@@ -1,0 +1,294 @@
+---
+title: "Programske skupine"
+editor: visual
+---
+
+```{r}
+library(here)
+source(here("R/setup_paketi.R"))
+source(here("R/funkcije_num_format_reactable.R"))
+source(here("R/uvoz_podatkov.R"))
+source(here("R/osnovni_podatki.R"))
+source(here("R/podatki_st_raz_fte_leto.R"))
+source(here("R/podatki_stevilo_projektov.R"))
+source(here("R/podatki_za_tabele_grafe.R"))
+source(here("R/funkcije_tabele.R"))
+source(here("prog_skupine/podatki_raz_usp_prog.R"))
+source(here("prog_skupine/funkcija_kazalnik_tocke_SLIKA.R"))
+source(here("prog_skupine/funkcija_kazalnik_tocke_TABELA.R"))
+```
+
+# Raziskovalna uspešnost
+
+Spodaj so prikazani rezultati za posamezno programsko skupino, kjer je aktiven raziskovalni ali infrastrukturni ARIS program. Vir podatkov je [Sicris](https://cris.cobiss.net/ecris/si/sl/organization/618){target="_blank"} (več o virih podatkov je objavljeno ["Viri podatkov"](viri_podatkov.qmd)).
+
+Prikazani so programi, kjer je ***UKC Ljubljana vodilna organizacija*** (modri stolpiči) in programi, kjer je ***UKC Ljubljana sodelujoča organizacija*** (sivi stolpiči).
+
+Prikazani so rezultati za ***A1 objave*** (pridobljene točke).
+
+Pri rezultatih A1 objav so prikazane točke za:
+
+-   [Skupno število upoštevanih točk](#up_tocke_prog);
+
+-   [A'' – izjemni dosežki](#izj_dos_prog);
+
+-   [A' – zelo kvalitetni dosežki](#kval_dos_prog);
+
+-   [A ½ - pomembni dosežki](#pom_dos_prog).
+
+Poleg prikaza skupnega števila točk, so izračunani tudi kazalniki uspešnosti:
+
+-   število točk na FTE (full time eqvivalent = delež zaposlitve za raziskovalno dejavnost) in
+
+-   število točk na skupno število raziskovalcev (število zaposlenih, ki so pri ARIS-u registrirani kot raziskovalci).
+
+Za podrobnejši opis metodologije izračuna kazalnikov glej ("Izračuni kazalnikov").
+
+::: callout-note
+## Zadnja posodobitev podatkov iz Sicris-a; **`r format(datum_posodobitve, "%d.%b%Y")`**
+:::
+
+
+## Upoštevane točke {#up_tocke_prog}
+
+:::::: panel-tabset
+### Točke/FTE
+
+::: {.callout-note collapse="true"}
+##### Opomba glede grafov (klik)
+
+-   Modro: UKC vodilna organizacija \| Sivo: UKCL sodelujoča organizacija
+-   Intenziteta barve odraža velikost skupine (FTE: temnejša -\> več FTE)
+-   V zgornjem desnem kotu je meni (☰) kliknite in izberite: (pogled preko celega zaslona; prenos slike; prenos podatkov)
+-   S postavitvijo kurzorja na posamezen stolpec se izpišejo rezultati za izbrani program
+:::
+
+```{r}
+# Uporaba:
+graf_panel_programi(
+  podatki = up_tocke,
+  kazalnik = "kaz_fte",
+  naslov_levi = "Upoštevane točke/FTE",
+  naslov_ukc = "UKCL vodilna organizacija",
+  naslov_zunanji = "UKCL sodelujoča organizacija"
+)
+```
+
+### Točke/raziskovalec
+
+::: {.callout-note collapse="true"}
+##### Opomba glede grafov (klik)
+
+-   Modro: UKC vodilna organizacija \| Sivo: UKCL sodelujoča organizacija
+-   Intenziteta barve odraža velikost skupine (FTE: temnejša -\> več FTE)
+-   V zgornjem desnem kotu je meni (☰) kliknite in izberite: (pogled preko celega zaslona; prenos slike; prenos podatkov)
+-   S postavitvijo kurzorja na posamezen stolpec se izpišejo rezultati za izbrani program
+:::
+
+```{r}
+# Uporaba:
+graf_panel_programi(
+  podatki = up_tocke,
+  kazalnik = "kaz_raz",
+  naslov_levi = "Upoštevane točke/Raziskovalec",
+  naslov_ukc = "UKCL vodilna organizacija",
+  naslov_zunanji = "UKCL sodelujoča organizacija"
+)
+```
+
+### Tabela s podatki
+
+::: {.callout-note collapse="true" title=""}
+#### *S klikom na posamezen stolpec se spremeni vrstni red skupin.*
+:::
+
+```{r}
+#| column: page
+
+izpis_tab_prog_us(up_tocke)
+```
+::::::
+
+
+
+## A'' {#izj_dos_prog}
+
+:::::: panel-tabset
+### Točke/FTE
+
+::: {.callout-note collapse="true"}
+##### Opomba glede grafov (klik)
+
+-   Modro: UKC vodilna organizacija \| Sivo: UKCL sodelujoča organizacija
+-   Intenziteta barve odraža velikost skupine (FTE: temnejša -\> več FTE)
+-   V zgornjem desnem kotu je meni (☰) kliknite in izberite: (pogled preko celega zaslona; prenos slike; prenos podatkov)
+-   S postavitvijo kurzorja na posamezen stolpec se izpišejo rezultati za izbrani program
+:::
+
+```{r}
+# Uporaba:
+graf_panel_programi(
+  podatki = aII_prog,
+  kazalnik = "kaz_fte",
+  naslov_levi = "A'' - izjemni dosežki/FTE",
+  naslov_ukc = "UKCL vodilna organizacija",
+  naslov_zunanji = "UKCL sodelujoča organizacija"
+)
+```
+
+### Točke/raziskovalec
+
+::: {.callout-note collapse="true"}
+##### Opomba glede grafov (klik)
+
+-   Modro: UKC vodilna organizacija \| Sivo: UKCL sodelujoča organizacija
+-   Intenziteta barve odraža velikost skupine (FTE: temnejša -\> več FTE)
+-   V zgornjem desnem kotu je meni (☰) kliknite in izberite: (pogled preko celega zaslona; prenos slike; prenos podatkov)
+-   S postavitvijo kurzorja na posamezen stolpec se izpišejo rezultati za izbrani program
+:::
+
+```{r}
+# Uporaba:
+graf_panel_programi(
+  podatki = aII_prog,
+  kazalnik = "kaz_raz",
+  naslov_levi = "A'' - izjemni dosežki/Raziskovalec",
+  naslov_ukc = "UKCL vodilna organizacija",
+  naslov_zunanji = "UKCL sodelujoča organizacija"
+)
+```
+
+### Tabela s podatki
+
+::: {.callout-note collapse="true" title=""}
+#### *S klikom na posamezen stolpec se spremeni vrstni red skupin.*
+:::
+
+```{r}
+#| column: page
+
+izpis_tab_prog_us(aII_prog, kaj = "A'' - izjemni dosežki")
+```
+::::::
+
+
+## A' {#kval_dos_prog}
+
+:::::: panel-tabset
+### Točke/FTE
+
+::: {.callout-note collapse="true"}
+##### Opomba glede grafov (klik)
+
+-   Modro: UKC vodilna organizacija \| Sivo: UKCL sodelujoča organizacija
+-   Intenziteta barve odraža velikost skupine (FTE: temnejša -\> več FTE)
+-   V zgornjem desnem kotu je meni (☰) kliknite in izberite: (pogled preko celega zaslona; prenos slike; prenos podatkov)
+-   S postavitvijo kurzorja na posamezen stolpec se izpišejo rezultati za izbrani program
+:::
+
+```{r}
+# Uporaba:
+graf_panel_programi(
+  podatki = aI_prog,
+  kazalnik = "kaz_fte",
+  naslov_levi = "A' - zelo kvalitetni dosežki/FTE",
+  naslov_ukc = "UKCL vodilna organizacija",
+  naslov_zunanji = "UKCL sodelujoča organizacija"
+)
+```
+
+### Točke/raziskovalec
+
+::: {.callout-note collapse="true"}
+##### Opomba glede grafov (klik)
+
+-   Modro: UKC vodilna organizacija \| Sivo: UKCL sodelujoča organizacija
+-   Intenziteta barve odraža velikost skupine (FTE: temnejša -\> več FTE)
+-   V zgornjem desnem kotu je meni (☰) kliknite in izberite: (pogled preko celega zaslona; prenos slike; prenos podatkov)
+-   S postavitvijo kurzorja na posamezen stolpec se izpišejo rezultati za izbrani program
+:::
+
+```{r}
+# Uporaba:
+graf_panel_programi(
+  podatki = aI_prog,
+  kazalnik = "kaz_raz",
+  naslov_levi = "A' - zelo kvalitetni dosežki/Raziskovalec",
+  naslov_ukc = "UKCL vodilna organizacija",
+  naslov_zunanji = "UKCL sodelujoča organizacija"
+)
+```
+
+### Tabela s podatki
+
+::: {.callout-note collapse="true" title=""}
+#### *S klikom na posamezen stolpec se spremeni vrstni red skupin.*
+:::
+
+```{r}
+#| column: page
+
+izpis_tab_prog_us(aI_prog, kaj = "A' - zelo kvalitetni dosežki")
+```
+::::::
+
+
+## A^1/2^ {#pom_dos_prog}
+
+:::::: panel-tabset
+### Točke/FTE
+
+::: {.callout-note collapse="true"}
+##### Opomba glede grafov (klik)
+
+-   Modro: UKC vodilna organizacija \| Sivo: UKCL sodelujoča organizacija
+-   Intenziteta barve odraža velikost skupine (FTE: temnejša -\> več FTE)
+-   V zgornjem desnem kotu je meni (☰) kliknite in izberite: (pogled preko celega zaslona; prenos slike; prenos podatkov)
+-   S postavitvijo kurzorja na posamezen stolpec se izpišejo rezultati za izbrani program
+:::
+
+```{r}
+# Uporaba:
+graf_panel_programi(
+  podatki = a12_prog,
+  kazalnik = "kaz_fte",
+  naslov_levi = "A1/2 - pomembni dosežki/FTE",
+  naslov_ukc = "UKCL vodilna organizacija",
+  naslov_zunanji = "UKCL sodelujoča organizacija"
+)
+```
+
+### Točke/raziskovalec
+
+::: {.callout-note collapse="true"}
+##### Opomba glede grafov (klik)
+
+-   Modro: UKC vodilna organizacija \| Sivo: UKCL sodelujoča organizacija
+-   Intenziteta barve odraža velikost skupine (FTE: temnejša -\> več FTE)
+-   V zgornjem desnem kotu je meni (☰) kliknite in izberite: (pogled preko celega zaslona; prenos slike; prenos podatkov)
+-   S postavitvijo kurzorja na posamezen stolpec se izpišejo rezultati za izbrani program
+:::
+
+```{r}
+# Uporaba:
+graf_panel_programi(
+  podatki = a12_prog,
+  kazalnik = "kaz_raz",
+  naslov_levi = "A1/2 - pomembni dosežki/Raziskovalec",
+  naslov_ukc = "UKCL vodilna organizacija",
+  naslov_zunanji = "UKCL sodelujoča organizacija"
+)
+```
+
+### Tabela s podatki
+
+::: {.callout-note collapse="true" title=""}
+#### *S klikom na posamezen stolpec se spremeni vrstni red skupin.*
+:::
+
+```{r}
+#| column: page
+
+izpis_tab_prog_us(a12_prog, kaj = "A1/2 - pomembni dosežki")
+```
+::::::

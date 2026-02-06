@@ -1,4 +1,71 @@
 ---
 title: "Programske skupine"
 editor: visual
+sidebar: programske_skupine-sidebar
 ---
+
+```{r}
+library(here)
+source(here("R/setup_paketi.R"))
+source(here("R/funkcije_num_format_reactable.R"))
+source(here("R/uvoz_podatkov.R"))
+source(here("R/osnovni_podatki.R"))
+source(here("R/podatki_st_raz_fte_leto.R"))
+source(here("R/podatki_stevilo_projektov.R"))
+source(here("R/podatki_za_tabele_grafe.R"))
+source(here("R/funkcije_tabele.R"))
+```
+
+# Programske skupine (ARIS) {#programske-skupine}
+
+## UKCL vodilna ustanova
+
+V spodnji tabeli je prikazan seznam ***ARIS raziskovalnih in infrastrukturnih programov*** (programskih skupin), ki *so v teku* in kjer je vodilna ustanova UKC Ljubljana.\
+
+::: {.callout-note collapse="true" title=""}
+#### *S klikom na posamezen stolpec se spremeni vrstni red skupin.*
+:::
+
+```{r}
+#| echo: false
+tbl_07 # Programske skupine
+```
+
+\**FTE = Full-time equivalent (delež zaposlitve - status 'Raziskovalec').*\
+\*\**Št. org = število raziskovalnih organizacij, ki sodelujejo pri raziskovalnem programu.*
+
+## UKCL sodelujoča organizacija
+
+V spodnji tabeli je prikazan seznam aktivnih ARIS raziskovalnih programov, pri katerih je UKC Ljubljana sodelujoča organizacija.
+
+```{r}
+#| echo: false
+
+tbl_08 ## Programske skupine, UKCL sodeluje
+```
+
+## Zaključeni programi
+
+V spodnji tabeli so prikazani ARIS raziskovalni in infrastrukturni programi, ki so se izvajali v UKC Ljubljana. Prikazani so tako programi, kjer je bil UKCL vodilna ustanova, kot programi, kjer je bil UKCL sodelujoča ustanova.
+
+
+
+
+```{r}
+div(
+  style = "max-width: 250px; margin-bottom: 15px;",
+  tags$style(".control-label { font-weight: bold; font-style: italic; }"),
+  filter_select(
+    id = "filter_vodilna_org",
+    label = "Vodilna organizacija",
+    sharedData = shared_prog,
+    group = ~filter_org
+  )
+)
+```
+
+```{r}
+#| echo: false
+
+tbl_09     ## Zaključeni programi
+```

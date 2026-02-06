@@ -239,7 +239,8 @@ vsi_raz$researchload[is.na(vsi_raz$researchload)] <- 99
 t_final_researchers <-
   t_final_researchers %>% 
     left_join(
-      vsi_raz
+      vsi_raz,
+      by = c("vloga", "sicris_id_raz")
     ) %>% 
     mutate(researchload = if_else(researchload == 99 & vloga == "RSR", 20.0, researchload),    ## Za tiste, za katere  ni podatka, predpostavimo, da imajo 20%
            researchload = if_else(vloga == "TCH", 99, researchload))                           ## Strokovne sodelavce damo na 99

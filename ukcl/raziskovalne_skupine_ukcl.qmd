@@ -1,0 +1,38 @@
+---
+title: "Raziskovalne skupine"
+editor: visual
+---
+
+
+```{r}
+library(here)
+source(here("R/setup_paketi.R"))
+source(here("R/funkcije_num_format_reactable.R"))
+source(here("R/uvoz_podatkov.R"))
+source(here("R/osnovni_podatki.R"))
+source(here("R/podatki_st_raz_fte_leto.R"))
+source(here("R/podatki_stevilo_projektov.R"))
+source(here("R/podatki_za_tabele_grafe.R"))
+source(here("R/funkcije_tabele.R"))
+```
+
+
+# Raziskovalne skupine {#raziskovalne-skupine}
+
+V spodnji tabeli so prikazane ***Raziskovalne skupine*** registrirane pri ARIS.
+
+Za podrobnejši pregled o raziskovalnih skupinah glej: ["Raziskovalne skupine"](../raziskovalne_skupine.qmd).
+
+
+::: {.callout-tip collapse="true" title=""}
+#### *S klikom na posamezen stolpec se spremeni vrstni red skupin.*
+:::
+
+
+```{r}
+#| echo: false
+tbl_06
+```
+
+\**FTE = Full-time equivalent (delež zaposlitve - status 'Raziskovalec').*\
+\*\**Programi = ARIS raziskovalni programi, ki so v teku in je vodilna ustanova UKC Ljubljana*

@@ -49,22 +49,22 @@ website:
         - text: "Osnovni podatki"
           href: ukcl.qmd#osnovni-podatki
         - text: "Raziskovalne skupine"
-          href: ukcl.qmd#raziskovalne-skupine
+          href: ukcl/raziskovalne_skupine_ukcl.qmd
         - text: "Programske skupine"
-          href: ukcl.qmd#programske-skupine
+          href: programske_skupine.qmd
         - text: "<span style='color: coral;'>Raziskovalna uspešnost</span>"
           href: ukcl/raziskovalna_uspesnost_ukcl.qmd
     
-    - id: programske-sidebar
+    - id: programske_skupine-sidebar
       title: "Kazalniki"
       style: "docked"
       background: "#f8f9fa"
       contents:
         - text: "Osnovni podatki"
           href: programske_skupine.qmd#osnovni-podatki
-        - text: "Upoštevane točke"
-          href: programske_skupine.qmd#upostevane-tocke
-        - text: "Citati"
+        - text: "Raziskovalna uspešnost"
+          href: prog_skupine/raziskovalna_uspesnost_prog.qmd
+        - text: "Citiranost"
           href: programske_skupine.qmd#citati
   
   # Noga strani
