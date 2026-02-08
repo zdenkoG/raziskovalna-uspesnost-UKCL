@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -182,8 +216,50 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Na tej strani</h2>
+   
+  <ul>
+  <li><a href="#pregled-skript-in-podatkov" id="toc-pregled-skript-in-podatkov" class="nav-link active" data-scroll-target="#pregled-skript-in-podatkov">Pregled skript in podatkov</a>
+  <ul>
+  <li><a href="#struktura-skript" id="toc-struktura-skript" class="nav-link" data-scroll-target="#struktura-skript">Struktura skript</a></li>
+  <li><a href="#tok-podatkov" id="toc-tok-podatkov" class="nav-link" data-scroll-target="#tok-podatkov">Tok podatkov</a></li>
+  </ul></li>
+  <li><a href="#ključni-pojmi" id="toc-ključni-pojmi" class="nav-link" data-scroll-target="#ključni-pojmi">Ključni pojmi</a>
+  <ul>
+  <li><a href="#število-raziskovalcev-st_raz" id="toc-število-raziskovalcev-st_raz" class="nav-link" data-scroll-target="#število-raziskovalcev-st_raz">Število raziskovalcev (<code>st_raz</code>)</a></li>
+  <li><a href="#fte-full-time-equivalent-fte" id="toc-fte-full-time-equivalent-fte" class="nav-link" data-scroll-target="#fte-full-time-equivalent-fte">FTE – Full Time Equivalent (<code>fte</code>)</a></li>
+  <li><a href="#obdobja" id="toc-obdobja" class="nav-link" data-scroll-target="#obdobja">Obdobja</a></li>
+  </ul></li>
+  <li><a href="#kategorije-raziskovalne-uspešnosti" id="toc-kategorije-raziskovalne-uspešnosti" class="nav-link" data-scroll-target="#kategorije-raziskovalne-uspešnosti">Kategorije raziskovalne uspešnosti</a>
+  <ul>
+  <li><a href="#a1-točke-bibliometrično-vrednotenje" id="toc-a1-točke-bibliometrično-vrednotenje" class="nav-link" data-scroll-target="#a1-točke-bibliometrično-vrednotenje">A1 Točke (bibliometrično vrednotenje)</a></li>
+  <li><a href="#citiranost" id="toc-citiranost" class="nav-link" data-scroll-target="#citiranost">Citiranost</a></li>
+  </ul></li>
+  <li><a href="#tabela-kazalnikov" id="toc-tabela-kazalnikov" class="nav-link" data-scroll-target="#tabela-kazalnikov">Tabela kazalnikov</a>
+  <ul>
+  <li><a href="#kazalniki-za-točke-a1-objave" id="toc-kazalniki-za-točke-a1-objave" class="nav-link" data-scroll-target="#kazalniki-za-točke-a1-objave">Kazalniki za točke (A1 objave)</a></li>
+  <li><a href="#kazalniki-za-citiranost" id="toc-kazalniki-za-citiranost" class="nav-link" data-scroll-target="#kazalniki-za-citiranost">Kazalniki za citiranost</a></li>
+  <li><a href="#absolutni-kazalci-brez-imenovalca" id="toc-absolutni-kazalci-brez-imenovalca" class="nav-link" data-scroll-target="#absolutni-kazalci-brez-imenovalca">Absolutni kazalci (brez imenovalca)</a></li>
+  </ul></li>
+  <li><a href="#izračun-kazalnikov-podrobnosti-po-ravneh" id="toc-izračun-kazalnikov-podrobnosti-po-ravneh" class="nav-link" data-scroll-target="#izračun-kazalnikov-podrobnosti-po-ravneh">Izračun kazalnikov – podrobnosti po ravneh</a>
+  <ul>
+  <li><a href="#raven-ukcl-celotna-organizacija" id="toc-raven-ukcl-celotna-organizacija" class="nav-link" data-scroll-target="#raven-ukcl-celotna-organizacija">Raven UKCL (celotna organizacija)</a>
+  <ul class="collapse">
+  <li><a href="#po-petletnih-obdobjih" id="toc-po-petletnih-obdobjih" class="nav-link" data-scroll-target="#po-petletnih-obdobjih">Po petletnih obdobjih</a></li>
+  <li><a href="#po-posameznih-letih" id="toc-po-posameznih-letih" class="nav-link" data-scroll-target="#po-posameznih-letih">Po posameznih letih</a></li>
+  </ul></li>
+  <li><a href="#raven-programskih-skupin" id="toc-raven-programskih-skupin" class="nav-link" data-scroll-target="#raven-programskih-skupin">Raven programskih skupin</a></li>
+  </ul></li>
+  <li><a href="#prikaz-rezultatov" id="toc-prikaz-rezultatov" class="nav-link" data-scroll-target="#prikaz-rezultatov">Prikaz rezultatov</a>
+  <ul>
+  <li><a href="#tabele" id="toc-tabele" class="nav-link" data-scroll-target="#tabele">Tabele</a></li>
+  <li><a href="#grafi" id="toc-grafi" class="nav-link" data-scroll-target="#grafi">Grafi</a></li>
+  </ul></li>
+  <li><a href="#metodološke-opombe" id="toc-metodološke-opombe" class="nav-link" data-scroll-target="#metodološke-opombe">Metodološke opombe</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -207,8 +283,575 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>Na tej strani je opisana metodologija izračuna kazalnikov raziskovalne uspešnosti, ki se prikazujejo na spletni strani. Opisani so viri podatkov, formule za izračun in način prikaza rezultatov.</p>
+<hr>
+<section id="pregled-skript-in-podatkov" class="level2">
+<h2 class="anchored" data-anchor-id="pregled-skript-in-podatkov">Pregled skript in podatkov</h2>
+<p>Spodaj je opisan tok podatkov – katere skripte pripravljajo podatke, kje se izračunavajo kazalniki in kje se prikazujejo rezultati (tabele in slike).</p>
+<section id="struktura-skript" class="level3">
+<h3 class="anchored" data-anchor-id="struktura-skript">Struktura skript</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Skripta</th>
+<th>Opis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>R/setup_paketi.R</code></td>
+<td>Nalaganje R paketov (tidyverse, reactable, highcharter, …)</td>
+</tr>
+<tr class="even">
+<td><code>R/uvoz_podatkov.R</code></td>
+<td>Uvoz RDS podatkov iz mape <code>data/</code> (raziskovalci, programi, skupine, projekti, …)</td>
+</tr>
+<tr class="odd">
+<td><code>R/osnovni_podatki.R</code></td>
+<td>Izračun osnovnih metrik: število raziskovalcev, FTE, število programov in projektov</td>
+</tr>
+<tr class="even">
+<td><code>R/podatki_st_raz_fte_leto.R</code></td>
+<td>Priprava podatkov o številu raziskovalcev in FTE po posameznih letih</td>
+</tr>
+<tr class="odd">
+<td><code>R/podatki_za_raz_uspesnost.R</code></td>
+<td>Ekstrakcija točk in citatov iz HTML datotek (SICRIS) ter izračun kazalnikov za UKCL po <strong>petletnih obdobjih</strong></td>
+</tr>
+<tr class="even">
+<td><code>R/podatki_raziskovalna_uspesnost_leto.R</code></td>
+<td>Ekstrakcija točk iz HTML datotek ter izračun kazalnikov za UKCL po <strong>posameznih letih</strong></td>
+</tr>
+<tr class="odd">
+<td><code>R/funkcije_tabele_raziskovalna_uspesnost.R</code></td>
+<td>Funkcije za prikaz interaktivnih tabel (reactable)</td>
+</tr>
+<tr class="even">
+<td><code>R/podatki_za_tabele_grafe.R</code></td>
+<td>Priprava podatkov za tabele in grafe na ravni celotnega UKCL</td>
+</tr>
+<tr class="odd">
+<td><code>prog_skupine/podatki_raz_usp_prog.R</code></td>
+<td>Izračun kazalnikov za posamezne <strong>programske skupine</strong></td>
+</tr>
+<tr class="even">
+<td><code>prog_skupine/funkcija_kazalnik_tocke-citati_SLIKA.R</code></td>
+<td>Funkcije za generiranje interaktivnih grafov (highcharter) za programske skupine</td>
+</tr>
+<tr class="odd">
+<td><code>prog_skupine/funkcija_kazalnik_tocke-citati_TABELA.R</code></td>
+<td>Funkcije za generiranje tabel za programske skupine</td>
+</tr>
+<tr class="even">
+<td><code>ukcl/SLIKE_raziskovalna_uspesnost_tocke.R</code></td>
+<td>Grafi raziskovalne uspešnosti UKCL po petletnih obdobjih</td>
+</tr>
+<tr class="odd">
+<td><code>ukcl/SLIKE_raziskovalna_uspesnost_tocke_LETO.R</code></td>
+<td>Grafi raziskovalne uspešnosti UKCL po posameznih letih</td>
+</tr>
+<tr class="even">
+<td><code>ukcl/slika_fin_sredstva.R</code></td>
+<td>Grafi finančnih sredstev</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="tok-podatkov" class="level3">
+<h3 class="anchored" data-anchor-id="tok-podatkov">Tok podatkov</h3>
+<pre><code>SICRIS API / HTML datoteke / REDCap API
+          ↓
+   R/uvoz_podatkov.R  →  RDS datoteke (data/)
+          ↓
+   R/osnovni_podatki.R  →  st_raz, fte, ...
+   R/podatki_st_raz_fte_leto.R  →  raz_fte_leto (po letih)
+          ↓
+   R/podatki_za_raz_uspesnost.R  →  kazalniki UKCL (obdobja)
+   R/podatki_raziskovalna_uspesnost_leto.R  →  kazalniki UKCL (leta)
+   prog_skupine/podatki_raz_usp_prog.R  →  kazalniki programov
+          ↓
+   QMD datoteke  →  Tabele + Grafi (reactable, highcharter)</code></pre>
+<hr>
+</section>
+</section>
+<section id="ključni-pojmi" class="level2">
+<h2 class="anchored" data-anchor-id="ključni-pojmi">Ključni pojmi</h2>
+<section id="število-raziskovalcev-st_raz" class="level3">
+<h3 class="anchored" data-anchor-id="število-raziskovalcev-st_raz">Število raziskovalcev (<code>st_raz</code>)</h3>
+<p>Število zaposlenih v UKC Ljubljana, ki so pri ARIS-u (Agencija za raziskovalno in inovacijsko dejavnost) registrirani s statusom <strong>“Raziskovalec”</strong>.</p>
+<p><strong>Formula:</strong> <code>st_raz = sum(vloga == "Raziskovalec")</code></p>
+<p><strong>Vir:</strong> SICRIS API – seznam raziskovalcev organizacije 618 (UKCL)</p>
+</section>
+<section id="fte-full-time-equivalent-fte" class="level3">
+<h3 class="anchored" data-anchor-id="fte-full-time-equivalent-fte">FTE – Full Time Equivalent (<code>fte</code>)</h3>
+<p>Skupni delež zaposlitve za raziskovalno dejavnost, preračunan na polni delovni čas. Delež zaposlitve posameznega raziskovalca je izražen v odstotkih (npr. 100 = polni delovni čas za raziskovanje).</p>
+<p><strong>Formula:</strong> <code>fte = sum(del_zap) / 100</code></p>
+<p><strong>Vir:</strong> SICRIS API – polje <code>researchload</code> za vsakega raziskovalca</p>
+<p><strong>Primer:</strong> Če ima organizacija 3 raziskovalce z deleži zaposlitve 100%, 50% in 75%, je FTE = (100 + 50 + 75) / 100 = 2,25.</p>
+</section>
+<section id="obdobja" class="level3">
+<h3 class="anchored" data-anchor-id="obdobja">Obdobja</h3>
+<ul>
+<li><strong>Petletno obdobje</strong> (za točke): npr. rezultat za leto 2025 je seštevek točk v obdobju 2021–2025.</li>
+<li><strong>Desetletno obdobje</strong> (za citate): npr. rezultat za leto 2025 je seštevek citatov v obdobju 2015–2025.</li>
+<li><strong>Posamezno leto</strong>: rezultat za eno koledarsko leto (npr. od 01.01.2025 do 31.12.2025).</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="kategorije-raziskovalne-uspešnosti" class="level2">
+<h2 class="anchored" data-anchor-id="kategorije-raziskovalne-uspešnosti">Kategorije raziskovalne uspešnosti</h2>
+<section id="a1-točke-bibliometrično-vrednotenje" class="level3">
+<h3 class="anchored" data-anchor-id="a1-točke-bibliometrično-vrednotenje">A1 Točke (bibliometrično vrednotenje)</h3>
+<p>Točke so razvrščene v naslednje kategorije (po metodologiji SICRIS):</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Kategorija</th>
+<th>Opis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Upoštevane točke</strong></td>
+<td>Skupno število vseh upoštevanih točk (<code>a11</code>)</td>
+</tr>
+<tr class="even">
+<td><strong>A’’ – izjemni dosežki</strong></td>
+<td>Točke za izjemne dosežke (<code>aII</code>)</td>
+</tr>
+<tr class="odd">
+<td><strong>A’ – zelo kvalitetni dosežki</strong></td>
+<td>Točke za zelo kvalitetne dosežke (<code>aI</code>)</td>
+</tr>
+<tr class="even">
+<td><strong>A1/2 – pomembni dosežki</strong></td>
+<td>Točke za pomembne dosežke (<code>a12</code>)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="citiranost" class="level3">
+<h3 class="anchored" data-anchor-id="citiranost">Citiranost</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Kazalec</th>
+<th>Opis</th>
+<th>Obdobje</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>CI10</strong></td>
+<td>Število čistih citatov znanstvenih del</td>
+<td>Zadnjih 10 let</td>
+</tr>
+<tr class="even">
+<td><strong>CImax</strong></td>
+<td>Število citatov najodmevnejšega (najbolj citiranega) dela</td>
+<td>Zadnjih 10 let</td>
+</tr>
+<tr class="odd">
+<td><strong>H-indeks</strong></td>
+<td>H-indeks – raziskovalec/skupina ima h-indeks <em>h</em>, če ima <em>h</em> del, od katerih je vsako citirano vsaj <em>h</em>-krat</td>
+<td>Zadnjih 10 let</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+</section>
+<section id="tabela-kazalnikov" class="level2">
+<h2 class="anchored" data-anchor-id="tabela-kazalnikov">Tabela kazalnikov</h2>
+<p>Spodaj so navedeni vsi izračunani kazalniki uspešnosti z opisi, formulami in viri.</p>
+<section id="kazalniki-za-točke-a1-objave" class="level3">
+<h3 class="anchored" data-anchor-id="kazalniki-za-točke-a1-objave">Kazalniki za točke (A1 objave)</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Kazalnik</th>
+<th>Namen</th>
+<th>Števec</th>
+<th>Imenovalec</th>
+<th>Formula</th>
+<th>Enota</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Točke/FTE</strong></td>
+<td>Produktivnost na enoto raziskovalnega časa</td>
+<td>Upoštevane točke (<code>a11</code>)</td>
+<td>FTE (<code>fte</code>)</td>
+<td><code>round(tocke / fte, 1)</code></td>
+<td>točke/FTE</td>
+</tr>
+<tr class="even">
+<td><strong>Točke/raziskovalec</strong></td>
+<td>Produktivnost na raziskovalca</td>
+<td>Upoštevane točke (<code>a11</code>)</td>
+<td>Št. raziskovalcev (<code>st_raz</code>)</td>
+<td><code>round(tocke / st_raz, 1)</code></td>
+<td>točke/raz</td>
+</tr>
+<tr class="odd">
+<td><strong>A’’/FTE</strong></td>
+<td>Izjemni dosežki na enoto časa</td>
+<td>A’’ točke (<code>aII</code>)</td>
+<td>FTE (<code>fte</code>)</td>
+<td><code>round(aII / fte, 1)</code></td>
+<td>točke/FTE</td>
+</tr>
+<tr class="even">
+<td><strong>A’’/raziskovalec</strong></td>
+<td>Izjemni dosežki na raziskovalca</td>
+<td>A’’ točke (<code>aII</code>)</td>
+<td>Št. raziskovalcev (<code>st_raz</code> ali <code>raz</code>)</td>
+<td><code>round(aII / raz)</code></td>
+<td>točke/raz</td>
+</tr>
+<tr class="odd">
+<td><strong>A’/FTE</strong></td>
+<td>Zelo kvalitetni dosežki na enoto časa</td>
+<td>A’ točke (<code>aI</code>)</td>
+<td>FTE (<code>fte</code>)</td>
+<td><code>round(aI / fte, 1)</code></td>
+<td>točke/FTE</td>
+</tr>
+<tr class="even">
+<td><strong>A’/raziskovalec</strong></td>
+<td>Zelo kvalitetni dosežki na raziskovalca</td>
+<td>A’ točke (<code>aI</code>)</td>
+<td>Št. raziskovalcev (<code>st_raz</code> ali <code>raz</code>)</td>
+<td><code>round(aI / raz)</code></td>
+<td>točke/raz</td>
+</tr>
+<tr class="odd">
+<td><strong>A1/2/FTE</strong></td>
+<td>Pomembni dosežki na enoto časa</td>
+<td>A1/2 točke (<code>a12</code>)</td>
+<td>FTE (<code>fte</code>)</td>
+<td><code>round(a12 / fte, 1)</code></td>
+<td>točke/FTE</td>
+</tr>
+<tr class="even">
+<td><strong>A1/2/raziskovalec</strong></td>
+<td>Pomembni dosežki na raziskovalca</td>
+<td>A1/2 točke (<code>a12</code>)</td>
+<td>Št. raziskovalcev (<code>st_raz</code> ali <code>raz</code>)</td>
+<td><code>round(a12 / raz)</code></td>
+<td>točke/raz</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="kazalniki-za-citiranost" class="level3">
+<h3 class="anchored" data-anchor-id="kazalniki-za-citiranost">Kazalniki za citiranost</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Kazalnik</th>
+<th>Namen</th>
+<th>Števec</th>
+<th>Imenovalec</th>
+<th>Formula</th>
+<th>Enota</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>CI10/FTE</strong></td>
+<td>Citiranost na enoto raziskovalnega časa</td>
+<td>Čisti citati (<code>ci10</code>)</td>
+<td>FTE (<code>fte</code>)</td>
+<td><code>round(citati / fte, 1)</code></td>
+<td>citati/FTE</td>
+</tr>
+<tr class="even">
+<td><strong>CI10/raziskovalec</strong></td>
+<td>Citiranost na raziskovalca</td>
+<td>Čisti citati (<code>ci10</code>)</td>
+<td>Št. raziskovalcev (<code>st_raz</code> ali <code>raz</code>)</td>
+<td><code>round(citati / st_raz, 1)</code></td>
+<td>citati/raz</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="absolutni-kazalci-brez-imenovalca" class="level3">
+<h3 class="anchored" data-anchor-id="absolutni-kazalci-brez-imenovalca">Absolutni kazalci (brez imenovalca)</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Kazalec</th>
+<th>Namen</th>
+<th>Opis</th>
+<th>Opomba</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>CImax</strong></td>
+<td>Najodmevnejše delo</td>
+<td>Število citatov najbolj citiranega dela v zadnjih 10 letih</td>
+<td>Kazalnik na FTE/raz ni smiseln, zato se prikazuje le absolutna vrednost</td>
+</tr>
+<tr class="even">
+<td><strong>H-indeks</strong></td>
+<td>H-indeks</td>
+<td>Raziskovalec/skupina ima <em>h</em> del, od katerih je vsako citirano vsaj <em>h</em>-krat</td>
+<td>Kazalnik na FTE/raz ni smiseln, zato se prikazuje le absolutna vrednost</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+</section>
+<section id="izračun-kazalnikov-podrobnosti-po-ravneh" class="level2">
+<h2 class="anchored" data-anchor-id="izračun-kazalnikov-podrobnosti-po-ravneh">Izračun kazalnikov – podrobnosti po ravneh</h2>
+<section id="raven-ukcl-celotna-organizacija" class="level3">
+<h3 class="anchored" data-anchor-id="raven-ukcl-celotna-organizacija">Raven UKCL (celotna organizacija)</h3>
+<section id="po-petletnih-obdobjih" class="level4">
+<h4 class="anchored" data-anchor-id="po-petletnih-obdobjih">Po petletnih obdobjih</h4>
+<p><strong>Skripta:</strong> <code>R/podatki_za_raz_uspesnost.R</code></p>
+<p>Podatki se pridobijo iz HTML datotek v mapi <code>uspesnost_HTML/</code>. Iz HTML-ja se s funkcijo <code>extract_tocke()</code> izluščijo tabele s točkami po petletnih obdobjih. Podatki o številu raziskovalcev in FTE za posamezno leto so pripravljeni v tabeli <code>raz_fte_leto</code>.</p>
+<p><strong>Izračun:</strong></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tabela_kaz_tocke_ukcl <span class="ot">&lt;-</span> tocke_po_letih <span class="sc">%&gt;%</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(raz_fte_leto, <span class="at">by =</span> <span class="st">"leto"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">kaz_fte =</span> <span class="fu">round</span>(tocke <span class="sc">/</span> fte, <span class="dv">1</span>),</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">kaz_raz =</span> <span class="fu">round</span>(tocke <span class="sc">/</span> st_raz, <span class="dv">1</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Rezultat – tabele:</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tabela</th>
+<th>Vsebina</th>
+<th>Prikaz</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>up_tocke_obd</code></td>
+<td>Upoštevane točke po petletnih obdobjih</td>
+<td>Tabela + graf (panel: FTE / raziskovalec)</td>
+</tr>
+<tr class="even">
+<td><code>a2_obd</code></td>
+<td>A’’ točke po petletnih obdobjih</td>
+<td>Tabela + graf</td>
+</tr>
+<tr class="odd">
+<td><code>a1_obd</code></td>
+<td>A’ točke po petletnih obdobjih</td>
+<td>Tabela + graf</td>
+</tr>
+<tr class="even">
+<td><code>a1_2_obd</code></td>
+<td>A1/2 točke po petletnih obdobjih</td>
+<td>Tabela + graf</td>
+</tr>
+<tr class="odd">
+<td><code>ci10</code></td>
+<td>Čisti citati (CI10) po desetletnih obdobjih</td>
+<td>Tabela + graf</td>
+</tr>
+<tr class="even">
+<td><code>cimax_hind</code></td>
+<td>CImax in H-indeks po desetletnih obdobjih</td>
+<td>Tabela + graf</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="po-posameznih-letih" class="level4">
+<h4 class="anchored" data-anchor-id="po-posameznih-letih">Po posameznih letih</h4>
+<p><strong>Skripta:</strong> <code>R/podatki_raziskovalna_uspesnost_leto.R</code></p>
+<p>Podatki se pridobijo iz HTML datotek v mapi <code>UKCL_HTML/</code>. Razlika od petletnih obdobij je, da gre za podatke za posamezno koledarsko leto.</p>
+<p><strong>Rezultat – tabele:</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tabela</th>
+<th>Vsebina</th>
+<th>Prikaz</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>up_tocke_leto</code></td>
+<td>Upoštevane točke po posameznih letih</td>
+<td>Tabela + graf</td>
+</tr>
+<tr class="even">
+<td><code>a2_leto</code></td>
+<td>A’’ točke po posameznih letih</td>
+<td>Tabela + graf</td>
+</tr>
+<tr class="odd">
+<td><code>a1_leto</code></td>
+<td>A’ točke po posameznih letih</td>
+<td>Tabela + graf</td>
+</tr>
+<tr class="even">
+<td><code>a1_2_leto</code></td>
+<td>A1/2 točke po posameznih letih</td>
+<td>Tabela + graf</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="raven-programskih-skupin" class="level3">
+<h3 class="anchored" data-anchor-id="raven-programskih-skupin">Raven programskih skupin</h3>
+<p><strong>Skripta:</strong> <code>prog_skupine/podatki_raz_usp_prog.R</code></p>
+<p>Za vsako aktivno programsko skupino (program, ki še ni zaključen) se iz podatkov SICRIS izračunajo kazalniki s funkcijo <code>izracunaj_kazalnike()</code>.</p>
+<p><strong>Izračun:</strong></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>izracunaj_kazalnike <span class="ot">&lt;-</span> <span class="cf">function</span>(kazalnik, <span class="at">podatki =</span> prog_v_teku) {</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  podatki <span class="sc">%&gt;%</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(code, vodja, name, raz, fte, <span class="fu">all_of</span>(kazalnik), ukc_vod) <span class="sc">%&gt;%</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">kaz_fte =</span> <span class="fu">round</span>(.data[[kazalnik]] <span class="sc">/</span> fte, <span class="at">digits =</span> <span class="dv">1</span>),</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">kaz_raz =</span> <span class="fu">round</span>(.data[[kazalnik]] <span class="sc">/</span> raz)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Tu sta <code>raz</code> in <code>fte</code> iz podatkov posamezne programske skupine (SICRIS), ne celotnega UKCL.</p>
+<p><strong>Rezultat – tabele:</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tabela</th>
+<th>Vsebina</th>
+<th>Prikaz</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>up_tocke</code></td>
+<td>Upoštevane točke po programih</td>
+<td>Graf (stolpični) + tabela</td>
+</tr>
+<tr class="even">
+<td><code>aII_prog</code></td>
+<td>A’’ točke po programih</td>
+<td>Graf + tabela</td>
+</tr>
+<tr class="odd">
+<td><code>aI_prog</code></td>
+<td>A’ točke po programih</td>
+<td>Graf + tabela</td>
+</tr>
+<tr class="even">
+<td><code>a12_prog</code></td>
+<td>A1/2 točke po programih</td>
+<td>Graf + tabela</td>
+</tr>
+<tr class="odd">
+<td><code>ci10_prog</code></td>
+<td>CI10 čisti citati po programih</td>
+<td>Graf + tabela</td>
+</tr>
+<tr class="even">
+<td><code>cit_prog</code></td>
+<td>CImax in H-indeks po programih</td>
+<td>Graf + tabela</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+</section>
+<section id="prikaz-rezultatov" class="level2">
+<h2 class="anchored" data-anchor-id="prikaz-rezultatov">Prikaz rezultatov</h2>
+<section id="tabele" class="level3">
+<h3 class="anchored" data-anchor-id="tabele">Tabele</h3>
+<p>Vse tabele so prikazane kot interaktivne tabele (paket <strong>reactable</strong>). Uporabnik lahko klikne na posamezen stolpec za spremembo vrstnega reda. Številske vrednosti so formatirane v slovenski notaciji (pika za tisočice, vejica za decimalna mesta).</p>
+</section>
+<section id="grafi" class="level3">
+<h3 class="anchored" data-anchor-id="grafi">Grafi</h3>
+<p>Grafi so generirani s paketom <strong>highcharter</strong> in so interaktivni:</p>
+<ul>
+<li><strong>Stolpični grafi</strong> prikazujejo absolutne vrednosti in kazalnike za posamezna obdobja/leta ali programske skupine.</li>
+<li><strong>Barvna shema:</strong> modri stolpci = UKCL vodilna organizacija; sivi stolpci = UKCL sodelujoča organizacija. Intenziteta barve odraža velikost skupine (FTE).</li>
+<li>V desnem zgornjem kotu grafa je meni za prenos slike ali podatkov.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="metodološke-opombe" class="level2">
+<h2 class="anchored" data-anchor-id="metodološke-opombe">Metodološke opombe</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Omejitve podatkov
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Podatki o številu raziskovalcev in FTE <strong>za leta pred 2023 niso na voljo</strong>. Za izračun kazalnikov za ta leta je uporabljen podatek iz leta 2023.</li>
+<li><strong>CImax</strong> in <strong>H-indeks</strong> sta absolutna kazalca – deljenje s FTE ali številom raziskovalcev ni smiselno, zato se prikazujeta le kot absolutni vrednosti.</li>
+<li>Pri programskih skupinah se za <code>raz</code> in <code>fte</code> v imenovalcu uporabijo podatki iz posameznega programa (ne celotnega UKCL).</li>
+</ul>
+</div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

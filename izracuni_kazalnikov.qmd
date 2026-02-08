@@ -1,4 +1,242 @@
 ---
 title: "Izračuni kazalnikov"
+sidebar: false
 editor: visual
 ---
+
+Na tej strani je opisana metodologija izračuna kazalnikov raziskovalne uspešnosti, ki se prikazujejo na spletni strani. Opisani so viri podatkov, formule za izračun in način prikaza rezultatov.
+
+------------------------------------------------------------------------
+
+## Pregled skript in podatkov
+
+Spodaj je opisan tok podatkov -- katere skripte pripravljajo podatke, kje se izračunavajo kazalniki in kje se prikazujejo rezultati (tabele in slike).
+
+### Struktura skript
+
+| Skripta | Opis |
+|---|---|
+| `R/setup_paketi.R` | Nalaganje R paketov (tidyverse, reactable, highcharter, ...) |
+| `R/uvoz_podatkov.R` | Uvoz RDS podatkov iz mape `data/` (raziskovalci, programi, skupine, projekti, ...) |
+| `R/osnovni_podatki.R` | Izračun osnovnih metrik: število raziskovalcev, FTE, število programov in projektov |
+| `R/podatki_st_raz_fte_leto.R` | Priprava podatkov o številu raziskovalcev in FTE po posameznih letih |
+| `R/podatki_za_raz_uspesnost.R` | Ekstrakcija točk in citatov iz HTML datotek (SICRIS) ter izračun kazalnikov za UKCL po **petletnih obdobjih** |
+| `R/podatki_raziskovalna_uspesnost_leto.R` | Ekstrakcija točk iz HTML datotek ter izračun kazalnikov za UKCL po **posameznih letih** |
+| `R/funkcije_tabele_raziskovalna_uspesnost.R` | Funkcije za prikaz interaktivnih tabel (reactable) |
+| `R/podatki_za_tabele_grafe.R` | Priprava podatkov za tabele in grafe na ravni celotnega UKCL |
+| `prog_skupine/podatki_raz_usp_prog.R` | Izračun kazalnikov za posamezne **programske skupine** |
+| `prog_skupine/funkcija_kazalnik_tocke-citati_SLIKA.R` | Funkcije za generiranje interaktivnih grafov (highcharter) za programske skupine |
+| `prog_skupine/funkcija_kazalnik_tocke-citati_TABELA.R` | Funkcije za generiranje tabel za programske skupine |
+| `ukcl/SLIKE_raziskovalna_uspesnost_tocke.R` | Grafi raziskovalne uspešnosti UKCL po petletnih obdobjih |
+| `ukcl/SLIKE_raziskovalna_uspesnost_tocke_LETO.R` | Grafi raziskovalne uspešnosti UKCL po posameznih letih |
+| `ukcl/slika_fin_sredstva.R` | Grafi finančnih sredstev |
+
+### Tok podatkov
+
+```
+SICRIS API / HTML datoteke / REDCap API
+          ↓
+   R/uvoz_podatkov.R  →  RDS datoteke (data/)
+          ↓
+   R/osnovni_podatki.R  →  st_raz, fte, ...
+   R/podatki_st_raz_fte_leto.R  →  raz_fte_leto (po letih)
+          ↓
+   R/podatki_za_raz_uspesnost.R  →  kazalniki UKCL (obdobja)
+   R/podatki_raziskovalna_uspesnost_leto.R  →  kazalniki UKCL (leta)
+   prog_skupine/podatki_raz_usp_prog.R  →  kazalniki programov
+          ↓
+   QMD datoteke  →  Tabele + Grafi (reactable, highcharter)
+```
+
+------------------------------------------------------------------------
+
+## Ključni pojmi
+
+### Število raziskovalcev (`st_raz`)
+
+Število zaposlenih v UKC Ljubljana, ki so pri ARIS-u (Agencija za raziskovalno in inovacijsko dejavnost) registrirani s statusom **"Raziskovalec"**.
+
+**Formula:** `st_raz = sum(vloga == "Raziskovalec")`
+
+**Vir:** SICRIS API -- seznam raziskovalcev organizacije 618 (UKCL)
+
+### FTE -- Full Time Equivalent (`fte`)
+
+Skupni delež zaposlitve za raziskovalno dejavnost, preračunan na polni delovni čas. Delež zaposlitve posameznega raziskovalca je izražen v odstotkih (npr. 100 = polni delovni čas za raziskovanje).
+
+**Formula:** `fte = sum(del_zap) / 100`
+
+**Vir:** SICRIS API -- polje `researchload` za vsakega raziskovalca
+
+**Primer:** Če ima organizacija 3 raziskovalce z deleži zaposlitve 100%, 50% in 75%, je FTE = (100 + 50 + 75) / 100 = 2,25.
+
+### Obdobja
+
+-   **Petletno obdobje** (za točke): npr. rezultat za leto 2025 je seštevek točk v obdobju 2021--2025.
+-   **Desetletno obdobje** (za citate): npr. rezultat za leto 2025 je seštevek citatov v obdobju 2015--2025.
+-   **Posamezno leto**: rezultat za eno koledarsko leto (npr. od 01.01.2025 do 31.12.2025).
+
+------------------------------------------------------------------------
+
+## Kategorije raziskovalne uspešnosti
+
+### A1 Točke (bibliometrično vrednotenje)
+
+Točke so razvrščene v naslednje kategorije (po metodologiji SICRIS):
+
+| Kategorija | Opis |
+|---|---|
+| **Upoštevane točke** | Skupno število vseh upoštevanih točk (`a11`) |
+| **A'' -- izjemni dosežki** | Točke za izjemne dosežke (`aII`) |
+| **A' -- zelo kvalitetni dosežki** | Točke za zelo kvalitetne dosežke (`aI`) |
+| **A1/2 -- pomembni dosežki** | Točke za pomembne dosežke (`a12`) |
+
+### Citiranost
+
+| Kazalec | Opis | Obdobje |
+|---|---|---|
+| **CI10** | Število čistih citatov znanstvenih del | Zadnjih 10 let |
+| **CImax** | Število citatov najodmevnejšega (najbolj citiranega) dela | Zadnjih 10 let |
+| **H-indeks** | H-indeks -- raziskovalec/skupina ima h-indeks *h*, če ima *h* del, od katerih je vsako citirano vsaj *h*-krat | Zadnjih 10 let |
+
+------------------------------------------------------------------------
+
+## Tabela kazalnikov
+
+Spodaj so navedeni vsi izračunani kazalniki uspešnosti z opisi, formulami in viri.
+
+### Kazalniki za točke (A1 objave)
+
+| Kazalnik | Namen | Števec | Imenovalec | Formula | Enota |
+|---|---|---|---|---|---|
+| **Točke/FTE** | Produktivnost na enoto raziskovalnega časa | Upoštevane točke (`a11`) | FTE (`fte`) | `round(tocke / fte, 1)` | točke/FTE |
+| **Točke/raziskovalec** | Produktivnost na raziskovalca | Upoštevane točke (`a11`) | Št. raziskovalcev (`st_raz`) | `round(tocke / st_raz, 1)` | točke/raz |
+| **A''/FTE** | Izjemni dosežki na enoto časa | A'' točke (`aII`) | FTE (`fte`) | `round(aII / fte, 1)` | točke/FTE |
+| **A''/raziskovalec** | Izjemni dosežki na raziskovalca | A'' točke (`aII`) | Št. raziskovalcev (`st_raz` ali `raz`) | `round(aII / raz)` | točke/raz |
+| **A'/FTE** | Zelo kvalitetni dosežki na enoto časa | A' točke (`aI`) | FTE (`fte`) | `round(aI / fte, 1)` | točke/FTE |
+| **A'/raziskovalec** | Zelo kvalitetni dosežki na raziskovalca | A' točke (`aI`) | Št. raziskovalcev (`st_raz` ali `raz`) | `round(aI / raz)` | točke/raz |
+| **A1/2/FTE** | Pomembni dosežki na enoto časa | A1/2 točke (`a12`) | FTE (`fte`) | `round(a12 / fte, 1)` | točke/FTE |
+| **A1/2/raziskovalec** | Pomembni dosežki na raziskovalca | A1/2 točke (`a12`) | Št. raziskovalcev (`st_raz` ali `raz`) | `round(a12 / raz)` | točke/raz |
+
+### Kazalniki za citiranost
+
+| Kazalnik | Namen | Števec | Imenovalec | Formula | Enota |
+|---|---|---|---|---|---|
+| **CI10/FTE** | Citiranost na enoto raziskovalnega časa | Čisti citati (`ci10`) | FTE (`fte`) | `round(citati / fte, 1)` | citati/FTE |
+| **CI10/raziskovalec** | Citiranost na raziskovalca | Čisti citati (`ci10`) | Št. raziskovalcev (`st_raz` ali `raz`) | `round(citati / st_raz, 1)` | citati/raz |
+
+### Absolutni kazalci (brez imenovalca)
+
+| Kazalec | Namen | Opis | Opomba |
+|---|---|---|---|
+| **CImax** | Najodmevnejše delo | Število citatov najbolj citiranega dela v zadnjih 10 letih | Kazalnik na FTE/raz ni smiseln, zato se prikazuje le absolutna vrednost |
+| **H-indeks** | H-indeks | Raziskovalec/skupina ima *h* del, od katerih je vsako citirano vsaj *h*-krat | Kazalnik na FTE/raz ni smiseln, zato se prikazuje le absolutna vrednost |
+
+------------------------------------------------------------------------
+
+## Izračun kazalnikov -- podrobnosti po ravneh
+
+### Raven UKCL (celotna organizacija)
+
+#### Po petletnih obdobjih
+
+**Skripta:** `R/podatki_za_raz_uspesnost.R`
+
+Podatki se pridobijo iz HTML datotek v mapi `uspesnost_HTML/`. Iz HTML-ja se s funkcijo `extract_tocke()` izluščijo tabele s točkami po petletnih obdobjih. Podatki o številu raziskovalcev in FTE za posamezno leto so pripravljeni v tabeli `raz_fte_leto`.
+
+**Izračun:**
+
+``` r
+tabela_kaz_tocke_ukcl <- tocke_po_letih %>%
+  left_join(raz_fte_leto, by = "leto") %>%
+  mutate(
+    kaz_fte = round(tocke / fte, 1),
+    kaz_raz = round(tocke / st_raz, 1)
+  )
+```
+
+**Rezultat -- tabele:**
+
+| Tabela | Vsebina | Prikaz |
+|---|---|---|
+| `up_tocke_obd` | Upoštevane točke po petletnih obdobjih | Tabela + graf (panel: FTE / raziskovalec) |
+| `a2_obd` | A'' točke po petletnih obdobjih | Tabela + graf |
+| `a1_obd` | A' točke po petletnih obdobjih | Tabela + graf |
+| `a1_2_obd` | A1/2 točke po petletnih obdobjih | Tabela + graf |
+| `ci10` | Čisti citati (CI10) po desetletnih obdobjih | Tabela + graf |
+| `cimax_hind` | CImax in H-indeks po desetletnih obdobjih | Tabela + graf |
+
+#### Po posameznih letih
+
+**Skripta:** `R/podatki_raziskovalna_uspesnost_leto.R`
+
+Podatki se pridobijo iz HTML datotek v mapi `UKCL_HTML/`. Razlika od petletnih obdobij je, da gre za podatke za posamezno koledarsko leto.
+
+**Rezultat -- tabele:**
+
+| Tabela | Vsebina | Prikaz |
+|---|---|---|
+| `up_tocke_leto` | Upoštevane točke po posameznih letih | Tabela + graf |
+| `a2_leto` | A'' točke po posameznih letih | Tabela + graf |
+| `a1_leto` | A' točke po posameznih letih | Tabela + graf |
+| `a1_2_leto` | A1/2 točke po posameznih letih | Tabela + graf |
+
+### Raven programskih skupin
+
+**Skripta:** `prog_skupine/podatki_raz_usp_prog.R`
+
+Za vsako aktivno programsko skupino (program, ki še ni zaključen) se iz podatkov SICRIS izračunajo kazalniki s funkcijo `izracunaj_kazalnike()`.
+
+**Izračun:**
+
+``` r
+izracunaj_kazalnike <- function(kazalnik, podatki = prog_v_teku) {
+  podatki %>%
+    select(code, vodja, name, raz, fte, all_of(kazalnik), ukc_vod) %>%
+    mutate(
+      kaz_fte = round(.data[[kazalnik]] / fte, digits = 1),
+      kaz_raz = round(.data[[kazalnik]] / raz)
+    )
+}
+```
+
+Tu sta `raz` in `fte` iz podatkov posamezne programske skupine (SICRIS), ne celotnega UKCL.
+
+**Rezultat -- tabele:**
+
+| Tabela | Vsebina | Prikaz |
+|---|---|---|
+| `up_tocke` | Upoštevane točke po programih | Graf (stolpični) + tabela |
+| `aII_prog` | A'' točke po programih | Graf + tabela |
+| `aI_prog` | A' točke po programih | Graf + tabela |
+| `a12_prog` | A1/2 točke po programih | Graf + tabela |
+| `ci10_prog` | CI10 čisti citati po programih | Graf + tabela |
+| `cit_prog` | CImax in H-indeks po programih | Graf + tabela |
+
+------------------------------------------------------------------------
+
+## Prikaz rezultatov
+
+### Tabele
+
+Vse tabele so prikazane kot interaktivne tabele (paket **reactable**). Uporabnik lahko klikne na posamezen stolpec za spremembo vrstnega reda. Številske vrednosti so formatirane v slovenski notaciji (pika za tisočice, vejica za decimalna mesta).
+
+### Grafi
+
+Grafi so generirani s paketom **highcharter** in so interaktivni:
+
+-   **Stolpični grafi** prikazujejo absolutne vrednosti in kazalnike za posamezna obdobja/leta ali programske skupine.
+-   **Barvna shema:** modri stolpci = UKCL vodilna organizacija; sivi stolpci = UKCL sodelujoča organizacija. Intenziteta barve odraža velikost skupine (FTE).
+-   V desnem zgornjem kotu grafa je meni za prenos slike ali podatkov.
+
+------------------------------------------------------------------------
+
+## Metodološke opombe
+
+::: callout-warning
+### Omejitve podatkov
+
+-   Podatki o številu raziskovalcev in FTE **za leta pred 2023 niso na voljo**. Za izračun kazalnikov za ta leta je uporabljen podatek iz leta 2023.
+-   **CImax** in **H-indeks** sta absolutna kazalca -- deljenje s FTE ali številom raziskovalcev ni smiselno, zato se prikazujeta le kot absolutni vrednosti.
+-   Pri programskih skupinah se za `raz` in `fte` v imenovalcu uporabijo podatki iz posameznega programa (ne celotnega UKCL).
+:::

@@ -1,5 +1,47 @@
 [
   {
+    "objectID": "viri_podatkov.html",
+    "href": "viri_podatkov.html",
+    "title": "Viri podatkov",
+    "section": "",
+    "text": "Podatki, ki se prikazujejo na tej spletni strani, se pridobivajo iz dveh glavnih virov: SICRIS (API) in REDCap (API). Poleg tega se del podatkov uvozi iz ročno shranjenih HTML datotek iz SICRIS-a za zgodovinske podatke po letih."
+  },
+  {
+    "objectID": "viri_podatkov.html#sicris-informacijski-sistem-o-raziskovalni-dejavnosti-v-sloveniji",
+    "href": "viri_podatkov.html#sicris-informacijski-sistem-o-raziskovalni-dejavnosti-v-sloveniji",
+    "title": "Viri podatkov",
+    "section": "SICRIS (Informacijski sistem o raziskovalni dejavnosti v Sloveniji)",
+    "text": "SICRIS (Informacijski sistem o raziskovalni dejavnosti v Sloveniji)\nGlavni vir podatkov je sistem SICRIS , iz katerega se podatki pridobivajo programsko preko REST API vmesnika (cris.cobiss.net/ecris/si/sl/service/). Dostop do API-ja zahteva avtentikacijo z JWT žetonom.\n\nPodatki, ki se pridobivajo iz SICRIS-a\n\nPodatki o organizaciji (UKC Ljubljana)\nIz API končne točke za organizacijo 618 (UKC Ljubljana) se pridobijo:\n\nRaziskovalci – seznam vseh raziskovalcev, registriranih pri UKCL (ime, SICRIS ID, evidenčna številka, vloga)\nRaziskovalne skupine – vse raziskovalne skupine UKCL\nProgramske skupine – vsi programi ARIS, kjer sodeluje UKCL\nProjekti ARIS – vsi projekti ARIS, kjer sodeluje UKCL\nMentorji mladim raziskovalcem – seznam mentorjev\nBibliometrični kazalniki (točke) – vrednotenje raziskovalne uspešnosti (A1 točke, A’‘, A’, A1/2, CI10, CImax, H-indeks …)\nCitiranost – podatki iz baz Web of Science in Scopus\n\n\n\nPodatki o posameznih raziskovalcih\nZa vsakega raziskovalca UKCL se iz API-ja pridobijo:\n\nTočke (evaluation) – bibliometrični kazalniki\nCitiranost (cit) – podatki o citiranosti\nE-mail – kontaktni podatki\nDelež zaposlitve (researchload) – delež zaposlitve namenjen raziskovanju (FTE)\nProgrami – članstvo v programskih skupinah\nProjekti ARIS – sodelovanje pri projektih\nMladi raziskovalci – mentorstvo mladim raziskovalcem\n\n\n\nPodatki o raziskovalnih skupinah\nZa vsako raziskovalno skupino se pridobijo:\n\nČlani skupine – seznam raziskovalcev\nTočke – bibliometrični kazalniki skupine\nCitiranost – citiranost skupine\n\n\n\nPodatki o programskih skupinah in projektih ARIS\nZa vsak program in projekt se pridobijo:\n\nOsnovni podatki – šifra, naziv, trajanje, nosilne organizacije\nRaziskovalci – seznam članov s pripadnostjo organizaciji\nBibliometrični kazalniki – točke (A1 točke, A’‘, A’, A1/2, CI10, CImax, H-indeks …).\n\n\n\nPodatki o vseh raziskovalcih v Sloveniji\nObčasno se izvozi tudi delež zaposlitve vseh registriranih raziskovalcev v Sloveniji (~50.000), kar omogoča izračun FTE za programske skupine, kjer sodelujejo raziskovalci iz različnih organizacij."
+  },
+  {
+    "objectID": "viri_podatkov.html#redcap-evidenca-kliničnih-raziskav-ckr",
+    "href": "viri_podatkov.html#redcap-evidenca-kliničnih-raziskav-ckr",
+    "title": "Viri podatkov",
+    "section": "REDCap (Evidenca kliničnih raziskav CKR)",
+    "text": "REDCap (Evidenca kliničnih raziskav CKR)\nDrugi vir podatkov je sistem REDCap, ki ga UKC Ljubljana uporablja za evidenco kliničnih raziskav. Podatki se pridobivajo preko REDCap API-ja.\n\nPodatki, ki se pridobivajo iz REDCap-a\n\nKlinična preskušanja (KP) in industrijsko inicirane študije (IIS)\n\nEvidenca kliničnih preskušanj in IIS študij\nPodatki: vodja raziskave, tip raziskave (KP/IIS), vloga UKCL, faza izvedbe (v teku / zaključeno)\n\n\n\nTerciarni projekti\n\nEvidenca terciarnih raziskovalnih projektov\nPodatki: vodja, trajanje, faza izvedbe\n\n\n\nEvropski projekti (EU)\n\nEvidenca evropskih projektov\nPodatki: vodja, trajanje, faza izvedbe\n\n\n\nEvidenca projektov CKR\n\nPosebna evidenca projektov Centra za klinične raziskave"
+  },
+  {
+    "objectID": "viri_podatkov.html#html-datoteke-iz-sicris-a-zgodovinski-podatki",
+    "href": "viri_podatkov.html#html-datoteke-iz-sicris-a-zgodovinski-podatki",
+    "title": "Viri podatkov",
+    "section": "HTML datoteke iz SICRIS-a (zgodovinski podatki)",
+    "text": "HTML datoteke iz SICRIS-a (zgodovinski podatki)\nZa prikaz trendov skozi čas se uporabljajo tudi podatki, shranjeni v obliki HTML datotek, ki so bile ročno prenesene iz SICRIS-a (razdelek Vrednotenje bibliografskih kazalcev za preteklih 5 let).\nTe datoteke so shranjene v mapah:\n\nUKCL_HTML/ – podatki za celoten UKCL po letih (2011–2024)\nProgrami_HTML/ – podatki za programske skupine\nRaz_skupine_HTML/ – podatki za raziskovalne skupine\nuspesnost_HTML/ – podatki o uspešnosti\n\nIz HTML datotek se s pomočjo R paketa rvest izluščijo tabele s točkami in citiranostjo posameznih raziskovalcev za posamezna leta."
+  },
+  {
+    "objectID": "viri_podatkov.html#datoteke-s-podatki",
+    "href": "viri_podatkov.html#datoteke-s-podatki",
+    "title": "Viri podatkov",
+    "section": "Datoteke s podatki",
+    "text": "Datoteke s podatki\nVsi pridobljeni podatki se shranijo v mapo data/ v obliki RDS datotek (R format za serijalizacijo):\n\n\n\n\n\n\n\nDatoteka\nVsebina\n\n\n\n\nraziskovalci.RDS\nVsi raziskovalci UKCL s kazalniki, projekti, citiranostjo\n\n\nraziskovalci_leto.RDS\nTočke raziskovalcev po letih (iz HTML)\n\n\nraziskovalne_skupine.RDS\nRaziskovalne skupine s kazalniki in projekti\n\n\nprogrami.RDS\nProgramske skupine s kazalniki\n\n\nprog_raziskovalci.RDS\nRaziskovalci po programskih skupinah\n\n\naris_projekti.RDS\nProjekti ARIS s kazalniki\n\n\naris_proj_raziskovalci.RDS\nRaziskovalci po projektih ARIS\n\n\nukcl_podatki.RDS\nZbirni podatki za celoten UKCL\n\n\nvsi_raziskovalci_del_zap.RDS\nDelež zaposlitve vseh raziskovalcev v SLO\n\n\npublikacije.xlsx\nPodatki o publikacijah\n\n\ndatum_posodobitve.RDS\nDatum zadnje posodobitve podatkov"
+  },
+  {
+    "objectID": "viri_podatkov.html#posodabljanje-podatkov",
+    "href": "viri_podatkov.html#posodabljanje-podatkov",
+    "title": "Viri podatkov",
+    "section": "Posodabljanje podatkov",
+    "text": "Posodabljanje podatkov\nZa posodobitev vseh podatkov iz SICRIS API-ja se požene skripta:\nsource(\"skripte_uvoz_podatkov/POSODOBI_VSE_podatke.R\")\nZa posodobitev podatkov iz HTML datotek (po ročnem prenosu novih HTML-jev):\nsource(\"skripte_uvoz_podatkov/html_po_letih_tocke_raziskovalci.R\")"
+  },
+  {
     "objectID": "ukcl/raziskovalne_skupine_ukcl.html",
     "href": "ukcl/raziskovalne_skupine_ukcl.html",
     "title": "Raziskovalne skupine",
@@ -206,5 +248,68 @@
     "title": "UKC Ljubljana",
     "section": "",
     "text": "V spodnji tabeli so prikazani projekti, ki so bili v teku na dan 31.12. v posameznem letu.\n\n\n\n\n\n\n* Zanesljivi podatki za klinična preskušanja zdravil in medicinskih pripomočkov za pretekla leta niso na voljo.\n** Podatki za EU in mednarodne projekte so še nepopolni."
+  },
+  {
+    "objectID": "viri_podatkov.html#redcap",
+    "href": "viri_podatkov.html#redcap",
+    "title": "Viri podatkov",
+    "section": "REDCap",
+    "text": "REDCap\nDrugi vir podatkov je sistem REDCap, ki ga CKR uporablja za Register raziskav UKCL in shranjevanje podatkov iz CKR evidenc (letna poročila UKC Ljubljana). Podatki se pridobivajo preko REDCap API-ja.\n\nPodatki, ki se pridobivajo iz REDCap-a\n\nKlinična preskušanja (KP) in študije na pobudo raziskovalca (IIS)\n\nEvidenca kliničnih preskušanj in IIS študij\nPodatki: vodja raziskave, tip raziskave (KP/IIS), vloga UKCL, faza izvedbe (v teku / zaključeno)\n\n\n\nTerciarni projekti\n\nEvidenca terciarnih raziskovalnih projektov\nPodatki: vodja, trajanje, faza izvedbe\n\n\n\nEvropski projekti (EU)\n\nEvidenca evropskih projektov\nPodatki: vodja, trajanje, faza izvedbe\n\n\n\nEvidence projektov CKR\n\nPosebna evidenca projektov Centra za klinične raziskave (finančna sredstva, število priajv na razpise, števil odobrenih projektov, število pobud sponzorjev za raziskave)."
+  },
+  {
+    "objectID": "izracuni_kazalnikov.html",
+    "href": "izracuni_kazalnikov.html",
+    "title": "Izračuni kazalnikov",
+    "section": "",
+    "text": "Na tej strani je opisana metodologija izračuna kazalnikov raziskovalne uspešnosti, ki se prikazujejo na spletni strani. Opisani so viri podatkov, formule za izračun in način prikaza rezultatov."
+  },
+  {
+    "objectID": "izracuni_kazalnikov.html#pregled-skript-in-podatkov",
+    "href": "izracuni_kazalnikov.html#pregled-skript-in-podatkov",
+    "title": "Izračuni kazalnikov",
+    "section": "Pregled skript in podatkov",
+    "text": "Pregled skript in podatkov\nSpodaj je opisan tok podatkov – katere skripte pripravljajo podatke, kje se izračunavajo kazalniki in kje se prikazujejo rezultati (tabele in slike).\n\nStruktura skript\n\n\n\n\n\n\n\nSkripta\nOpis\n\n\n\n\nR/setup_paketi.R\nNalaganje R paketov (tidyverse, reactable, highcharter, …)\n\n\nR/uvoz_podatkov.R\nUvoz RDS podatkov iz mape data/ (raziskovalci, programi, skupine, projekti, …)\n\n\nR/osnovni_podatki.R\nIzračun osnovnih metrik: število raziskovalcev, FTE, število programov in projektov\n\n\nR/podatki_st_raz_fte_leto.R\nPriprava podatkov o številu raziskovalcev in FTE po posameznih letih\n\n\nR/podatki_za_raz_uspesnost.R\nEkstrakcija točk in citatov iz HTML datotek (SICRIS) ter izračun kazalnikov za UKCL po petletnih obdobjih\n\n\nR/podatki_raziskovalna_uspesnost_leto.R\nEkstrakcija točk iz HTML datotek ter izračun kazalnikov za UKCL po posameznih letih\n\n\nR/funkcije_tabele_raziskovalna_uspesnost.R\nFunkcije za prikaz interaktivnih tabel (reactable)\n\n\nR/podatki_za_tabele_grafe.R\nPriprava podatkov za tabele in grafe na ravni celotnega UKCL\n\n\nprog_skupine/podatki_raz_usp_prog.R\nIzračun kazalnikov za posamezne programske skupine\n\n\nprog_skupine/funkcija_kazalnik_tocke-citati_SLIKA.R\nFunkcije za generiranje interaktivnih grafov (highcharter) za programske skupine\n\n\nprog_skupine/funkcija_kazalnik_tocke-citati_TABELA.R\nFunkcije za generiranje tabel za programske skupine\n\n\nukcl/SLIKE_raziskovalna_uspesnost_tocke.R\nGrafi raziskovalne uspešnosti UKCL po petletnih obdobjih\n\n\nukcl/SLIKE_raziskovalna_uspesnost_tocke_LETO.R\nGrafi raziskovalne uspešnosti UKCL po posameznih letih\n\n\nukcl/slika_fin_sredstva.R\nGrafi finančnih sredstev\n\n\n\n\n\nTok podatkov\nSICRIS API / HTML datoteke / REDCap API\n          ↓\n   R/uvoz_podatkov.R  →  RDS datoteke (data/)\n          ↓\n   R/osnovni_podatki.R  →  st_raz, fte, ...\n   R/podatki_st_raz_fte_leto.R  →  raz_fte_leto (po letih)\n          ↓\n   R/podatki_za_raz_uspesnost.R  →  kazalniki UKCL (obdobja)\n   R/podatki_raziskovalna_uspesnost_leto.R  →  kazalniki UKCL (leta)\n   prog_skupine/podatki_raz_usp_prog.R  →  kazalniki programov\n          ↓\n   QMD datoteke  →  Tabele + Grafi (reactable, highcharter)"
+  },
+  {
+    "objectID": "izracuni_kazalnikov.html#ključni-pojmi",
+    "href": "izracuni_kazalnikov.html#ključni-pojmi",
+    "title": "Izračuni kazalnikov",
+    "section": "Ključni pojmi",
+    "text": "Ključni pojmi\n\nŠtevilo raziskovalcev (st_raz)\nŠtevilo zaposlenih v UKC Ljubljana, ki so pri ARIS-u (Agencija za raziskovalno in inovacijsko dejavnost) registrirani s statusom “Raziskovalec”.\nFormula: st_raz = sum(vloga == \"Raziskovalec\")\nVir: SICRIS API – seznam raziskovalcev organizacije 618 (UKCL)\n\n\nFTE – Full Time Equivalent (fte)\nSkupni delež zaposlitve za raziskovalno dejavnost, preračunan na polni delovni čas. Delež zaposlitve posameznega raziskovalca je izražen v odstotkih (npr. 100 = polni delovni čas za raziskovanje).\nFormula: fte = sum(del_zap) / 100\nVir: SICRIS API – polje researchload za vsakega raziskovalca\nPrimer: Če ima organizacija 3 raziskovalce z deleži zaposlitve 100%, 50% in 75%, je FTE = (100 + 50 + 75) / 100 = 2,25.\n\n\nObdobja\n\nPetletno obdobje (za točke): npr. rezultat za leto 2025 je seštevek točk v obdobju 2021–2025.\nDesetletno obdobje (za citate): npr. rezultat za leto 2025 je seštevek citatov v obdobju 2015–2025.\nPosamezno leto: rezultat za eno koledarsko leto (npr. od 01.01.2025 do 31.12.2025)."
+  },
+  {
+    "objectID": "izracuni_kazalnikov.html#kategorije-raziskovalne-uspešnosti",
+    "href": "izracuni_kazalnikov.html#kategorije-raziskovalne-uspešnosti",
+    "title": "Izračuni kazalnikov",
+    "section": "Kategorije raziskovalne uspešnosti",
+    "text": "Kategorije raziskovalne uspešnosti\n\nA1 Točke (bibliometrično vrednotenje)\nTočke so razvrščene v naslednje kategorije (po metodologiji SICRIS):\n\n\n\n\n\n\n\nKategorija\nOpis\n\n\n\n\nUpoštevane točke\nSkupno število vseh upoštevanih točk (a11)\n\n\nA’’ – izjemni dosežki\nTočke za izjemne dosežke (aII)\n\n\nA’ – zelo kvalitetni dosežki\nTočke za zelo kvalitetne dosežke (aI)\n\n\nA1/2 – pomembni dosežki\nTočke za pomembne dosežke (a12)\n\n\n\n\n\nCitiranost\n\n\n\n\n\n\n\n\nKazalec\nOpis\nObdobje\n\n\n\n\nCI10\nŠtevilo čistih citatov znanstvenih del\nZadnjih 10 let\n\n\nCImax\nŠtevilo citatov najodmevnejšega (najbolj citiranega) dela\nZadnjih 10 let\n\n\nH-indeks\nH-indeks – raziskovalec/skupina ima h-indeks h, če ima h del, od katerih je vsako citirano vsaj h-krat\nZadnjih 10 let"
+  },
+  {
+    "objectID": "izracuni_kazalnikov.html#tabela-kazalnikov",
+    "href": "izracuni_kazalnikov.html#tabela-kazalnikov",
+    "title": "Izračuni kazalnikov",
+    "section": "Tabela kazalnikov",
+    "text": "Tabela kazalnikov\nSpodaj so navedeni vsi izračunani kazalniki uspešnosti z opisi, formulami in viri.\n\nKazalniki za točke (A1 objave)\n\n\n\n\n\n\n\n\n\n\n\nKazalnik\nNamen\nŠtevec\nImenovalec\nFormula\nEnota\n\n\n\n\nTočke/FTE\nProduktivnost na enoto raziskovalnega časa\nUpoštevane točke (a11)\nFTE (fte)\nround(tocke / fte, 1)\ntočke/FTE\n\n\nTočke/raziskovalec\nProduktivnost na raziskovalca\nUpoštevane točke (a11)\nŠt. raziskovalcev (st_raz)\nround(tocke / st_raz, 1)\ntočke/raz\n\n\nA’’/FTE\nIzjemni dosežki na enoto časa\nA’’ točke (aII)\nFTE (fte)\nround(aII / fte, 1)\ntočke/FTE\n\n\nA’’/raziskovalec\nIzjemni dosežki na raziskovalca\nA’’ točke (aII)\nŠt. raziskovalcev (st_raz ali raz)\nround(aII / raz)\ntočke/raz\n\n\nA’/FTE\nZelo kvalitetni dosežki na enoto časa\nA’ točke (aI)\nFTE (fte)\nround(aI / fte, 1)\ntočke/FTE\n\n\nA’/raziskovalec\nZelo kvalitetni dosežki na raziskovalca\nA’ točke (aI)\nŠt. raziskovalcev (st_raz ali raz)\nround(aI / raz)\ntočke/raz\n\n\nA1/2/FTE\nPomembni dosežki na enoto časa\nA1/2 točke (a12)\nFTE (fte)\nround(a12 / fte, 1)\ntočke/FTE\n\n\nA1/2/raziskovalec\nPomembni dosežki na raziskovalca\nA1/2 točke (a12)\nŠt. raziskovalcev (st_raz ali raz)\nround(a12 / raz)\ntočke/raz\n\n\n\n\n\nKazalniki za citiranost\n\n\n\n\n\n\n\n\n\n\n\nKazalnik\nNamen\nŠtevec\nImenovalec\nFormula\nEnota\n\n\n\n\nCI10/FTE\nCitiranost na enoto raziskovalnega časa\nČisti citati (ci10)\nFTE (fte)\nround(citati / fte, 1)\ncitati/FTE\n\n\nCI10/raziskovalec\nCitiranost na raziskovalca\nČisti citati (ci10)\nŠt. raziskovalcev (st_raz ali raz)\nround(citati / st_raz, 1)\ncitati/raz\n\n\n\n\n\nAbsolutni kazalci (brez imenovalca)\n\n\n\n\n\n\n\n\n\nKazalec\nNamen\nOpis\nOpomba\n\n\n\n\nCImax\nNajodmevnejše delo\nŠtevilo citatov najbolj citiranega dela v zadnjih 10 letih\nKazalnik na FTE/raz ni smiseln, zato se prikazuje le absolutna vrednost\n\n\nH-indeks\nH-indeks\nRaziskovalec/skupina ima h del, od katerih je vsako citirano vsaj h-krat\nKazalnik na FTE/raz ni smiseln, zato se prikazuje le absolutna vrednost"
+  },
+  {
+    "objectID": "izracuni_kazalnikov.html#izračun-kazalnikov-podrobnosti-po-ravneh",
+    "href": "izracuni_kazalnikov.html#izračun-kazalnikov-podrobnosti-po-ravneh",
+    "title": "Izračuni kazalnikov",
+    "section": "Izračun kazalnikov – podrobnosti po ravneh",
+    "text": "Izračun kazalnikov – podrobnosti po ravneh\n\nRaven UKCL (celotna organizacija)\n\nPo petletnih obdobjih\nSkripta: R/podatki_za_raz_uspesnost.R\nPodatki se pridobijo iz HTML datotek v mapi uspesnost_HTML/. Iz HTML-ja se s funkcijo extract_tocke() izluščijo tabele s točkami po petletnih obdobjih. Podatki o številu raziskovalcev in FTE za posamezno leto so pripravljeni v tabeli raz_fte_leto.\nIzračun:\ntabela_kaz_tocke_ukcl &lt;- tocke_po_letih %&gt;%\n  left_join(raz_fte_leto, by = \"leto\") %&gt;%\n  mutate(\n    kaz_fte = round(tocke / fte, 1),\n    kaz_raz = round(tocke / st_raz, 1)\n  )\nRezultat – tabele:\n\n\n\n\n\n\n\n\nTabela\nVsebina\nPrikaz\n\n\n\n\nup_tocke_obd\nUpoštevane točke po petletnih obdobjih\nTabela + graf (panel: FTE / raziskovalec)\n\n\na2_obd\nA’’ točke po petletnih obdobjih\nTabela + graf\n\n\na1_obd\nA’ točke po petletnih obdobjih\nTabela + graf\n\n\na1_2_obd\nA1/2 točke po petletnih obdobjih\nTabela + graf\n\n\nci10\nČisti citati (CI10) po desetletnih obdobjih\nTabela + graf\n\n\ncimax_hind\nCImax in H-indeks po desetletnih obdobjih\nTabela + graf\n\n\n\n\n\nPo posameznih letih\nSkripta: R/podatki_raziskovalna_uspesnost_leto.R\nPodatki se pridobijo iz HTML datotek v mapi UKCL_HTML/. Razlika od petletnih obdobij je, da gre za podatke za posamezno koledarsko leto.\nRezultat – tabele:\n\n\n\n\n\n\n\n\nTabela\nVsebina\nPrikaz\n\n\n\n\nup_tocke_leto\nUpoštevane točke po posameznih letih\nTabela + graf\n\n\na2_leto\nA’’ točke po posameznih letih\nTabela + graf\n\n\na1_leto\nA’ točke po posameznih letih\nTabela + graf\n\n\na1_2_leto\nA1/2 točke po posameznih letih\nTabela + graf\n\n\n\n\n\n\nRaven programskih skupin\nSkripta: prog_skupine/podatki_raz_usp_prog.R\nZa vsako aktivno programsko skupino (program, ki še ni zaključen) se iz podatkov SICRIS izračunajo kazalniki s funkcijo izracunaj_kazalnike().\nIzračun:\nizracunaj_kazalnike &lt;- function(kazalnik, podatki = prog_v_teku) {\n  podatki %&gt;%\n    select(code, vodja, name, raz, fte, all_of(kazalnik), ukc_vod) %&gt;%\n    mutate(\n      kaz_fte = round(.data[[kazalnik]] / fte, digits = 1),\n      kaz_raz = round(.data[[kazalnik]] / raz)\n    )\n}\nTu sta raz in fte iz podatkov posamezne programske skupine (SICRIS), ne celotnega UKCL.\nRezultat – tabele:\n\n\n\n\n\n\n\n\nTabela\nVsebina\nPrikaz\n\n\n\n\nup_tocke\nUpoštevane točke po programih\nGraf (stolpični) + tabela\n\n\naII_prog\nA’’ točke po programih\nGraf + tabela\n\n\naI_prog\nA’ točke po programih\nGraf + tabela\n\n\na12_prog\nA1/2 točke po programih\nGraf + tabela\n\n\nci10_prog\nCI10 čisti citati po programih\nGraf + tabela\n\n\ncit_prog\nCImax in H-indeks po programih\nGraf + tabela"
+  },
+  {
+    "objectID": "izracuni_kazalnikov.html#prikaz-rezultatov",
+    "href": "izracuni_kazalnikov.html#prikaz-rezultatov",
+    "title": "Izračuni kazalnikov",
+    "section": "Prikaz rezultatov",
+    "text": "Prikaz rezultatov\n\nTabele\nVse tabele so prikazane kot interaktivne tabele (paket reactable). Uporabnik lahko klikne na posamezen stolpec za spremembo vrstnega reda. Številske vrednosti so formatirane v slovenski notaciji (pika za tisočice, vejica za decimalna mesta).\n\n\nGrafi\nGrafi so generirani s paketom highcharter in so interaktivni:\n\nStolpični grafi prikazujejo absolutne vrednosti in kazalnike za posamezna obdobja/leta ali programske skupine.\nBarvna shema: modri stolpci = UKCL vodilna organizacija; sivi stolpci = UKCL sodelujoča organizacija. Intenziteta barve odraža velikost skupine (FTE).\nV desnem zgornjem kotu grafa je meni za prenos slike ali podatkov."
+  },
+  {
+    "objectID": "izracuni_kazalnikov.html#metodološke-opombe",
+    "href": "izracuni_kazalnikov.html#metodološke-opombe",
+    "title": "Izračuni kazalnikov",
+    "section": "Metodološke opombe",
+    "text": "Metodološke opombe\n\n\n\n\n\n\nOmejitve podatkov\n\n\n\n\nPodatki o številu raziskovalcev in FTE za leta pred 2023 niso na voljo. Za izračun kazalnikov za ta leta je uporabljen podatek iz leta 2023.\nCImax in H-indeks sta absolutna kazalca – deljenje s FTE ali številom raziskovalcev ni smiselno, zato se prikazujeta le kot absolutni vrednosti.\nPri programskih skupinah se za raz in fte v imenovalcu uporabijo podatki iz posameznega programa (ne celotnega UKCL)."
   }
 ]

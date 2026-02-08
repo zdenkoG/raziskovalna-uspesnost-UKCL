@@ -1,4 +1,136 @@
 ---
 title: "Viri podatkov"
-editor: visual
+sidebar: false
 ---
+
+Podatki, ki se prikazujejo na tej spletni strani, se pridobivajo iz dveh glavnih virov: **SICRIS** (API) in **REDCap** (API). Poleg tega se del podatkov uvozi iz **ročno shranjenih HTML datotek** iz SICRIS-a za zgodovinske podatke po letih.
+
+------------------------------------------------------------------------
+
+## SICRIS (Informacijski sistem o raziskovalni dejavnosti v Sloveniji)
+
+Glavni vir podatkov je sistem [SICRIS](https://cris.cobiss.net/ecris/si/sl/){target="_blank"} , iz katerega se podatki pridobivajo programsko preko **REST API vmesnika** (`cris.cobiss.net/ecris/si/sl/service/`). Dostop do API-ja zahteva avtentikacijo z JWT žetonom.
+
+### Podatki, ki se pridobivajo iz SICRIS-a
+
+#### Podatki o organizaciji (UKC Ljubljana)
+
+Iz API končne točke za organizacijo **618** (UKC Ljubljana) se pridobijo:
+
+-   **Raziskovalci** -- seznam vseh raziskovalcev, registriranih pri UKCL (ime, SICRIS ID, evidenčna številka, vloga)
+-   **Raziskovalne skupine** -- vse raziskovalne skupine UKCL
+-   **Programske skupine** -- vsi programi ARIS, kjer sodeluje UKCL
+-   **Projekti ARIS** -- vsi projekti ARIS, kjer sodeluje UKCL
+-   **Mentorji mladim raziskovalcem** -- seznam mentorjev
+-   **Bibliometrični kazalniki (točke)** -- vrednotenje raziskovalne uspešnosti (A1 točke, A'', A', A^1/2^, CI~10~, CI~max~, H-indeks ...)
+-   **Citiranost** -- podatki iz baz Web of Science in Scopus
+
+#### Podatki o posameznih raziskovalcih
+
+Za vsakega raziskovalca UKCL se iz API-ja pridobijo:
+
+-   **Točke (evaluation)** -- bibliometrični kazalniki
+-   **Citiranost (cit)** -- podatki o citiranosti
+-   **E-mail** -- kontaktni podatki
+-   **Delež zaposlitve (researchload)** -- delež zaposlitve namenjen raziskovanju (FTE)
+-   **Programi** -- članstvo v programskih skupinah
+-   **Projekti ARIS** -- sodelovanje pri projektih
+-   **Mladi raziskovalci** -- mentorstvo mladim raziskovalcem
+
+#### Podatki o raziskovalnih skupinah
+
+Za vsako raziskovalno skupino se pridobijo:
+
+-   **Člani skupine** -- seznam raziskovalcev
+-   **Točke** -- bibliometrični kazalniki skupine
+-   **Citiranost** -- citiranost skupine
+
+#### Podatki o programskih skupinah in projektih ARIS
+
+Za vsak program in projekt se pridobijo:
+
+-   **Osnovni podatki** -- šifra, naziv, trajanje, nosilne organizacije
+-   **Raziskovalci** -- seznam članov s pripadnostjo organizaciji
+-   **Bibliometrični kazalniki** -- točke (A1 točke, A'', A', A^1/2^, CI~10~, CI~max~, H-indeks ...).
+
+#### Podatki o vseh raziskovalcih v Sloveniji
+
+Občasno se izvozi tudi delež zaposlitve vseh registriranih raziskovalcev v Sloveniji (\~50.000), kar omogoča izračun FTE za programske skupine, kjer sodelujejo raziskovalci iz različnih organizacij.
+
+------------------------------------------------------------------------
+
+## REDCap
+
+Drugi vir podatkov je sistem [REDCap](https://redcap.kclj.si/){target="_blank"}, ki ga CKR uporablja za Register raziskav UKCL in shranjevanje podatkov iz CKR evidenc (letna poročila UKC Ljubljana). Podatki se pridobivajo preko REDCap API-ja.
+
+### Podatki, ki se pridobivajo iz REDCap-a
+
+#### Klinična preskušanja (KP) in študije na pobudo raziskovalca (IIS)
+
+-   Evidenca kliničnih preskušanj in IIS študij
+-   Podatki: vodja raziskave, tip raziskave (KP/IIS), vloga UKCL, faza izvedbe (v teku / zaključeno)
+
+#### Terciarni projekti
+
+-   Evidenca terciarnih raziskovalnih projektov
+-   Podatki: vodja, trajanje, faza izvedbe
+
+#### Evropski projekti (EU)
+
+-   Evidenca evropskih projektov
+-   Podatki: vodja, trajanje, faza izvedbe
+
+#### Evidence projektov CKR
+
+-   Posebna evidenca projektov Centra za klinične raziskave (finančna sredstva, število priajv na razpise, števil odobrenih projektov, število pobud sponzorjev za raziskave).
+
+------------------------------------------------------------------------
+
+## HTML datoteke iz SICRIS-a (zgodovinski podatki)
+
+Za prikaz **trendov skozi čas** se uporabljajo tudi podatki, shranjeni v obliki HTML datotek, ki so bile ročno prenesene iz SICRIS-a (razdelek *Vrednotenje bibliografskih kazalcev* za preteklih 5 let).
+
+Te datoteke so shranjene v mapah:
+
+-   `UKCL_HTML/` -- podatki za celoten UKCL po letih (2011--2024)
+-   `Programi_HTML/` -- podatki za programske skupine
+-   `Raz_skupine_HTML/` -- podatki za raziskovalne skupine
+-   `uspesnost_HTML/` -- podatki o uspešnosti
+
+Iz HTML datotek se s pomočjo R paketa `rvest` izluščijo tabele s točkami in citiranostjo posameznih raziskovalcev za posamezna leta.
+
+------------------------------------------------------------------------
+
+## Datoteke s podatki
+
+Vsi pridobljeni podatki se shranijo v mapo `data/` v obliki RDS datotek (R format za serijalizacijo):
+
+| Datoteka | Vsebina |
+|------------------------------------|------------------------------------|
+| `raziskovalci.RDS` | Vsi raziskovalci UKCL s kazalniki, projekti, citiranostjo |
+| `raziskovalci_leto.RDS` | Točke raziskovalcev po letih (iz HTML) |
+| `raziskovalne_skupine.RDS` | Raziskovalne skupine s kazalniki in projekti |
+| `programi.RDS` | Programske skupine s kazalniki |
+| `prog_raziskovalci.RDS` | Raziskovalci po programskih skupinah |
+| `aris_projekti.RDS` | Projekti ARIS s kazalniki |
+| `aris_proj_raziskovalci.RDS` | Raziskovalci po projektih ARIS |
+| `ukcl_podatki.RDS` | Zbirni podatki za celoten UKCL |
+| `vsi_raziskovalci_del_zap.RDS` | Delež zaposlitve vseh raziskovalcev v SLO |
+| `publikacije.xlsx` | Podatki o publikacijah |
+| `datum_posodobitve.RDS` | Datum zadnje posodobitve podatkov |
+
+------------------------------------------------------------------------
+
+## Posodabljanje podatkov
+
+Za posodobitev vseh podatkov iz SICRIS API-ja se požene skripta:
+
+``` r
+source("skripte_uvoz_podatkov/POSODOBI_VSE_podatke.R")
+```
+
+Za posodobitev podatkov iz HTML datotek (po ročnem prenosu novih HTML-jev):
+
+``` r
+source("skripte_uvoz_podatkov/html_po_letih_tocke_raziskovalci.R")
+```

@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -182,8 +216,37 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Na tej strani</h2>
+   
+  <ul>
+  <li><a href="#sicris-informacijski-sistem-o-raziskovalni-dejavnosti-v-sloveniji" id="toc-sicris-informacijski-sistem-o-raziskovalni-dejavnosti-v-sloveniji" class="nav-link active" data-scroll-target="#sicris-informacijski-sistem-o-raziskovalni-dejavnosti-v-sloveniji">SICRIS (Informacijski sistem o raziskovalni dejavnosti v Sloveniji)</a>
+  <ul>
+  <li><a href="#podatki-ki-se-pridobivajo-iz-sicris-a" id="toc-podatki-ki-se-pridobivajo-iz-sicris-a" class="nav-link" data-scroll-target="#podatki-ki-se-pridobivajo-iz-sicris-a">Podatki, ki se pridobivajo iz SICRIS-a</a>
+  <ul class="collapse">
+  <li><a href="#podatki-o-organizaciji-ukc-ljubljana" id="toc-podatki-o-organizaciji-ukc-ljubljana" class="nav-link" data-scroll-target="#podatki-o-organizaciji-ukc-ljubljana">Podatki o organizaciji (UKC Ljubljana)</a></li>
+  <li><a href="#podatki-o-posameznih-raziskovalcih" id="toc-podatki-o-posameznih-raziskovalcih" class="nav-link" data-scroll-target="#podatki-o-posameznih-raziskovalcih">Podatki o posameznih raziskovalcih</a></li>
+  <li><a href="#podatki-o-raziskovalnih-skupinah" id="toc-podatki-o-raziskovalnih-skupinah" class="nav-link" data-scroll-target="#podatki-o-raziskovalnih-skupinah">Podatki o raziskovalnih skupinah</a></li>
+  <li><a href="#podatki-o-programskih-skupinah-in-projektih-aris" id="toc-podatki-o-programskih-skupinah-in-projektih-aris" class="nav-link" data-scroll-target="#podatki-o-programskih-skupinah-in-projektih-aris">Podatki o programskih skupinah in projektih ARIS</a></li>
+  <li><a href="#podatki-o-vseh-raziskovalcih-v-sloveniji" id="toc-podatki-o-vseh-raziskovalcih-v-sloveniji" class="nav-link" data-scroll-target="#podatki-o-vseh-raziskovalcih-v-sloveniji">Podatki o vseh raziskovalcih v Sloveniji</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#redcap" id="toc-redcap" class="nav-link" data-scroll-target="#redcap">REDCap</a>
+  <ul>
+  <li><a href="#podatki-ki-se-pridobivajo-iz-redcap-a" id="toc-podatki-ki-se-pridobivajo-iz-redcap-a" class="nav-link" data-scroll-target="#podatki-ki-se-pridobivajo-iz-redcap-a">Podatki, ki se pridobivajo iz REDCap-a</a>
+  <ul class="collapse">
+  <li><a href="#klinična-preskušanja-kp-in-študije-na-pobudo-raziskovalca-iis" id="toc-klinična-preskušanja-kp-in-študije-na-pobudo-raziskovalca-iis" class="nav-link" data-scroll-target="#klinična-preskušanja-kp-in-študije-na-pobudo-raziskovalca-iis">Klinična preskušanja (KP) in študije na pobudo raziskovalca (IIS)</a></li>
+  <li><a href="#terciarni-projekti" id="toc-terciarni-projekti" class="nav-link" data-scroll-target="#terciarni-projekti">Terciarni projekti</a></li>
+  <li><a href="#evropski-projekti-eu" id="toc-evropski-projekti-eu" class="nav-link" data-scroll-target="#evropski-projekti-eu">Evropski projekti (EU)</a></li>
+  <li><a href="#evidence-projektov-ckr" id="toc-evidence-projektov-ckr" class="nav-link" data-scroll-target="#evidence-projektov-ckr">Evidence projektov CKR</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#html-datoteke-iz-sicris-a-zgodovinski-podatki" id="toc-html-datoteke-iz-sicris-a-zgodovinski-podatki" class="nav-link" data-scroll-target="#html-datoteke-iz-sicris-a-zgodovinski-podatki">HTML datoteke iz SICRIS-a (zgodovinski podatki)</a></li>
+  <li><a href="#datoteke-s-podatki" id="toc-datoteke-s-podatki" class="nav-link" data-scroll-target="#datoteke-s-podatki">Datoteke s podatki</a></li>
+  <li><a href="#posodabljanje-podatkov" id="toc-posodabljanje-podatkov" class="nav-link" data-scroll-target="#posodabljanje-podatkov">Posodabljanje podatkov</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -207,8 +270,184 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>Podatki, ki se prikazujejo na tej spletni strani, se pridobivajo iz dveh glavnih virov: <strong>SICRIS</strong> (API) in <strong>REDCap</strong> (API). Poleg tega se del podatkov uvozi iz <strong>ročno shranjenih HTML datotek</strong> iz SICRIS-a za zgodovinske podatke po letih.</p>
+<hr>
+<section id="sicris-informacijski-sistem-o-raziskovalni-dejavnosti-v-sloveniji" class="level2">
+<h2 class="anchored" data-anchor-id="sicris-informacijski-sistem-o-raziskovalni-dejavnosti-v-sloveniji">SICRIS (Informacijski sistem o raziskovalni dejavnosti v Sloveniji)</h2>
+<p>Glavni vir podatkov je sistem <a href="https://cris.cobiss.net/ecris/si/sl/" target="_blank">SICRIS</a> , iz katerega se podatki pridobivajo programsko preko <strong>REST API vmesnika</strong> (<code>cris.cobiss.net/ecris/si/sl/service/</code>). Dostop do API-ja zahteva avtentikacijo z JWT žetonom.</p>
+<section id="podatki-ki-se-pridobivajo-iz-sicris-a" class="level3">
+<h3 class="anchored" data-anchor-id="podatki-ki-se-pridobivajo-iz-sicris-a">Podatki, ki se pridobivajo iz SICRIS-a</h3>
+<section id="podatki-o-organizaciji-ukc-ljubljana" class="level4">
+<h4 class="anchored" data-anchor-id="podatki-o-organizaciji-ukc-ljubljana">Podatki o organizaciji (UKC Ljubljana)</h4>
+<p>Iz API končne točke za organizacijo <strong>618</strong> (UKC Ljubljana) se pridobijo:</p>
+<ul>
+<li><strong>Raziskovalci</strong> – seznam vseh raziskovalcev, registriranih pri UKCL (ime, SICRIS ID, evidenčna številka, vloga)</li>
+<li><strong>Raziskovalne skupine</strong> – vse raziskovalne skupine UKCL</li>
+<li><strong>Programske skupine</strong> – vsi programi ARIS, kjer sodeluje UKCL</li>
+<li><strong>Projekti ARIS</strong> – vsi projekti ARIS, kjer sodeluje UKCL</li>
+<li><strong>Mentorji mladim raziskovalcem</strong> – seznam mentorjev</li>
+<li><strong>Bibliometrični kazalniki (točke)</strong> – vrednotenje raziskovalne uspešnosti (A1 točke, A’‘, A’, A<sup>1/2</sup>, CI<sub>10</sub>, CI<sub>max</sub>, H-indeks …)</li>
+<li><strong>Citiranost</strong> – podatki iz baz Web of Science in Scopus</li>
+</ul>
+</section>
+<section id="podatki-o-posameznih-raziskovalcih" class="level4">
+<h4 class="anchored" data-anchor-id="podatki-o-posameznih-raziskovalcih">Podatki o posameznih raziskovalcih</h4>
+<p>Za vsakega raziskovalca UKCL se iz API-ja pridobijo:</p>
+<ul>
+<li><strong>Točke (evaluation)</strong> – bibliometrični kazalniki</li>
+<li><strong>Citiranost (cit)</strong> – podatki o citiranosti</li>
+<li><strong>E-mail</strong> – kontaktni podatki</li>
+<li><strong>Delež zaposlitve (researchload)</strong> – delež zaposlitve namenjen raziskovanju (FTE)</li>
+<li><strong>Programi</strong> – članstvo v programskih skupinah</li>
+<li><strong>Projekti ARIS</strong> – sodelovanje pri projektih</li>
+<li><strong>Mladi raziskovalci</strong> – mentorstvo mladim raziskovalcem</li>
+</ul>
+</section>
+<section id="podatki-o-raziskovalnih-skupinah" class="level4">
+<h4 class="anchored" data-anchor-id="podatki-o-raziskovalnih-skupinah">Podatki o raziskovalnih skupinah</h4>
+<p>Za vsako raziskovalno skupino se pridobijo:</p>
+<ul>
+<li><strong>Člani skupine</strong> – seznam raziskovalcev</li>
+<li><strong>Točke</strong> – bibliometrični kazalniki skupine</li>
+<li><strong>Citiranost</strong> – citiranost skupine</li>
+</ul>
+</section>
+<section id="podatki-o-programskih-skupinah-in-projektih-aris" class="level4">
+<h4 class="anchored" data-anchor-id="podatki-o-programskih-skupinah-in-projektih-aris">Podatki o programskih skupinah in projektih ARIS</h4>
+<p>Za vsak program in projekt se pridobijo:</p>
+<ul>
+<li><strong>Osnovni podatki</strong> – šifra, naziv, trajanje, nosilne organizacije</li>
+<li><strong>Raziskovalci</strong> – seznam članov s pripadnostjo organizaciji</li>
+<li><strong>Bibliometrični kazalniki</strong> – točke (A1 točke, A’‘, A’, A<sup>1/2</sup>, CI<sub>10</sub>, CI<sub>max</sub>, H-indeks …).</li>
+</ul>
+</section>
+<section id="podatki-o-vseh-raziskovalcih-v-sloveniji" class="level4">
+<h4 class="anchored" data-anchor-id="podatki-o-vseh-raziskovalcih-v-sloveniji">Podatki o vseh raziskovalcih v Sloveniji</h4>
+<p>Občasno se izvozi tudi delež zaposlitve vseh registriranih raziskovalcev v Sloveniji (~50.000), kar omogoča izračun FTE za programske skupine, kjer sodelujejo raziskovalci iz različnih organizacij.</p>
+<hr>
+</section>
+</section>
+</section>
+<section id="redcap" class="level2">
+<h2 class="anchored" data-anchor-id="redcap">REDCap</h2>
+<p>Drugi vir podatkov je sistem <a href="https://redcap.kclj.si/" target="_blank">REDCap</a>, ki ga CKR uporablja za Register raziskav UKCL in shranjevanje podatkov iz CKR evidenc (letna poročila UKC Ljubljana). Podatki se pridobivajo preko REDCap API-ja.</p>
+<section id="podatki-ki-se-pridobivajo-iz-redcap-a" class="level3">
+<h3 class="anchored" data-anchor-id="podatki-ki-se-pridobivajo-iz-redcap-a">Podatki, ki se pridobivajo iz REDCap-a</h3>
+<section id="klinična-preskušanja-kp-in-študije-na-pobudo-raziskovalca-iis" class="level4">
+<h4 class="anchored" data-anchor-id="klinična-preskušanja-kp-in-študije-na-pobudo-raziskovalca-iis">Klinična preskušanja (KP) in študije na pobudo raziskovalca (IIS)</h4>
+<ul>
+<li>Evidenca kliničnih preskušanj in IIS študij</li>
+<li>Podatki: vodja raziskave, tip raziskave (KP/IIS), vloga UKCL, faza izvedbe (v teku / zaključeno)</li>
+</ul>
+</section>
+<section id="terciarni-projekti" class="level4">
+<h4 class="anchored" data-anchor-id="terciarni-projekti">Terciarni projekti</h4>
+<ul>
+<li>Evidenca terciarnih raziskovalnih projektov</li>
+<li>Podatki: vodja, trajanje, faza izvedbe</li>
+</ul>
+</section>
+<section id="evropski-projekti-eu" class="level4">
+<h4 class="anchored" data-anchor-id="evropski-projekti-eu">Evropski projekti (EU)</h4>
+<ul>
+<li>Evidenca evropskih projektov</li>
+<li>Podatki: vodja, trajanje, faza izvedbe</li>
+</ul>
+</section>
+<section id="evidence-projektov-ckr" class="level4">
+<h4 class="anchored" data-anchor-id="evidence-projektov-ckr">Evidence projektov CKR</h4>
+<ul>
+<li>Posebna evidenca projektov Centra za klinične raziskave (finančna sredstva, število priajv na razpise, števil odobrenih projektov, število pobud sponzorjev za raziskave).</li>
+</ul>
+<hr>
+</section>
+</section>
+</section>
+<section id="html-datoteke-iz-sicris-a-zgodovinski-podatki" class="level2">
+<h2 class="anchored" data-anchor-id="html-datoteke-iz-sicris-a-zgodovinski-podatki">HTML datoteke iz SICRIS-a (zgodovinski podatki)</h2>
+<p>Za prikaz <strong>trendov skozi čas</strong> se uporabljajo tudi podatki, shranjeni v obliki HTML datotek, ki so bile ročno prenesene iz SICRIS-a (razdelek <em>Vrednotenje bibliografskih kazalcev</em> za preteklih 5 let).</p>
+<p>Te datoteke so shranjene v mapah:</p>
+<ul>
+<li><code>UKCL_HTML/</code> – podatki za celoten UKCL po letih (2011–2024)</li>
+<li><code>Programi_HTML/</code> – podatki za programske skupine</li>
+<li><code>Raz_skupine_HTML/</code> – podatki za raziskovalne skupine</li>
+<li><code>uspesnost_HTML/</code> – podatki o uspešnosti</li>
+</ul>
+<p>Iz HTML datotek se s pomočjo R paketa <code>rvest</code> izluščijo tabele s točkami in citiranostjo posameznih raziskovalcev za posamezna leta.</p>
+<hr>
+</section>
+<section id="datoteke-s-podatki" class="level2">
+<h2 class="anchored" data-anchor-id="datoteke-s-podatki">Datoteke s podatki</h2>
+<p>Vsi pridobljeni podatki se shranijo v mapo <code>data/</code> v obliki RDS datotek (R format za serijalizacijo):</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Datoteka</th>
+<th>Vsebina</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>raziskovalci.RDS</code></td>
+<td>Vsi raziskovalci UKCL s kazalniki, projekti, citiranostjo</td>
+</tr>
+<tr class="even">
+<td><code>raziskovalci_leto.RDS</code></td>
+<td>Točke raziskovalcev po letih (iz HTML)</td>
+</tr>
+<tr class="odd">
+<td><code>raziskovalne_skupine.RDS</code></td>
+<td>Raziskovalne skupine s kazalniki in projekti</td>
+</tr>
+<tr class="even">
+<td><code>programi.RDS</code></td>
+<td>Programske skupine s kazalniki</td>
+</tr>
+<tr class="odd">
+<td><code>prog_raziskovalci.RDS</code></td>
+<td>Raziskovalci po programskih skupinah</td>
+</tr>
+<tr class="even">
+<td><code>aris_projekti.RDS</code></td>
+<td>Projekti ARIS s kazalniki</td>
+</tr>
+<tr class="odd">
+<td><code>aris_proj_raziskovalci.RDS</code></td>
+<td>Raziskovalci po projektih ARIS</td>
+</tr>
+<tr class="even">
+<td><code>ukcl_podatki.RDS</code></td>
+<td>Zbirni podatki za celoten UKCL</td>
+</tr>
+<tr class="odd">
+<td><code>vsi_raziskovalci_del_zap.RDS</code></td>
+<td>Delež zaposlitve vseh raziskovalcev v SLO</td>
+</tr>
+<tr class="even">
+<td><code>publikacije.xlsx</code></td>
+<td>Podatki o publikacijah</td>
+</tr>
+<tr class="odd">
+<td><code>datum_posodobitve.RDS</code></td>
+<td>Datum zadnje posodobitve podatkov</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="posodabljanje-podatkov" class="level2">
+<h2 class="anchored" data-anchor-id="posodabljanje-podatkov">Posodabljanje podatkov</h2>
+<p>Za posodobitev vseh podatkov iz SICRIS API-ja se požene skripta:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"skripte_uvoz_podatkov/POSODOBI_VSE_podatke.R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Za posodobitev podatkov iz HTML datotek (po ročnem prenosu novih HTML-jev):</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"skripte_uvoz_podatkov/html_po_letih_tocke_raziskovalci.R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
