@@ -65,7 +65,7 @@ website:
         - text: "Raziskovalna uspešnost"
           href: prog_skupine/raziskovalna_uspesnost_prog.qmd
         - text: "Citiranost"
-          href: programske_skupine.qmd#citati
+          href: prog_skupine/citiranost_prog.qmd
   
   # Noga strani
   page-footer:

@@ -14,27 +14,27 @@ source(here("R/podatki_stevilo_projektov.R"))
 source(here("R/podatki_za_tabele_grafe.R"))
 source(here("R/funkcije_tabele.R"))
 source(here("prog_skupine/podatki_raz_usp_prog.R"))
-source(here("prog_skupine/funkcija_kazalnik_tocke_SLIKA.R"))
-source(here("prog_skupine/funkcija_kazalnik_tocke_TABELA.R"))
+source(here("prog_skupine/funkcija_kazalnik_tocke-citati_SLIKA.R"))
+source(here("prog_skupine/funkcija_kazalnik_tocke-citati_TABELA.R"))
 ```
 
 # Raziskovalna uspešnost
 
-Spodaj so prikazani rezultati za posamezno programsko skupino, kjer je aktiven raziskovalni ali infrastrukturni ARIS program. Vir podatkov je [Sicris](https://cris.cobiss.net/ecris/si/sl/organization/618){target="_blank"} (več o virih podatkov je objavljeno ["Viri podatkov"](viri_podatkov.qmd)).
+Spodaj so prikazani rezultati o raziskovalni uspešnosti (A1 točke) za posamezno programsko skupino, kjer je aktiven raziskovalni ali infrastrukturni ARIS program. Vir podatkov je [Sicris](https://cris.cobiss.net/ecris/si/sl/organization/618){target="_blank"} (več o virih podatkov je objavljeno ["Viri podatkov"](viri_podatkov.qmd)).
 
 Prikazani so programi, kjer je ***UKC Ljubljana vodilna organizacija*** (modri stolpiči) in programi, kjer je ***UKC Ljubljana sodelujoča organizacija*** (sivi stolpiči).
 
-Prikazani so rezultati za ***A1 objave*** (pridobljene točke).
+Prikazani so rezultati za ***A1 objave [(v preteklih 5 letih)]{.underline}*** (pridobljene točke).
 
 Pri rezultatih A1 objav so prikazane točke za:
 
--   [Skupno število upoštevanih točk](#up_tocke_prog);
+-   [Skupno število upoštevanih točk v zadnjih 5 letih (2021-2025)](#up_tocke_prog);
 
--   [A'' – izjemni dosežki](#izj_dos_prog);
+-   [A'' – izjemni dosežki v zadnjih 5 letih (2021-2025)](#izj_dos_prog);
 
--   [A' – zelo kvalitetni dosežki](#kval_dos_prog);
+-   [A' – zelo kvalitetni dosežki v zadnjih 5 letih (2021-2025)](#kval_dos_prog);
 
--   [A ½ - pomembni dosežki](#pom_dos_prog).
+-   [A ½ - pomembni dosežki v zadnjih 5 letih (2021-2025)](#pom_dos_prog).
 
 Poleg prikaza skupnega števila točk, so izračunani tudi kazalniki uspešnosti:
 
@@ -42,14 +42,15 @@ Poleg prikaza skupnega števila točk, so izračunani tudi kazalniki uspešnosti
 
 -   število točk na skupno število raziskovalcev (število zaposlenih, ki so pri ARIS-u registrirani kot raziskovalci).
 
-Za podrobnejši opis metodologije izračuna kazalnikov glej ("Izračuni kazalnikov").
+Za podrobnejši opis metodologije izračuna kazalnikov glej (["Izračuni kazalnikov"](izracuni_kazalnikov.qmd)).
 
 ::: callout-note
 ## Zadnja posodobitev podatkov iz Sicris-a; **`r format(datum_posodobitve, "%d.%b%Y")`**
 :::
 
+## Upoštevane točke {#up_tocke_prog} 
 
-## Upoštevane točke {#up_tocke_prog}
+_**Skupno število upoštevanih točk v zadnjih 5 letih (2021-2025)**_
 
 :::::: panel-tabset
 ### Točke/FTE
@@ -109,9 +110,11 @@ izpis_tab_prog_us(up_tocke)
 ```
 ::::::
 
-
-
 ## A'' {#izj_dos_prog}
+
+
+_**A'' – izjemni dosežki v zadnjih 5 letih (2021-2025)**_     
+
 
 :::::: panel-tabset
 ### Točke/FTE
@@ -171,8 +174,11 @@ izpis_tab_prog_us(aII_prog, kaj = "A'' - izjemni dosežki")
 ```
 ::::::
 
-
 ## A' {#kval_dos_prog}
+
+
+_**A' – zelo kvalitetni dosežki v zadnjih 5 letih (2021-2025)**_ 
+
 
 :::::: panel-tabset
 ### Točke/FTE
@@ -232,8 +238,11 @@ izpis_tab_prog_us(aI_prog, kaj = "A' - zelo kvalitetni dosežki")
 ```
 ::::::
 
-
 ## A^1/2^ {#pom_dos_prog}
+
+
+_**A ½ - pomembni dosežki v zadnjih 5 letih (2021-2025)**_ 
+
 
 :::::: panel-tabset
 ### Točke/FTE

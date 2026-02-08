@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Programske skupine – Raziskovalna uspešnost UKCL</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../images/favicon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-2dfa51f4ffef57e30a12c9ad6651d7cf.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+
+
+<script>
+
+(function() {
+
+    if (sessionStorage.getItem("authenticated") === "true") {
+
+        return;
+
+    }
+
+    var geslo = prompt("Vnesite geslo za dostop:");
+
+    if (geslo === "ukc2025") {
+
+        sessionStorage.setItem("authenticated", "true");
+
+    } else {
+
+        window.stop();
+
+        document.documentElement.innerHTML = "<html><body><h1 style='text-align:center; margin-top:50px;'>Dostop zavrnjen</h1></body></html>";
+
+    }
+
+})();
+
+</script>
+
+
+
+<script src="../site_libs/bslib-component-js-0.9.0/components.min.js"></script>
+
+<script src="../site_libs/bslib-component-js-0.9.0/web-components.min.js" type="module"></script>
+
+<link href="../site_libs/bslib-component-css-0.9.0/components.css" rel="stylesheet">
+
+<link href="../site_libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
+
+<script src="../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+
+<script src="../site_libs/jquery-3.5.1/jquery.min.js"></script>
+
+<script src="../site_libs/proj4js-2.3.15/proj4.js"></script>
+
+<link href="../site_libs/highcharts-9.3.1/css/motion.css" rel="stylesheet">
+
+<script src="../site_libs/highcharts-9.3.1/highcharts.js"></script>
+
+<script src="../site_libs/highcharts-9.3.1/highcharts-3d.js"></script>
+
+<script src="../site_libs/highcharts-9.3.1/highcharts-more.js"></script>
+
+<script src="../site_libs/highcharts-9.3.1/modules/stock.js"></script>
+
+<script src="../site_libs/highcharts-9.3.1/modules/map.js"></script>
+
+<script src="../site_libs/highcharts-9.3.1/modules/data.js"></script>
+
+<script src="../site_libs/highcharts-9.3.1/modules/exporting.js"></script>
+
+<script src="../site_libs/highcharts-9.3.1/modules/offline-exporting.js"></script>
+
+<script src="../site_libs/highcharts-9.3.1/modules/drilldown.js"></script>
+
+<script src="../site_libs/highcharts-9.3.1/modules/item-series.js"></script>
+
+<script src="../site_libs/highcharts-9.3.1/modules/overlapping-datalabels.js"></script>
+
+<script src="../site_libs/highcharts-9.3.1/modules/annotations.js"></script>
+
+<script src="../site_libs/highcharts-9.3.1/modules/export-data.js"></script>
+
+<script src="../site_libs/highcharts-9.3.1/modules/funnel.js"></script>
+
+<script src="../site_libs/highcharts-9.3.1/modules/heatmap.js"></script>
+
+<script src="../site_libs/highcharts-9.3.1/modules/treemap.js"></script>
+
+<script src="../site_libs/highcharts-9.3.1/modules/sankey.js"></script>
+
+<script src="../site_libs/highcharts-9.3.1/modules/dependency-wheel.js"></script>
+
+<script src="../site_libs/highcharts-9.3.1/modules/organization.js"></script>
+
+<script src="../site_libs/highcharts-9.3.1/modules/solid-gauge.js"></script>
+
+<script src="../site_libs/highcharts-9.3.1/modules/streamgraph.js"></script>
+
+<script src="../site_libs/highcharts-9.3.1/modules/sunburst.js"></script>
+
+<script src="../site_libs/highcharts-9.3.1/modules/vector.js"></script>
+
+<script src="../site_libs/highcharts-9.3.1/modules/wordcloud.js"></script>
+
+<script src="../site_libs/highcharts-9.3.1/modules/xrange.js"></script>
+
+<script src="../site_libs/highcharts-9.3.1/modules/tilemap.js"></script>
+
+<script src="../site_libs/highcharts-9.3.1/modules/venn.js"></script>
+
+<script src="../site_libs/highcharts-9.3.1/modules/gantt.js"></script>
+
+<script src="../site_libs/highcharts-9.3.1/modules/timeline.js"></script>
+
+<script src="../site_libs/highcharts-9.3.1/modules/parallel-coordinates.js"></script>
+
+<script src="../site_libs/highcharts-9.3.1/modules/bullet.js"></script>
+
+<script src="../site_libs/highcharts-9.3.1/modules/coloraxis.js"></script>
+
+<script src="../site_libs/highcharts-9.3.1/modules/dumbbell.js"></script>
+
+<script src="../site_libs/highcharts-9.3.1/modules/lollipop.js"></script>
+
+<script src="../site_libs/highcharts-9.3.1/modules/series-label.js"></script>
+
+<script src="../site_libs/highcharts-9.3.1/plugins/motion.js"></script>
+
+<script src="../site_libs/highcharts-9.3.1/custom/reset.js"></script>
+
+<script src="../site_libs/highcharts-9.3.1/modules/boost.js"></script>
+
+<script src="../site_libs/highchart-binding-0.9.4/highchart.js"></script>
+
+<script src="../site_libs/bslib-tag-require-0.9.0/tag-require.js"></script>
+
+<link href="../site_libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
+
+<script src="../site_libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
+
+<script src="../site_libs/core-js-2.5.3/shim.min.js"></script>
+
+<script src="../site_libs/react-18.2.0/react.min.js"></script>
+
+<script src="../site_libs/react-18.2.0/react-dom.min.js"></script>
+
+<script src="../site_libs/reactwidget-2.0.0/react-tools.js"></script>
+
+<link href="../site_libs/reactable-0.4.4/reactable.css" rel="stylesheet">
+
+<script src="../site_libs/reactable-binding-0.4.4/reactable.js"></script>
+
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../images/logo.png" alt="UKCL logo" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Raziskovalna uspešnost UKCL</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> <i class="bi bi-house-fill" role="img">
+</i> 
+<span class="menu-text">Domov</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../ukcl.html"> <i class="bi bi-building" role="img">
+</i> 
+<span class="menu-text">UKCL</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../programske_skupine.html"> <i class="bi bi-diagram-3-fill" role="img">
+</i> 
+<span class="menu-text">Programske skupine</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../raziskovalne_skupine.html"> <i class="bi bi-people-fill" role="img">
+</i> 
+<span class="menu-text">Raziskovalne skupine</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../raziskovalci.html"> <i class="bi bi-person-fill" role="img">
+</i> 
+<span class="menu-text">Raziskovalci</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-metodologija" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="bi bi-book" role="img">
+</i> 
+ <span class="menu-text">Metodologija</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-metodologija">    
+        <li>
+    <a class="dropdown-item" href="../viri_podatkov.html">
+ <span class="dropdown-text">Viri podatkov</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../izracuni_kazalnikov.html">
+ <span class="dropdown-text">Izračuni kazalnikov</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../prog_skupine/citiranost_prog.html">Citiranost</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../programske_skupine.html#osnovni-podatki" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Osnovni podatki</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../prog_skupine/raziskovalna_uspesnost_prog.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Raziskovalna uspešnost</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../prog_skupine/citiranost_prog.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Citiranost</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Na tej strani</h2>
+   
+  <ul>
+  <li><a href="#citiranost" id="toc-citiranost" class="nav-link active" data-scroll-target="#citiranost">Citiranost</a>
+  <ul>
+  <li><a href="#ci10" id="toc-ci10" class="nav-link" data-scroll-target="#ci10">CI10</a></li>
+  <li><a href="#cimax-in-h-indeks" id="toc-cimax-in-h-indeks" class="nav-link" data-scroll-target="#cimax-in-h-indeks">CImax in H-indeks</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Programske skupine</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="citiranost" class="level1 page-columns page-full">
+<h1>Citiranost</h1>
+<p>Spodaj so prikazani rezultati o citiranosti za posamezno programsko skupino, kjer je aktiven raziskovalni ali infrastrukturni ARIS program. Vir podatkov je <a href="https://cris.cobiss.net/ecris/si/sl/organization/618" target="_blank">Sicris</a> (več o virih podatkov je objavljeno <a href="viri_podatkov.qmd">“Viri podatkov”</a>).</p>
+<p>Prikazani so programi, kjer je <strong><em>UKC Ljubljana vodilna organizacija</em></strong> (modri stolpiči) in programi, kjer je <strong><em>UKC Ljubljana sodelujoča organizacija</em></strong> (sivi stolpiči).</p>
+<p>Prikazani so rezultati za <strong><em>citiranost <u>v preteklih 10 letih</u></em></strong>:</p>
+<ul>
+<li><p><a href="#ci_prog">CI10 - število čistih citatov znanstvenih del v preteklih 10 letih (2015-2025)</a>;</p></li>
+<li><p><a href="#ci_max_prog">CImax - najodmevnejše delo v preteklih 10 letih (2015-2025)</a>;</p></li>
+<li><p><a href="#h_ind_prog">h-indeks v preteklih 10 letih (2015-2025)</a>.</p></li>
+</ul>
+<p>Pri številu čistih citatov, so izračunani tudi kazalniki uspešnosti:</p>
+<ul>
+<li><p>število citatov na FTE (full time eqvivalent = delež zaposlitve za raziskovalno dejavnost) in</p></li>
+<li><p>število citatov na skupno število raziskovalcev (število zaposlenih, ki so pri ARIS-u registrirani kot raziskovalci).</p></li>
+</ul>
+<p>Za podrobnejši opis metodologije izračuna kazalnikov glej (<a href="izracuni_kazalnikov.qmd">“Izračuni kazalnikov”</a>).</p>
+<section id="ci10" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="ci10">CI10</h2>
+<p><em><strong>CI10 - število čistih citatov znanstvenih del v preteklih 10 letih (2015-2025).</strong></em></p>
+<div class="tabset-margin-container"></div><div class="panel-tabset page-columns page-full">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Citati/FTE</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Točke/raziskovalec</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Tabela s podatki</a></li></ul>
+<div class="tab-content page-columns page-full">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Opomba glede grafov (klik)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li>Modro: UKC vodilna organizacija | Sivo: UKCL sodelujoča organizacija</li>
+<li>Intenziteta barve odraža velikost skupine (FTE: temnejša -&gt; več FTE)</li>
+<li>V zgornjem desnem kotu je meni (☰) kliknite in izberite: (pogled preko celega zaslona; prenos slike; prenos podatkov)</li>
+<li>S postavitvijo kurzorja na posamezen stolpec se izpišejo rezultati za izbrani program</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<bslib-layout-columns class="bslib-grid grid bslib-mb-spacing html-fill-item" col-widths-sm="6,6" data-require-bs-caller="layout_columns()" data-require-bs-version="5">
+<div class="bslib-grid-item bslib-gap-spacing html-fill-container">
+<div class="highchart html-widget html-fill-item" id="htmlwidget-0e0400d05fcb2d29f892" style="width:100%;height:500px;"></div>
+<script type="application/json" data-for="htmlwidget-0e0400d05fcb2d29f892">{"x":{"hc_opts":{"chart":{"reflow":true,"inverted":true,"height":"900px"},"title":{"text":"Citati/FTE","style":{"fontSize":"16px","fontWeight":"bold"}},"yAxis":{"title":{"text":"Kazalnik (Citati na FTE)"},"min":0},"credits":{"enabled":false},"exporting":{"enabled":true},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0},"treemap":{"layoutAlgorithm":"squarified"}},"series":[{"data":[{"x":0,"y":16774.7,"color":"rgba(153, 153, 153, 0.432631578947368)","code":"P3-0352","name":"Družine s povišano ali visoko ogroženostjo za raka: svetovanje, odkrivanje mutacij in preprečevanje raka","vodja":"dr. Janez Žgajnar","kaz_fte":16774.7,"kaz_raz":3355,"hIndex":null,"cimax":null,"fte":3.6,"raz":18,"ukc_vod":0,"kazalnik_tip":"kaz_fte","je_citati":true},{"x":1,"y":14063.6,"color":"rgba(0, 81, 165, 0.53578947368421)","code":"P3-0308","name":"Ateroskleroza in tromboza","vodja":"dr. Mirza Šabovič","kaz_fte":14063.6,"kaz_raz":4286,"hIndex":null,"cimax":null,"fte":6.4,"raz":21,"ukc_vod":1,"kazalnik_tip":"kaz_fte","je_citati":true},{"x":2,"y":2998.1,"color":"rgba(0, 81, 165, 0.557894736842105)","code":"I0-0056","name":"Infrastrukturna dejavnost UKC Ljubljana","vodja":"dr. Franc Strle","kaz_fte":2998.1,"kaz_raz":777,"hIndex":null,"cimax":null,"fte":7,"raz":27,"ukc_vod":1,"kazalnik_tip":"kaz_fte","je_citati":true},{"x":3,"y":2974.6,"color":"rgba(0, 81, 165, 0.67578947368421)","code":"P3-0296","name":"Bolezni in povzročitelji, ki jih v Sloveniji prenašajo členonožci","vodja":"dr. Franc Strle","kaz_fte":2974.6,"kaz_raz":798,"hIndex":null,"cimax":null,"fte":10.2,"raz":38,"ukc_vod":1,"kazalnik_tip":"kaz_fte","je_citati":true},{"x":4,"y":2840.4,"color":"rgba(153, 153, 153, 0.506315789473684)","code":"P3-0307","name":"Rak glave in vratu - analiza bioloških značilnosti in poskus izboljšanja zdravljenja","vodja":"dr. Primož Strojan","kaz_fte":2840.4,"kaz_raz":692,"hIndex":null,"cimax":null,"fte":5.6,"raz":23,"ukc_vod":0,"kazalnik_tip":"kaz_fte","je_citati":true},{"x":5,"y":2607.5,"color":"rgba(0, 81, 165, 0.955789473684211)","code":"P3-0343","name":"Etiologija, zgodnje odkrivanje in zdravljenje bolezni pri otrocih in mladostnikih","vodja":"dr. Tadej Battelino","kaz_fte":2607.5,"kaz_raz":844,"hIndex":null,"cimax":null,"fte":17.8,"raz":55,"ukc_vod":1,"kazalnik_tip":"kaz_fte","je_citati":true},{"x":6,"y":2552.5,"color":"rgba(0, 81, 165, 0.856315789473684)","code":"P3-0314","name":"Sistemske avtoimunske bolezni","vodja":"dr. Katja Lakota","kaz_fte":2552.5,"kaz_raz":787,"hIndex":null,"cimax":null,"fte":15.1,"raz":49,"ukc_vod":1,"kazalnik_tip":"kaz_fte","je_citati":true},{"x":7,"y":2483.9,"color":"rgba(0, 81, 165, 0.62421052631579)","code":"P3-0298","name":"Geni, hormonske in osebnostne spremembe pri metabolnih motnjah","vodja":"dr. Andrej Janež","kaz_fte":2483.9,"kaz_raz":874,"hIndex":null,"cimax":null,"fte":8.800000000000001,"raz":25,"ukc_vod":1,"kazalnik_tip":"kaz_fte","je_citati":true},{"x":8,"y":2401.4,"color":"rgba(0, 81, 165, 0.583684210526316)","code":"P3-0458","name":"Prirojene in pridobljene okvare imunosti","vodja":"dr. Tadej Avčin","kaz_fte":2401.4,"kaz_raz":596,"hIndex":null,"cimax":null,"fte":7.7,"raz":31,"ukc_vod":1,"kazalnik_tip":"kaz_fte","je_citati":true},{"x":9,"y":1763.6,"color":"rgba(0, 81, 165, 0.767894736842105)","code":"P3-0338","name":"Fiziološki mehanizmi nevroloških motenj in bolezni","vodja":"dr. Simon Podnar","kaz_fte":1763.6,"kaz_raz":700,"hIndex":null,"cimax":null,"fte":12.7,"raz":32,"ukc_vod":1,"kazalnik_tip":"kaz_fte","je_citati":true},{"x":10,"y":1745.4,"color":"rgba(0, 81, 165, 0.591052631578947)","code":"P3-0124","name":"Metabolni in prirojeni dejavniki reproduktivnega zdravja, porod III","vodja":"dr. Tanja Premru-Sršen","kaz_fte":1745.4,"kaz_raz":460,"hIndex":null,"cimax":null,"fte":7.9,"raz":30,"ukc_vod":1,"kazalnik_tip":"kaz_fte","je_citati":true},{"x":11,"y":1228.9,"color":"rgba(153, 153, 153, 0.672105263157895)","code":"P3-0289","name":"Značilnosti malignih neoplazem, pomembne za diagnozo ter napoved poteka bolezni in izida zdravljenja","vodja":"dr. Nikola Bešić","kaz_fte":1228.9,"kaz_raz":443,"hIndex":null,"cimax":null,"fte":10.1,"raz":28,"ukc_vod":0,"kazalnik_tip":"kaz_fte","je_citati":true},{"x":12,"y":1149.2,"color":"rgba(0, 81, 165, 0.837894736842105)","code":"P3-0326","name":"Ginekologija in reprodukcija: Genomika za personalizirano medicino","vodja":"dr. Borut Peterlin","kaz_fte":1149.2,"kaz_raz":329,"hIndex":null,"cimax":null,"fte":14.6,"raz":51,"ukc_vod":1,"kazalnik_tip":"kaz_fte","je_citati":true},{"x":13,"y":1107.8,"color":"rgba(0, 81, 165, 0.366315789473684)","code":"P3-0457","name":"Nove strategije diagnostike in zdravljenja srčnega popuščanja","vodja":"dr. Gregor Poglajen","kaz_fte":1107.8,"kaz_raz":222,"hIndex":null,"cimax":null,"fte":1.8,"raz":9,"ukc_vod":1,"kazalnik_tip":"kaz_fte","je_citati":true},{"x":14,"y":1093.1,"color":"rgba(0, 81, 165, 0.587368421052632)","code":"P3-0333","name":"Očesne bolezni odraslih in otrok","vodja":"dr. Marko Hawlina","kaz_fte":1093.1,"kaz_raz":294,"hIndex":null,"cimax":null,"fte":7.8,"raz":29,"ukc_vod":1,"kazalnik_tip":"kaz_fte","je_citati":true},{"x":15,"y":1016.7,"color":"rgba(153, 153, 153, 0.812105263157895)","code":"P3-0395","name":"Prehrana in javno zdravje","vodja":"dr. Igor Pravst","kaz_fte":1016.7,"kaz_raz":505,"hIndex":null,"cimax":null,"fte":13.9,"raz":28,"ukc_vod":0,"kazalnik_tip":"kaz_fte","je_citati":true},{"x":16,"y":1015,"color":"rgba(153, 153, 153, 0.653684210526316)","code":"P5-0110","name":"Psihološki in nevroznanstveni vidiki kognicije","vodja":"dr. Anja Podlesek","kaz_fte":1015,"kaz_raz":406,"hIndex":null,"cimax":null,"fte":9.6,"raz":24,"ukc_vod":0,"kazalnik_tip":"kaz_fte","je_citati":true},{"x":17,"y":996.8,"color":"rgba(0, 81, 165, 0.543157894736842)","code":"P3-0323","name":"Ledvične bolezni in nadomestna zdravljenja","vodja":"dr. Jadranka Buturović-Ponikvar","kaz_fte":996.8,"kaz_raz":263,"hIndex":null,"cimax":null,"fte":6.6,"raz":25,"ukc_vod":1,"kazalnik_tip":"kaz_fte","je_citati":true},{"x":18,"y":978.2,"color":"rgba(153, 153, 153, 1)","code":"P1-0389","name":"Medicinska fizika","vodja":"dr. Robert Jeraj","kaz_fte":978.2,"kaz_raz":404,"hIndex":null,"cimax":null,"fte":19,"raz":46,"ukc_vod":0,"kazalnik_tip":"kaz_fte","je_citati":true},{"x":19,"y":840.3,"color":"rgba(153, 153, 153, 0.638947368421052)","code":"P3-0043","name":"Molekularni mehanizmi razvoja in delovanja skeletne mišice","vodja":"dr. Sergej Pirkmajer","kaz_fte":840.3,"kaz_raz":297,"hIndex":null,"cimax":null,"fte":9.199999999999999,"raz":26,"ukc_vod":0,"kazalnik_tip":"kaz_fte","je_citati":true},{"x":20,"y":797.2,"color":"rgba(153, 153, 153, 0.62421052631579)","code":"P3-0171","name":"Plastičnost živčevja v fizioloških in patofizioloških razmerah","vodja":"dr. Marko Živin","kaz_fte":797.2,"kaz_raz":351,"hIndex":null,"cimax":null,"fte":8.800000000000001,"raz":20,"ukc_vod":0,"kazalnik_tip":"kaz_fte","je_citati":true},{"x":21,"y":419.4,"color":"rgba(0, 81, 165, 0.491578947368421)","code":"P3-0293","name":"Parodontalna medicina","vodja":"dr. Aleš Fidler","kaz_fte":419.4,"kaz_raz":182,"hIndex":null,"cimax":null,"fte":5.2,"raz":12,"ukc_vod":1,"kazalnik_tip":"kaz_fte","je_citati":true}],"type":"bar","name":"Kazalnik","borderWidth":0,"dataLabels":{"enabled":false},"tooltip":{"pointFormatter":"function() {\n            var ukc = this.ukc_vod == 1 ? 'DA' : 'NE';\n            var kazalnik_text = '';\n            \n            // Določi oznako glede na tip podatkov (citati ali točke)\n            var metrika = this.je_citati ? 'Citati' : 'Točke';\n            \n            // Pogojni izpis glede na tip kazalnika\n            if (this.kazalnik_tip === 'kaz_fte') {\n              kazalnik_text = metrika + '/FTE: <b>' + this.kaz_fte.toFixed(0) + '<\/b><br/>';\n            } else if (this.kazalnik_tip === 'kaz_raz') {\n              kazalnik_text = metrika + '/raziskovalca: <b>' + this.kaz_raz.toFixed(0) + '<\/b><br/>';\n            } else if (this.kazalnik_tip === 'hIndex') {\n              kazalnik_text = 'H-indeks: <b>' + this.hIndex + '<\/b><br/>';\n            } else if (this.kazalnik_tip === 'cimax') {\n              kazalnik_text = 'Število citatov: <b>' + this.cimax + '<\/b><br/>';\n            }\n            \n            return '<b>' + this.code + '<\/b><br/>' +\n                   '<i>' + this.name + '<\/i><br/>' +\n                   this.vodja + '<br/><br/>' +\n                   kazalnik_text +\n                   'FTE: <b>' + this.fte.toFixed(1) + '<\/b><br/>' +\n                   'Raziskovalci: <b>' + this.raz + '<\/b><br/>' +\n                   'UKC vodilna: <b>' + ukc + '<\/b>';\n          }"}}],"xAxis":{"type":"category","categories":["P3-0352","P3-0308","I0-0056","P3-0296","P3-0307","P3-0343","P3-0314","P3-0298","P3-0458","P3-0338","P3-0124","P3-0289","P3-0326","P3-0457","P3-0333","P3-0395","P5-0110","P3-0323","P1-0389","P3-0043","P3-0171","P3-0293"],"title":{"text":""},"labels":{"style":{"fontSize":"10px"}}},"legend":{"enabled":false},"subtitle":{"text":"","useHTML":true}},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":["hc_opts.series.0.tooltip.pointFormatter"],"jsHooks":[]}</script>
+</div>
+<div class="bslib-grid-item bslib-gap-spacing html-fill-container">
+<div class="bslib-grid bslib-mb-spacing html-fill-item" data-require-bs-caller="layout_column_wrap()" data-require-bs-version="5" style="grid-template-columns:repeat(1, minmax(0, 1fr));grid-auto-rows:1fr;--bslib-grid-height:auto;--bslib-grid-height-mobile:auto;">
+<div class="bslib-grid-item bslib-gap-spacing html-fill-container">
+<div class="highchart html-widget html-fill-item" id="htmlwidget-2777f8f5129703cb2a1e" style="width:100%;height:500px;"></div>
+<script type="application/json" data-for="htmlwidget-2777f8f5129703cb2a1e">{"x":{"hc_opts":{"chart":{"reflow":true,"inverted":true,"height":"450px"},"title":{"text":"UKCL vodilna organizacija","style":{"fontSize":"16px","fontWeight":"bold"}},"yAxis":{"title":{"text":"Kazalnik (Citati na FTE)"},"min":0},"credits":{"enabled":false},"exporting":{"enabled":true},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0},"treemap":{"layoutAlgorithm":"squarified"}},"series":[{"data":[{"x":0,"y":14063.6,"color":"rgba(0, 81, 165, 0.551685393258427)","code":"P3-0308","name":"Ateroskleroza in tromboza","vodja":"dr. Mirza Šabovič","kaz_fte":14063.6,"kaz_raz":4286,"hIndex":null,"cimax":null,"fte":6.4,"raz":21,"ukc_vod":1,"kazalnik_tip":"kaz_fte","je_citati":true},{"x":1,"y":2998.1,"color":"rgba(0, 81, 165, 0.575280898876404)","code":"I0-0056","name":"Infrastrukturna dejavnost UKC Ljubljana","vodja":"dr. Franc Strle","kaz_fte":2998.1,"kaz_raz":777,"hIndex":null,"cimax":null,"fte":7,"raz":27,"ukc_vod":1,"kazalnik_tip":"kaz_fte","je_citati":true},{"x":2,"y":2974.6,"color":"rgba(0, 81, 165, 0.701123595505618)","code":"P3-0296","name":"Bolezni in povzročitelji, ki jih v Sloveniji prenašajo členonožci","vodja":"dr. Franc Strle","kaz_fte":2974.6,"kaz_raz":798,"hIndex":null,"cimax":null,"fte":10.2,"raz":38,"ukc_vod":1,"kazalnik_tip":"kaz_fte","je_citati":true},{"x":3,"y":2607.5,"color":"rgba(0, 81, 165, 1)","code":"P3-0343","name":"Etiologija, zgodnje odkrivanje in zdravljenje bolezni pri otrocih in mladostnikih","vodja":"dr. Tadej Battelino","kaz_fte":2607.5,"kaz_raz":844,"hIndex":null,"cimax":null,"fte":17.8,"raz":55,"ukc_vod":1,"kazalnik_tip":"kaz_fte","je_citati":true},{"x":4,"y":2552.5,"color":"rgba(0, 81, 165, 0.893820224719101)","code":"P3-0314","name":"Sistemske avtoimunske bolezni","vodja":"dr. Katja Lakota","kaz_fte":2552.5,"kaz_raz":787,"hIndex":null,"cimax":null,"fte":15.1,"raz":49,"ukc_vod":1,"kazalnik_tip":"kaz_fte","je_citati":true},{"x":5,"y":2483.9,"color":"rgba(0, 81, 165, 0.646067415730337)","code":"P3-0298","name":"Geni, hormonske in osebnostne spremembe pri metabolnih motnjah","vodja":"dr. Andrej Janež","kaz_fte":2483.9,"kaz_raz":874,"hIndex":null,"cimax":null,"fte":8.800000000000001,"raz":25,"ukc_vod":1,"kazalnik_tip":"kaz_fte","je_citati":true},{"x":6,"y":2401.4,"color":"rgba(0, 81, 165, 0.602808988764045)","code":"P3-0458","name":"Prirojene in pridobljene okvare imunosti","vodja":"dr. Tadej Avčin","kaz_fte":2401.4,"kaz_raz":596,"hIndex":null,"cimax":null,"fte":7.7,"raz":31,"ukc_vod":1,"kazalnik_tip":"kaz_fte","je_citati":true},{"x":7,"y":1763.6,"color":"rgba(0, 81, 165, 0.799438202247191)","code":"P3-0338","name":"Fiziološki mehanizmi nevroloških motenj in bolezni","vodja":"dr. Simon Podnar","kaz_fte":1763.6,"kaz_raz":700,"hIndex":null,"cimax":null,"fte":12.7,"raz":32,"ukc_vod":1,"kazalnik_tip":"kaz_fte","je_citati":true},{"x":8,"y":1745.4,"color":"rgba(0, 81, 165, 0.610674157303371)","code":"P3-0124","name":"Metabolni in prirojeni dejavniki reproduktivnega zdravja, porod III","vodja":"dr. Tanja Premru-Sršen","kaz_fte":1745.4,"kaz_raz":460,"hIndex":null,"cimax":null,"fte":7.9,"raz":30,"ukc_vod":1,"kazalnik_tip":"kaz_fte","je_citati":true},{"x":9,"y":1149.2,"color":"rgba(0, 81, 165, 0.874157303370786)","code":"P3-0326","name":"Ginekologija in reprodukcija: Genomika za personalizirano medicino","vodja":"dr. Borut Peterlin","kaz_fte":1149.2,"kaz_raz":329,"hIndex":null,"cimax":null,"fte":14.6,"raz":51,"ukc_vod":1,"kazalnik_tip":"kaz_fte","je_citati":true},{"x":10,"y":1107.8,"color":"rgba(0, 81, 165, 0.370786516853933)","code":"P3-0457","name":"Nove strategije diagnostike in zdravljenja srčnega popuščanja","vodja":"dr. Gregor Poglajen","kaz_fte":1107.8,"kaz_raz":222,"hIndex":null,"cimax":null,"fte":1.8,"raz":9,"ukc_vod":1,"kazalnik_tip":"kaz_fte","je_citati":true},{"x":11,"y":1093.1,"color":"rgba(0, 81, 165, 0.606741573033708)","code":"P3-0333","name":"Očesne bolezni odraslih in otrok","vodja":"dr. Marko Hawlina","kaz_fte":1093.1,"kaz_raz":294,"hIndex":null,"cimax":null,"fte":7.8,"raz":29,"ukc_vod":1,"kazalnik_tip":"kaz_fte","je_citati":true},{"x":12,"y":996.8,"color":"rgba(0, 81, 165, 0.559550561797753)","code":"P3-0323","name":"Ledvične bolezni in nadomestna zdravljenja","vodja":"dr. Jadranka Buturović-Ponikvar","kaz_fte":996.8,"kaz_raz":263,"hIndex":null,"cimax":null,"fte":6.6,"raz":25,"ukc_vod":1,"kazalnik_tip":"kaz_fte","je_citati":true},{"x":13,"y":419.4,"color":"rgba(0, 81, 165, 0.504494382022472)","code":"P3-0293","name":"Parodontalna medicina","vodja":"dr. Aleš Fidler","kaz_fte":419.4,"kaz_raz":182,"hIndex":null,"cimax":null,"fte":5.2,"raz":12,"ukc_vod":1,"kazalnik_tip":"kaz_fte","je_citati":true}],"type":"bar","name":"Kazalnik","borderWidth":0,"dataLabels":{"enabled":false},"tooltip":{"pointFormatter":"function() {\n            var ukc = this.ukc_vod == 1 ? 'DA' : 'NE';\n            var kazalnik_text = '';\n            \n            // Določi oznako glede na tip podatkov (citati ali točke)\n            var metrika = this.je_citati ? 'Citati' : 'Točke';\n            \n            // Pogojni izpis glede na tip kazalnika\n            if (this.kazalnik_tip === 'kaz_fte') {\n              kazalnik_text = metrika + '/FTE: <b>' + this.kaz_fte.toFixed(0) + '<\/b><br/>';\n            } else if (this.kazalnik_tip === 'kaz_raz') {\n              kazalnik_text = metrika + '/raziskovalca: <b>' + this.kaz_raz.toFixed(0) + '<\/b><br/>';\n            } else if (this.kazalnik_tip === 'hIndex') {\n              kazalnik_text = 'H-indeks: <b>' + this.hIndex + '<\/b><br/>';\n            } else if (this.kazalnik_tip === 'cimax') {\n              kazalnik_text = 'Število citatov: <b>' + this.cimax + '<\/b><br/>';\n            }\n            \n            return '<b>' + this.code + '<\/b><br/>' +\n                   '<i>' + this.name + '<\/i><br/>' +\n                   this.vodja + '<br/><br/>' +\n                   kazalnik_text +\n                   'FTE: <b>' + this.fte.toFixed(1) + '<\/b><br/>' +\n                   'Raziskovalci: <b>' + this.raz + '<\/b><br/>' +\n                   'UKC vodilna: <b>' + ukc + '<\/b>';\n          }"}}],"xAxis":{"type":"category","categories":["P3-0308","I0-0056","P3-0296","P3-0343","P3-0314","P3-0298","P3-0458","P3-0338","P3-0124","P3-0326","P3-0457","P3-0333","P3-0323","P3-0293"],"title":{"text":""},"labels":{"style":{"fontSize":"10px"}}},"legend":{"enabled":false}},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":["hc_opts.series.0.tooltip.pointFormatter"],"jsHooks":[]}</script>
+</div>
+<div class="bslib-grid-item bslib-gap-spacing html-fill-container">
+<div class="highchart html-widget html-fill-item" id="htmlwidget-7b97e872f8c3858833de" style="width:100%;height:500px;"></div>
+<script type="application/json" data-for="htmlwidget-7b97e872f8c3858833de">{"x":{"hc_opts":{"chart":{"reflow":true,"inverted":true,"height":"350px"},"title":{"text":"UKCL sodelujoča organizacija","style":{"fontSize":"16px","fontWeight":"bold"}},"yAxis":{"title":{"text":"Kazalnik (Citati na FTE)"},"min":0},"credits":{"enabled":false},"exporting":{"enabled":true},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0},"treemap":{"layoutAlgorithm":"squarified"}},"series":[{"data":[{"x":0,"y":16774.7,"color":"rgba(153, 153, 153, 0.432631578947368)","code":"P3-0352","name":"Družine s povišano ali visoko ogroženostjo za raka: svetovanje, odkrivanje mutacij in preprečevanje raka","vodja":"dr. Janez Žgajnar","kaz_fte":16774.7,"kaz_raz":3355,"hIndex":null,"cimax":null,"fte":3.6,"raz":18,"ukc_vod":0,"kazalnik_tip":"kaz_fte","je_citati":true},{"x":1,"y":2840.4,"color":"rgba(153, 153, 153, 0.506315789473684)","code":"P3-0307","name":"Rak glave in vratu - analiza bioloških značilnosti in poskus izboljšanja zdravljenja","vodja":"dr. Primož Strojan","kaz_fte":2840.4,"kaz_raz":692,"hIndex":null,"cimax":null,"fte":5.6,"raz":23,"ukc_vod":0,"kazalnik_tip":"kaz_fte","je_citati":true},{"x":2,"y":1228.9,"color":"rgba(153, 153, 153, 0.672105263157895)","code":"P3-0289","name":"Značilnosti malignih neoplazem, pomembne za diagnozo ter napoved poteka bolezni in izida zdravljenja","vodja":"dr. Nikola Bešić","kaz_fte":1228.9,"kaz_raz":443,"hIndex":null,"cimax":null,"fte":10.1,"raz":28,"ukc_vod":0,"kazalnik_tip":"kaz_fte","je_citati":true},{"x":3,"y":1016.7,"color":"rgba(153, 153, 153, 0.812105263157895)","code":"P3-0395","name":"Prehrana in javno zdravje","vodja":"dr. Igor Pravst","kaz_fte":1016.7,"kaz_raz":505,"hIndex":null,"cimax":null,"fte":13.9,"raz":28,"ukc_vod":0,"kazalnik_tip":"kaz_fte","je_citati":true},{"x":4,"y":1015,"color":"rgba(153, 153, 153, 0.653684210526316)","code":"P5-0110","name":"Psihološki in nevroznanstveni vidiki kognicije","vodja":"dr. Anja Podlesek","kaz_fte":1015,"kaz_raz":406,"hIndex":null,"cimax":null,"fte":9.6,"raz":24,"ukc_vod":0,"kazalnik_tip":"kaz_fte","je_citati":true},{"x":5,"y":978.2,"color":"rgba(153, 153, 153, 1)","code":"P1-0389","name":"Medicinska fizika","vodja":"dr. Robert Jeraj","kaz_fte":978.2,"kaz_raz":404,"hIndex":null,"cimax":null,"fte":19,"raz":46,"ukc_vod":0,"kazalnik_tip":"kaz_fte","je_citati":true},{"x":6,"y":840.3,"color":"rgba(153, 153, 153, 0.638947368421052)","code":"P3-0043","name":"Molekularni mehanizmi razvoja in delovanja skeletne mišice","vodja":"dr. Sergej Pirkmajer","kaz_fte":840.3,"kaz_raz":297,"hIndex":null,"cimax":null,"fte":9.199999999999999,"raz":26,"ukc_vod":0,"kazalnik_tip":"kaz_fte","je_citati":true},{"x":7,"y":797.2,"color":"rgba(153, 153, 153, 0.62421052631579)","code":"P3-0171","name":"Plastičnost živčevja v fizioloških in patofizioloških razmerah","vodja":"dr. Marko Živin","kaz_fte":797.2,"kaz_raz":351,"hIndex":null,"cimax":null,"fte":8.800000000000001,"raz":20,"ukc_vod":0,"kazalnik_tip":"kaz_fte","je_citati":true}],"type":"bar","name":"Kazalnik","borderWidth":0,"dataLabels":{"enabled":false},"tooltip":{"pointFormatter":"function() {\n            var ukc = this.ukc_vod == 1 ? 'DA' : 'NE';\n            var kazalnik_text = '';\n            \n            // Določi oznako glede na tip podatkov (citati ali točke)\n            var metrika = this.je_citati ? 'Citati' : 'Točke';\n            \n            // Pogojni izpis glede na tip kazalnika\n            if (this.kazalnik_tip === 'kaz_fte') {\n              kazalnik_text = metrika + '/FTE: <b>' + this.kaz_fte.toFixed(0) + '<\/b><br/>';\n            } else if (this.kazalnik_tip === 'kaz_raz') {\n              kazalnik_text = metrika + '/raziskovalca: <b>' + this.kaz_raz.toFixed(0) + '<\/b><br/>';\n            } else if (this.kazalnik_tip === 'hIndex') {\n              kazalnik_text = 'H-indeks: <b>' + this.hIndex + '<\/b><br/>';\n            } else if (this.kazalnik_tip === 'cimax') {\n              kazalnik_text = 'Število citatov: <b>' + this.cimax + '<\/b><br/>';\n            }\n            \n            return '<b>' + this.code + '<\/b><br/>' +\n                   '<i>' + this.name + '<\/i><br/>' +\n                   this.vodja + '<br/><br/>' +\n                   kazalnik_text +\n                   'FTE: <b>' + this.fte.toFixed(1) + '<\/b><br/>' +\n                   'Raziskovalci: <b>' + this.raz + '<\/b><br/>' +\n                   'UKC vodilna: <b>' + ukc + '<\/b>';\n          }"}}],"xAxis":{"type":"category","categories":["P3-0352","P3-0307","P3-0289","P3-0395","P5-0110","P1-0389","P3-0043","P3-0171"],"title":{"text":""},"labels":{"style":{"fontSize":"10px"}}},"legend":{"enabled":false}},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":["hc_opts.series.0.tooltip.pointFormatter"],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+</bslib-layout-columns>
+</div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Opomba glede grafov (klik)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li>Modro: UKC vodilna organizacija | Sivo: UKCL sodelujoča organizacija</li>
+<li>Intenziteta barve odraža velikost skupine (FTE: temnejša -&gt; več FTE)</li>
+<li>V zgornjem desnem kotu je meni (☰) kliknite in izberite: (pogled preko celega zaslona; prenos slike; prenos podatkov)</li>
+<li>S postavitvijo kurzorja na posamezen stolpec se izpišejo rezultati za izbrani program</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<bslib-layout-columns class="bslib-grid grid bslib-mb-spacing html-fill-item" col-widths-sm="6,6" data-require-bs-caller="layout_columns()" data-require-bs-version="5">
+<div class="bslib-grid-item bslib-gap-spacing html-fill-container">
+<div class="highchart html-widget html-fill-item" id="htmlwidget-7dabb899542e898c4d93" style="width:100%;height:500px;"></div>
+<script type="application/json" data-for="htmlwidget-7dabb899542e898c4d93">{"x":{"hc_opts":{"chart":{"reflow":true,"inverted":true,"height":"900px"},"title":{"text":"Citati/Raziskovalec","style":{"fontSize":"16px","fontWeight":"bold"}},"yAxis":{"title":{"text":"Kazalnik (Citati na raziskovalca)"},"min":0},"credits":{"enabled":false},"exporting":{"enabled":true},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0},"treemap":{"layoutAlgorithm":"squarified"}},"series":[{"data":[{"x":0,"y":4286,"color":"rgba(0, 81, 165, 0.53578947368421)","code":"P3-0308","name":"Ateroskleroza in tromboza","vodja":"dr. Mirza Šabovič","kaz_fte":14063.6,"kaz_raz":4286,"hIndex":null,"cimax":null,"fte":6.4,"raz":21,"ukc_vod":1,"kazalnik_tip":"kaz_raz","je_citati":true},{"x":1,"y":3355,"color":"rgba(153, 153, 153, 0.432631578947368)","code":"P3-0352","name":"Družine s povišano ali visoko ogroženostjo za raka: svetovanje, odkrivanje mutacij in preprečevanje raka","vodja":"dr. Janez Žgajnar","kaz_fte":16774.7,"kaz_raz":3355,"hIndex":null,"cimax":null,"fte":3.6,"raz":18,"ukc_vod":0,"kazalnik_tip":"kaz_raz","je_citati":true},{"x":2,"y":874,"color":"rgba(0, 81, 165, 0.62421052631579)","code":"P3-0298","name":"Geni, hormonske in osebnostne spremembe pri metabolnih motnjah","vodja":"dr. Andrej Janež","kaz_fte":2483.9,"kaz_raz":874,"hIndex":null,"cimax":null,"fte":8.800000000000001,"raz":25,"ukc_vod":1,"kazalnik_tip":"kaz_raz","je_citati":true},{"x":3,"y":844,"color":"rgba(0, 81, 165, 0.955789473684211)","code":"P3-0343","name":"Etiologija, zgodnje odkrivanje in zdravljenje bolezni pri otrocih in mladostnikih","vodja":"dr. Tadej Battelino","kaz_fte":2607.5,"kaz_raz":844,"hIndex":null,"cimax":null,"fte":17.8,"raz":55,"ukc_vod":1,"kazalnik_tip":"kaz_raz","je_citati":true},{"x":4,"y":798,"color":"rgba(0, 81, 165, 0.67578947368421)","code":"P3-0296","name":"Bolezni in povzročitelji, ki jih v Sloveniji prenašajo členonožci","vodja":"dr. Franc Strle","kaz_fte":2974.6,"kaz_raz":798,"hIndex":null,"cimax":null,"fte":10.2,"raz":38,"ukc_vod":1,"kazalnik_tip":"kaz_raz","je_citati":true},{"x":5,"y":787,"color":"rgba(0, 81, 165, 0.856315789473684)","code":"P3-0314","name":"Sistemske avtoimunske bolezni","vodja":"dr. Katja Lakota","kaz_fte":2552.5,"kaz_raz":787,"hIndex":null,"cimax":null,"fte":15.1,"raz":49,"ukc_vod":1,"kazalnik_tip":"kaz_raz","je_citati":true},{"x":6,"y":777,"color":"rgba(0, 81, 165, 0.557894736842105)","code":"I0-0056","name":"Infrastrukturna dejavnost UKC Ljubljana","vodja":"dr. Franc Strle","kaz_fte":2998.1,"kaz_raz":777,"hIndex":null,"cimax":null,"fte":7,"raz":27,"ukc_vod":1,"kazalnik_tip":"kaz_raz","je_citati":true},{"x":7,"y":700,"color":"rgba(0, 81, 165, 0.767894736842105)","code":"P3-0338","name":"Fiziološki mehanizmi nevroloških motenj in bolezni","vodja":"dr. Simon Podnar","kaz_fte":1763.6,"kaz_raz":700,"hIndex":null,"cimax":null,"fte":12.7,"raz":32,"ukc_vod":1,"kazalnik_tip":"kaz_raz","je_citati":true},{"x":8,"y":692,"color":"rgba(153, 153, 153, 0.506315789473684)","code":"P3-0307","name":"Rak glave in vratu - analiza bioloških značilnosti in poskus izboljšanja zdravljenja","vodja":"dr. Primož Strojan","kaz_fte":2840.4,"kaz_raz":692,"hIndex":null,"cimax":null,"fte":5.6,"raz":23,"ukc_vod":0,"kazalnik_tip":"kaz_raz","je_citati":true},{"x":9,"y":596,"color":"rgba(0, 81, 165, 0.583684210526316)","code":"P3-0458","name":"Prirojene in pridobljene okvare imunosti","vodja":"dr. Tadej Avčin","kaz_fte":2401.4,"kaz_raz":596,"hIndex":null,"cimax":null,"fte":7.7,"raz":31,"ukc_vod":1,"kazalnik_tip":"kaz_raz","je_citati":true},{"x":10,"y":505,"color":"rgba(153, 153, 153, 0.812105263157895)","code":"P3-0395","name":"Prehrana in javno zdravje","vodja":"dr. Igor Pravst","kaz_fte":1016.7,"kaz_raz":505,"hIndex":null,"cimax":null,"fte":13.9,"raz":28,"ukc_vod":0,"kazalnik_tip":"kaz_raz","je_citati":true},{"x":11,"y":460,"color":"rgba(0, 81, 165, 0.591052631578947)","code":"P3-0124","name":"Metabolni in prirojeni dejavniki reproduktivnega zdravja, porod III","vodja":"dr. Tanja Premru-Sršen","kaz_fte":1745.4,"kaz_raz":460,"hIndex":null,"cimax":null,"fte":7.9,"raz":30,"ukc_vod":1,"kazalnik_tip":"kaz_raz","je_citati":true},{"x":12,"y":443,"color":"rgba(153, 153, 153, 0.672105263157895)","code":"P3-0289","name":"Značilnosti malignih neoplazem, pomembne za diagnozo ter napoved poteka bolezni in izida zdravljenja","vodja":"dr. Nikola Bešić","kaz_fte":1228.9,"kaz_raz":443,"hIndex":null,"cimax":null,"fte":10.1,"raz":28,"ukc_vod":0,"kazalnik_tip":"kaz_raz","je_citati":true},{"x":13,"y":406,"color":"rgba(153, 153, 153, 0.653684210526316)","code":"P5-0110","name":"Psihološki in nevroznanstveni vidiki kognicije","vodja":"dr. Anja Podlesek","kaz_fte":1015,"kaz_raz":406,"hIndex":null,"cimax":null,"fte":9.6,"raz":24,"ukc_vod":0,"kazalnik_tip":"kaz_raz","je_citati":true},{"x":14,"y":404,"color":"rgba(153, 153, 153, 1)","code":"P1-0389","name":"Medicinska fizika","vodja":"dr. Robert Jeraj","kaz_fte":978.2,"kaz_raz":404,"hIndex":null,"cimax":null,"fte":19,"raz":46,"ukc_vod":0,"kazalnik_tip":"kaz_raz","je_citati":true},{"x":15,"y":351,"color":"rgba(153, 153, 153, 0.62421052631579)","code":"P3-0171","name":"Plastičnost živčevja v fizioloških in patofizioloških razmerah","vodja":"dr. Marko Živin","kaz_fte":797.2,"kaz_raz":351,"hIndex":null,"cimax":null,"fte":8.800000000000001,"raz":20,"ukc_vod":0,"kazalnik_tip":"kaz_raz","je_citati":true},{"x":16,"y":329,"color":"rgba(0, 81, 165, 0.837894736842105)","code":"P3-0326","name":"Ginekologija in reprodukcija: Genomika za personalizirano medicino","vodja":"dr. Borut Peterlin","kaz_fte":1149.2,"kaz_raz":329,"hIndex":null,"cimax":null,"fte":14.6,"raz":51,"ukc_vod":1,"kazalnik_tip":"kaz_raz","je_citati":true},{"x":17,"y":297,"color":"rgba(153, 153, 153, 0.638947368421052)","code":"P3-0043","name":"Molekularni mehanizmi razvoja in delovanja skeletne mišice","vodja":"dr. Sergej Pirkmajer","kaz_fte":840.3,"kaz_raz":297,"hIndex":null,"cimax":null,"fte":9.199999999999999,"raz":26,"ukc_vod":0,"kazalnik_tip":"kaz_raz","je_citati":true},{"x":18,"y":294,"color":"rgba(0, 81, 165, 0.587368421052632)","code":"P3-0333","name":"Očesne bolezni odraslih in otrok","vodja":"dr. Marko Hawlina","kaz_fte":1093.1,"kaz_raz":294,"hIndex":null,"cimax":null,"fte":7.8,"raz":29,"ukc_vod":1,"kazalnik_tip":"kaz_raz","je_citati":true},{"x":19,"y":263,"color":"rgba(0, 81, 165, 0.543157894736842)","code":"P3-0323","name":"Ledvične bolezni in nadomestna zdravljenja","vodja":"dr. Jadranka Buturović-Ponikvar","kaz_fte":996.8,"kaz_raz":263,"hIndex":null,"cimax":null,"fte":6.6,"raz":25,"ukc_vod":1,"kazalnik_tip":"kaz_raz","je_citati":true},{"x":20,"y":222,"color":"rgba(0, 81, 165, 0.366315789473684)","code":"P3-0457","name":"Nove strategije diagnostike in zdravljenja srčnega popuščanja","vodja":"dr. Gregor Poglajen","kaz_fte":1107.8,"kaz_raz":222,"hIndex":null,"cimax":null,"fte":1.8,"raz":9,"ukc_vod":1,"kazalnik_tip":"kaz_raz","je_citati":true},{"x":21,"y":182,"color":"rgba(0, 81, 165, 0.491578947368421)","code":"P3-0293","name":"Parodontalna medicina","vodja":"dr. Aleš Fidler","kaz_fte":419.4,"kaz_raz":182,"hIndex":null,"cimax":null,"fte":5.2,"raz":12,"ukc_vod":1,"kazalnik_tip":"kaz_raz","je_citati":true}],"type":"bar","name":"Kazalnik","borderWidth":0,"dataLabels":{"enabled":false},"tooltip":{"pointFormatter":"function() {\n            var ukc = this.ukc_vod == 1 ? 'DA' : 'NE';\n            var kazalnik_text = '';\n            \n            // Določi oznako glede na tip podatkov (citati ali točke)\n            var metrika = this.je_citati ? 'Citati' : 'Točke';\n            \n            // Pogojni izpis glede na tip kazalnika\n            if (this.kazalnik_tip === 'kaz_fte') {\n              kazalnik_text = metrika + '/FTE: <b>' + this.kaz_fte.toFixed(0) + '<\/b><br/>';\n            } else if (this.kazalnik_tip === 'kaz_raz') {\n              kazalnik_text = metrika + '/raziskovalca: <b>' + this.kaz_raz.toFixed(0) + '<\/b><br/>';\n            } else if (this.kazalnik_tip === 'hIndex') {\n              kazalnik_text = 'H-indeks: <b>' + this.hIndex + '<\/b><br/>';\n            } else if (this.kazalnik_tip === 'cimax') {\n              kazalnik_text = 'Število citatov: <b>' + this.cimax + '<\/b><br/>';\n            }\n            \n            return '<b>' + this.code + '<\/b><br/>' +\n                   '<i>' + this.name + '<\/i><br/>' +\n                   this.vodja + '<br/><br/>' +\n                   kazalnik_text +\n                   'FTE: <b>' + this.fte.toFixed(1) + '<\/b><br/>' +\n                   'Raziskovalci: <b>' + this.raz + '<\/b><br/>' +\n                   'UKC vodilna: <b>' + ukc + '<\/b>';\n          }"}}],"xAxis":{"type":"category","categories":["P3-0308","P3-0352","P3-0298","P3-0343","P3-0296","P3-0314","I0-0056","P3-0338","P3-0307","P3-0458","P3-0395","P3-0124","P3-0289","P5-0110","P1-0389","P3-0171","P3-0326","P3-0043","P3-0333","P3-0323","P3-0457","P3-0293"],"title":{"text":""},"labels":{"style":{"fontSize":"10px"}}},"legend":{"enabled":false},"subtitle":{"text":"","useHTML":true}},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":["hc_opts.series.0.tooltip.pointFormatter"],"jsHooks":[]}</script>
+</div>
+<div class="bslib-grid-item bslib-gap-spacing html-fill-container">
+<div class="bslib-grid bslib-mb-spacing html-fill-item" data-require-bs-caller="layout_column_wrap()" data-require-bs-version="5" style="grid-template-columns:repeat(1, minmax(0, 1fr));grid-auto-rows:1fr;--bslib-grid-height:auto;--bslib-grid-height-mobile:auto;">
+<div class="bslib-grid-item bslib-gap-spacing html-fill-container">
+<div class="highchart html-widget html-fill-item" id="htmlwidget-ad006237f5e67f5ee721" style="width:100%;height:500px;"></div>
+<script type="application/json" data-for="htmlwidget-ad006237f5e67f5ee721">{"x":{"hc_opts":{"chart":{"reflow":true,"inverted":true,"height":"450px"},"title":{"text":"UKCL vodilna organizacija","style":{"fontSize":"16px","fontWeight":"bold"}},"yAxis":{"title":{"text":"Kazalnik (Citati na raziskovalca)"},"min":0},"credits":{"enabled":false},"exporting":{"enabled":true},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0},"treemap":{"layoutAlgorithm":"squarified"}},"series":[{"data":[{"x":0,"y":4286,"color":"rgba(0, 81, 165, 0.551685393258427)","code":"P3-0308","name":"Ateroskleroza in tromboza","vodja":"dr. Mirza Šabovič","kaz_fte":14063.6,"kaz_raz":4286,"hIndex":null,"cimax":null,"fte":6.4,"raz":21,"ukc_vod":1,"kazalnik_tip":"kaz_raz","je_citati":true},{"x":1,"y":874,"color":"rgba(0, 81, 165, 0.646067415730337)","code":"P3-0298","name":"Geni, hormonske in osebnostne spremembe pri metabolnih motnjah","vodja":"dr. Andrej Janež","kaz_fte":2483.9,"kaz_raz":874,"hIndex":null,"cimax":null,"fte":8.800000000000001,"raz":25,"ukc_vod":1,"kazalnik_tip":"kaz_raz","je_citati":true},{"x":2,"y":844,"color":"rgba(0, 81, 165, 1)","code":"P3-0343","name":"Etiologija, zgodnje odkrivanje in zdravljenje bolezni pri otrocih in mladostnikih","vodja":"dr. Tadej Battelino","kaz_fte":2607.5,"kaz_raz":844,"hIndex":null,"cimax":null,"fte":17.8,"raz":55,"ukc_vod":1,"kazalnik_tip":"kaz_raz","je_citati":true},{"x":3,"y":798,"color":"rgba(0, 81, 165, 0.701123595505618)","code":"P3-0296","name":"Bolezni in povzročitelji, ki jih v Sloveniji prenašajo členonožci","vodja":"dr. Franc Strle","kaz_fte":2974.6,"kaz_raz":798,"hIndex":null,"cimax":null,"fte":10.2,"raz":38,"ukc_vod":1,"kazalnik_tip":"kaz_raz","je_citati":true},{"x":4,"y":787,"color":"rgba(0, 81, 165, 0.893820224719101)","code":"P3-0314","name":"Sistemske avtoimunske bolezni","vodja":"dr. Katja Lakota","kaz_fte":2552.5,"kaz_raz":787,"hIndex":null,"cimax":null,"fte":15.1,"raz":49,"ukc_vod":1,"kazalnik_tip":"kaz_raz","je_citati":true},{"x":5,"y":777,"color":"rgba(0, 81, 165, 0.575280898876404)","code":"I0-0056","name":"Infrastrukturna dejavnost UKC Ljubljana","vodja":"dr. Franc Strle","kaz_fte":2998.1,"kaz_raz":777,"hIndex":null,"cimax":null,"fte":7,"raz":27,"ukc_vod":1,"kazalnik_tip":"kaz_raz","je_citati":true},{"x":6,"y":700,"color":"rgba(0, 81, 165, 0.799438202247191)","code":"P3-0338","name":"Fiziološki mehanizmi nevroloških motenj in bolezni","vodja":"dr. Simon Podnar","kaz_fte":1763.6,"kaz_raz":700,"hIndex":null,"cimax":null,"fte":12.7,"raz":32,"ukc_vod":1,"kazalnik_tip":"kaz_raz","je_citati":true},{"x":7,"y":596,"color":"rgba(0, 81, 165, 0.602808988764045)","code":"P3-0458","name":"Prirojene in pridobljene okvare imunosti","vodja":"dr. Tadej Avčin","kaz_fte":2401.4,"kaz_raz":596,"hIndex":null,"cimax":null,"fte":7.7,"raz":31,"ukc_vod":1,"kazalnik_tip":"kaz_raz","je_citati":true},{"x":8,"y":460,"color":"rgba(0, 81, 165, 0.610674157303371)","code":"P3-0124","name":"Metabolni in prirojeni dejavniki reproduktivnega zdravja, porod III","vodja":"dr. Tanja Premru-Sršen","kaz_fte":1745.4,"kaz_raz":460,"hIndex":null,"cimax":null,"fte":7.9,"raz":30,"ukc_vod":1,"kazalnik_tip":"kaz_raz","je_citati":true},{"x":9,"y":329,"color":"rgba(0, 81, 165, 0.874157303370786)","code":"P3-0326","name":"Ginekologija in reprodukcija: Genomika za personalizirano medicino","vodja":"dr. Borut Peterlin","kaz_fte":1149.2,"kaz_raz":329,"hIndex":null,"cimax":null,"fte":14.6,"raz":51,"ukc_vod":1,"kazalnik_tip":"kaz_raz","je_citati":true},{"x":10,"y":294,"color":"rgba(0, 81, 165, 0.606741573033708)","code":"P3-0333","name":"Očesne bolezni odraslih in otrok","vodja":"dr. Marko Hawlina","kaz_fte":1093.1,"kaz_raz":294,"hIndex":null,"cimax":null,"fte":7.8,"raz":29,"ukc_vod":1,"kazalnik_tip":"kaz_raz","je_citati":true},{"x":11,"y":263,"color":"rgba(0, 81, 165, 0.559550561797753)","code":"P3-0323","name":"Ledvične bolezni in nadomestna zdravljenja","vodja":"dr. Jadranka Buturović-Ponikvar","kaz_fte":996.8,"kaz_raz":263,"hIndex":null,"cimax":null,"fte":6.6,"raz":25,"ukc_vod":1,"kazalnik_tip":"kaz_raz","je_citati":true},{"x":12,"y":222,"color":"rgba(0, 81, 165, 0.370786516853933)","code":"P3-0457","name":"Nove strategije diagnostike in zdravljenja srčnega popuščanja","vodja":"dr. Gregor Poglajen","kaz_fte":1107.8,"kaz_raz":222,"hIndex":null,"cimax":null,"fte":1.8,"raz":9,"ukc_vod":1,"kazalnik_tip":"kaz_raz","je_citati":true},{"x":13,"y":182,"color":"rgba(0, 81, 165, 0.504494382022472)","code":"P3-0293","name":"Parodontalna medicina","vodja":"dr. Aleš Fidler","kaz_fte":419.4,"kaz_raz":182,"hIndex":null,"cimax":null,"fte":5.2,"raz":12,"ukc_vod":1,"kazalnik_tip":"kaz_raz","je_citati":true}],"type":"bar","name":"Kazalnik","borderWidth":0,"dataLabels":{"enabled":false},"tooltip":{"pointFormatter":"function() {\n            var ukc = this.ukc_vod == 1 ? 'DA' : 'NE';\n            var kazalnik_text = '';\n            \n            // Določi oznako glede na tip podatkov (citati ali točke)\n            var metrika = this.je_citati ? 'Citati' : 'Točke';\n            \n            // Pogojni izpis glede na tip kazalnika\n            if (this.kazalnik_tip === 'kaz_fte') {\n              kazalnik_text = metrika + '/FTE: <b>' + this.kaz_fte.toFixed(0) + '<\/b><br/>';\n            } else if (this.kazalnik_tip === 'kaz_raz') {\n              kazalnik_text = metrika + '/raziskovalca: <b>' + this.kaz_raz.toFixed(0) + '<\/b><br/>';\n            } else if (this.kazalnik_tip === 'hIndex') {\n              kazalnik_text = 'H-indeks: <b>' + this.hIndex + '<\/b><br/>';\n            } else if (this.kazalnik_tip === 'cimax') {\n              kazalnik_text = 'Število citatov: <b>' + this.cimax + '<\/b><br/>';\n            }\n            \n            return '<b>' + this.code + '<\/b><br/>' +\n                   '<i>' + this.name + '<\/i><br/>' +\n                   this.vodja + '<br/><br/>' +\n                   kazalnik_text +\n                   'FTE: <b>' + this.fte.toFixed(1) + '<\/b><br/>' +\n                   'Raziskovalci: <b>' + this.raz + '<\/b><br/>' +\n                   'UKC vodilna: <b>' + ukc + '<\/b>';\n          }"}}],"xAxis":{"type":"category","categories":["P3-0308","P3-0298","P3-0343","P3-0296","P3-0314","I0-0056","P3-0338","P3-0458","P3-0124","P3-0326","P3-0333","P3-0323","P3-0457","P3-0293"],"title":{"text":""},"labels":{"style":{"fontSize":"10px"}}},"legend":{"enabled":false}},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":["hc_opts.series.0.tooltip.pointFormatter"],"jsHooks":[]}</script>
+</div>
+<div class="bslib-grid-item bslib-gap-spacing html-fill-container">
+<div class="highchart html-widget html-fill-item" id="htmlwidget-8543ae61ea2031eb86b9" style="width:100%;height:500px;"></div>
+<script type="application/json" data-for="htmlwidget-8543ae61ea2031eb86b9">{"x":{"hc_opts":{"chart":{"reflow":true,"inverted":true,"height":"350px"},"title":{"text":"UKCL sodelujoča organizacija","style":{"fontSize":"16px","fontWeight":"bold"}},"yAxis":{"title":{"text":"Kazalnik (Citati na raziskovalca)"},"min":0},"credits":{"enabled":false},"exporting":{"enabled":true},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0},"treemap":{"layoutAlgorithm":"squarified"}},"series":[{"data":[{"x":0,"y":3355,"color":"rgba(153, 153, 153, 0.432631578947368)","code":"P3-0352","name":"Družine s povišano ali visoko ogroženostjo za raka: svetovanje, odkrivanje mutacij in preprečevanje raka","vodja":"dr. Janez Žgajnar","kaz_fte":16774.7,"kaz_raz":3355,"hIndex":null,"cimax":null,"fte":3.6,"raz":18,"ukc_vod":0,"kazalnik_tip":"kaz_raz","je_citati":true},{"x":1,"y":692,"color":"rgba(153, 153, 153, 0.506315789473684)","code":"P3-0307","name":"Rak glave in vratu - analiza bioloških značilnosti in poskus izboljšanja zdravljenja","vodja":"dr. Primož Strojan","kaz_fte":2840.4,"kaz_raz":692,"hIndex":null,"cimax":null,"fte":5.6,"raz":23,"ukc_vod":0,"kazalnik_tip":"kaz_raz","je_citati":true},{"x":2,"y":505,"color":"rgba(153, 153, 153, 0.812105263157895)","code":"P3-0395","name":"Prehrana in javno zdravje","vodja":"dr. Igor Pravst","kaz_fte":1016.7,"kaz_raz":505,"hIndex":null,"cimax":null,"fte":13.9,"raz":28,"ukc_vod":0,"kazalnik_tip":"kaz_raz","je_citati":true},{"x":3,"y":443,"color":"rgba(153, 153, 153, 0.672105263157895)","code":"P3-0289","name":"Značilnosti malignih neoplazem, pomembne za diagnozo ter napoved poteka bolezni in izida zdravljenja","vodja":"dr. Nikola Bešić","kaz_fte":1228.9,"kaz_raz":443,"hIndex":null,"cimax":null,"fte":10.1,"raz":28,"ukc_vod":0,"kazalnik_tip":"kaz_raz","je_citati":true},{"x":4,"y":406,"color":"rgba(153, 153, 153, 0.653684210526316)","code":"P5-0110","name":"Psihološki in nevroznanstveni vidiki kognicije","vodja":"dr. Anja Podlesek","kaz_fte":1015,"kaz_raz":406,"hIndex":null,"cimax":null,"fte":9.6,"raz":24,"ukc_vod":0,"kazalnik_tip":"kaz_raz","je_citati":true},{"x":5,"y":404,"color":"rgba(153, 153, 153, 1)","code":"P1-0389","name":"Medicinska fizika","vodja":"dr. Robert Jeraj","kaz_fte":978.2,"kaz_raz":404,"hIndex":null,"cimax":null,"fte":19,"raz":46,"ukc_vod":0,"kazalnik_tip":"kaz_raz","je_citati":true},{"x":6,"y":351,"color":"rgba(153, 153, 153, 0.62421052631579)","code":"P3-0171","name":"Plastičnost živčevja v fizioloških in patofizioloških razmerah","vodja":"dr. Marko Živin","kaz_fte":797.2,"kaz_raz":351,"hIndex":null,"cimax":null,"fte":8.800000000000001,"raz":20,"ukc_vod":0,"kazalnik_tip":"kaz_raz","je_citati":true},{"x":7,"y":297,"color":"rgba(153, 153, 153, 0.638947368421052)","code":"P3-0043","name":"Molekularni mehanizmi razvoja in delovanja skeletne mišice","vodja":"dr. Sergej Pirkmajer","kaz_fte":840.3,"kaz_raz":297,"hIndex":null,"cimax":null,"fte":9.199999999999999,"raz":26,"ukc_vod":0,"kazalnik_tip":"kaz_raz","je_citati":true}],"type":"bar","name":"Kazalnik","borderWidth":0,"dataLabels":{"enabled":false},"tooltip":{"pointFormatter":"function() {\n            var ukc = this.ukc_vod == 1 ? 'DA' : 'NE';\n            var kazalnik_text = '';\n            \n            // Določi oznako glede na tip podatkov (citati ali točke)\n            var metrika = this.je_citati ? 'Citati' : 'Točke';\n            \n            // Pogojni izpis glede na tip kazalnika\n            if (this.kazalnik_tip === 'kaz_fte') {\n              kazalnik_text = metrika + '/FTE: <b>' + this.kaz_fte.toFixed(0) + '<\/b><br/>';\n            } else if (this.kazalnik_tip === 'kaz_raz') {\n              kazalnik_text = metrika + '/raziskovalca: <b>' + this.kaz_raz.toFixed(0) + '<\/b><br/>';\n            } else if (this.kazalnik_tip === 'hIndex') {\n              kazalnik_text = 'H-indeks: <b>' + this.hIndex + '<\/b><br/>';\n            } else if (this.kazalnik_tip === 'cimax') {\n              kazalnik_text = 'Število citatov: <b>' + this.cimax + '<\/b><br/>';\n            }\n            \n            return '<b>' + this.code + '<\/b><br/>' +\n                   '<i>' + this.name + '<\/i><br/>' +\n                   this.vodja + '<br/><br/>' +\n                   kazalnik_text +\n                   'FTE: <b>' + this.fte.toFixed(1) + '<\/b><br/>' +\n                   'Raziskovalci: <b>' + this.raz + '<\/b><br/>' +\n                   'UKC vodilna: <b>' + ukc + '<\/b>';\n          }"}}],"xAxis":{"type":"category","categories":["P3-0352","P3-0307","P3-0395","P3-0289","P5-0110","P1-0389","P3-0171","P3-0043"],"title":{"text":""},"labels":{"style":{"fontSize":"10px"}}},"legend":{"enabled":false}},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":["hc_opts.series.0.tooltip.pointFormatter"],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+</bslib-layout-columns>
+</div>
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane page-columns page-full" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div class="callout callout-style-default callout-note callout-titled" title="">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<em>S klikom na posamezen stolpec se spremeni vrstni red skupin.</em>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<div class="cell page-columns page-full">
+<div class="cell-output-display column-page">
+<div style="margin-bottom: 15px; margin-left: 80px;">
+<div id="ukcl_filter" class="form-group crosstalk-input-checkboxgroup crosstalk-input">
+<label class="control-label" for="ukcl_filter">UKCL vodilna organizacija</label>
+<div class="crosstalk-options-group">
+<label class="checkbox-inline">
+<input type="checkbox" name="ukcl_filter" value="Da">
+<span>Da</span>
+</label>
+<label class="checkbox-inline">
+<input type="checkbox" name="ukcl_filter" value="Ne">
+<span>Ne</span>
+</label>
+</div>
+<script type="application/json" data-for="ukcl_filter">{
+  "map": {
+    "Da": ["1", "2", "3", "4", "5", "6", "8", "9", "10", "11", "13", "14", "15", "16"],
+    "Ne": ["7", "12", "17", "18", "19", "20", "21", "22"]
+  },
+  "group": ["SharedData0e0400d0"]
+}</script>
+</div>
+</div>
+<div id="htmlwidget-f987c3861361dc84ce0b" class="reactable html-widget" style="width:auto;height:700px;"></div>
+<script type="application/json" data-for="htmlwidget-f987c3861361dc84ce0b">{"x":{"tag":{"name":"Reactable","attribs":{"data":{" ":["","","","","","","","","","","","","","","","","","","","","",""],"Šifra prog":["P3-0457","P3-0458","P3-0296","P3-0343","I0-0056","P3-0323","P1-0389","P3-0314","P3-0338","P3-0326","P3-0124","P3-0043","P3-0293","P3-0308","P3-0298","P3-0333","P3-0171","P3-0395","P5-0110","P3-0307","P3-0289","P3-0352"],"Vodja":["Gregor Poglajen","Tadej Avčin","Franc Strle","Tadej Battelino","Franc Strle","Jadranka Buturović-Ponikvar","Robert Jeraj","Katja Lakota","Simon Podnar","Borut Peterlin","Tanja Premru-Sršen","Sergej Pirkmajer","Aleš Fidler","Mirza Šabovič","Andrej Janež","Marko Hawlina","Marko Živin","Igor Pravst","Anja Podlesek","Primož Strojan","Nikola Bešić","Janez Žgajnar"],"Naslov":["Nove strategije diagnostike in zdravljenja srčnega popuščanja","Prirojene in pridobljene okvare imunosti","Bolezni in povzročitelji, ki jih v Sloveniji prenašajo členonožci","Etiologija, zgodnje odkrivanje in zdravljenje bolezni pri otrocih in mladostnikih","Infrastrukturna dejavnost UKC Ljubljana","Ledvične bolezni in nadomestna zdravljenja","Medicinska fizika","Sistemske avtoimunske bolezni","Fiziološki mehanizmi nevroloških motenj in bolezni","Ginekologija in reprodukcija: Genomika za personalizirano medicino","Metabolni in prirojeni dejavniki reproduktivnega zdravja, porod III","Molekularni mehanizmi razvoja in delovanja skeletne mišice","Parodontalna medicina","Ateroskleroza in tromboza","Geni, hormonske in osebnostne spremembe pri metabolnih motnjah","Očesne bolezni odraslih in otrok","Plastičnost živčevja v fizioloških in patofizioloških razmerah","Prehrana in javno zdravje","Psihološki in nevroznanstveni vidiki kognicije","Rak glave in vratu - analiza bioloških značilnosti in poskus izboljšanja zdravljenja","Značilnosti malignih neoplazem, pomembne za diagnozo ter napoved poteka bolezni in izida zdravljenja","Družine s povišano ali visoko ogroženostjo za raka: svetovanje, odkrivanje mutacij in preprečevanje raka"],"Št. raz":[9,31,38,55,27,25,46,49,32,51,30,26,12,21,25,29,20,28,24,23,28,18],"FTE":[1.8,7.7,10.2,17.8,7,6.6,19,15.1,12.7,14.6,7.9,9.2,5.2,6.4,8.8,7.8,8.8,13.9,9.6,5.6,10.1,3.6],"Čisti citati":[1994,18491,30341,46414,20987,6579,18585,38542,22398,16779,13789,7731,2181,90007,21858,8526,7015,14132,9744,15906,12412,60389],"Citati/FTE":[1107.8,2401.4,2974.6,2607.5,2998.1,996.8,978.2,2552.5,1763.6,1149.2,1745.4,840.3,419.4,14063.6,2483.9,1093.1,797.2,1016.7,1015,2840.4,1228.9,16774.7],"Citati/raz":[222,596,798,844,777,263,404,787,700,329,460,297,182,4286,874,294,351,505,406,692,443,3355],"UKCL vodilna org":["Da","Da","Da","Da","Da","Da","Ne","Da","Da","Da","Da","Ne","Da","Da","Da","Da","Ne","Ne","Ne","Ne","Ne","Ne"]},"columns":[{"id":" ","name":"#","type":"character","cell":"function(cellInfo) { return cellInfo.viewIndex + 1; }","align":"center","style":{"color":"#666"},"headerStyle":{"fontSize":"14px"},"sortable":false,"width":60},{"id":"Šifra prog","name":"Šifra prog","type":"character","cell":["P3-0457","P3-0458","P3-0296","P3-0343","I0-0056","P3-0323","P1-0389","P3-0314","P3-0338","P3-0326","P3-0124","P3-0043","P3-0293","P3-0308","P3-0298","P3-0333","P3-0171","P3-0395","P5-0110","P3-0307","P3-0289","P3-0352"],"align":"center","style":{"fontSize":"14px"},"headerStyle":{"fontSize":"14px"}},{"id":"Vodja","name":"Vodja","type":"character","cell":["Gregor Poglajen","Tadej Avčin","Franc Strle","Tadej Battelino","Franc Strle","Jadranka Buturović-Ponikvar","Robert Jeraj","Katja Lakota","Simon Podnar","Borut Peterlin","Tanja Premru-Sršen","Sergej Pirkmajer","Aleš Fidler","Mirza Šabovič","Andrej Janež","Marko Hawlina","Marko Živin","Igor Pravst","Anja Podlesek","Primož Strojan","Nikola Bešić","Janez Žgajnar"],"align":"left","style":{"fontSize":"14px"},"headerStyle":{"fontSize":"14px"}},{"id":"Naslov","name":"Naslov","type":"character","cell":["Nove strategije diagnostike in zdravljenja srčnega popuščanja","Prirojene in pridobljene okvare imunosti","Bolezni in povzročitelji, ki jih v Sloveniji prenašajo členonožci","Etiologija, zgodnje odkrivanje in zdravljenje bolezni pri otrocih in mladostnikih","Infrastrukturna dejavnost UKC Ljubljana","Ledvične bolezni in nadomestna zdravljenja","Medicinska fizika","Sistemske avtoimunske bolezni","Fiziološki mehanizmi nevroloških motenj in bolezni","Ginekologija in reprodukcija: Genomika za personalizirano medicino","Metabolni in prirojeni dejavniki reproduktivnega zdravja, porod III","Molekularni mehanizmi razvoja in delovanja skeletne mišice","Parodontalna medicina","Ateroskleroza in tromboza","Geni, hormonske in osebnostne spremembe pri metabolnih motnjah","Očesne bolezni odraslih in otrok","Plastičnost živčevja v fizioloških in patofizioloških razmerah","Prehrana in javno zdravje","Psihološki in nevroznanstveni vidiki kognicije","Rak glave in vratu - analiza bioloških značilnosti in poskus izboljšanja zdravljenja","Značilnosti malignih neoplazem, pomembne za diagnozo ter napoved poteka bolezni in izida zdravljenja","Družine s povišano ali visoko ogroženostjo za raka: svetovanje, odkrivanje mutacij in preprečevanje raka"],"align":"left","style":{"fontSize":"14px"},"headerStyle":{"fontSize":"14px"},"minWidth":250},{"id":"Št. raz","name":"Št. raz","type":"numeric","cell":["9","31","38","55","27","25","46","49","32","51","30","26","12","21","25","29","20","28","24","23","28","18"],"align":"center","style":{"fontSize":"14px"},"headerStyle":{"fontSize":"14px"}},{"id":"FTE","name":"FTE","type":"numeric","cell":["1,8","7,7","10,2","17,8","7","6,6","19","15,1","12,7","14,6","7,9","9,2","5,2","6,4","8,8","7,8","8,8","13,9","9,6","5,6","10,1","3,6"],"align":"center","style":{"fontSize":"14px"},"headerStyle":{"fontSize":"14px"}},{"id":"Čisti citati","name":"Čisti citati","type":"numeric","cell":["1.994","18.491","30.341","46.414","20.987","6.579","18.585","38.542","22.398","16.779","13.789","7.731","2.181","90.007","21.858","8.526","7.015","14.132","9.744","15.906","12.412","60.389"],"align":"center","style":{"fontSize":"14px"},"headerStyle":{"fontSize":"14px"}},{"id":"Citati/FTE","name":"Citati/FTE","type":"numeric","cell":["1.107,8","2.401,4","2.974,6","2.607,5","2.998,1","996,8","978,2","2.552,5","1.763,6","1.149,2","1.745,4","840,3","419,4","14.063,6","2.483,9","1.093,1","797,2","1.016,7","1.015","2.840,4","1.228,9","16.774,7"],"align":"center","style":{"fontSize":"14px"},"headerStyle":{"fontSize":"14px"}},{"id":"Citati/raz","name":"Citati/raz","type":"numeric","cell":["222","596","798","844","777","263","404","787","700","329","460","297","182","4.286","874","294","351","505","406","692","443","3.355"],"align":"center","style":{"fontSize":"14px"},"headerStyle":{"fontSize":"14px"}},{"id":"UKCL vodilna org","name":"UKCL vodilna org","type":"character","cell":["Da","Da","Da","Da","Da","Da","Ne","Da","Da","Da","Da","Ne","Da","Da","Da","Da","Ne","Ne","Ne","Ne","Ne","Ne"],"align":"center","style":{"fontSize":"14px"},"headerStyle":{"fontSize":"14px"}}],"searchable":true,"pagination":false,"highlight":true,"bordered":true,"compact":true,"height":"700px","crosstalkKey":["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22"],"crosstalkGroup":"SharedData0e0400d0","dataKey":"410b028d2bf9a5706a904cb7dcdfc10b"},"children":[]},"class":"reactR_markup"},"evals":["tag.attribs.columns.0.cell"],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="cimax-in-h-indeks" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="cimax-in-h-indeks">CImax in H-indeks</h2>
+<p><em><strong>Najodmevnejše delo (najbolj citirano) in h-indeks v preteklih 10 letih (2015-2025).</strong></em></p>
+<div class="tabset-margin-container"></div><div class="panel-tabset page-columns page-full">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Najodmevnejše delo</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">H-indeks</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">Tabela s podatki</a></li></ul>
+<div class="tab-content page-columns page-full">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Opomba glede grafov (klik)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li>Modro: UKC vodilna organizacija | Sivo: UKCL sodelujoča organizacija</li>
+<li>Intenziteta barve odraža velikost skupine (FTE: temnejša -&gt; več FTE)</li>
+<li>V zgornjem desnem kotu je meni (☰) kliknite in izberite: (pogled preko celega zaslona; prenos slike; prenos podatkov)</li>
+<li>S postavitvijo kurzorja na posamezen stolpec se izpišejo rezultati za izbrani program</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<bslib-layout-columns class="bslib-grid grid bslib-mb-spacing html-fill-item" col-widths-sm="6,6" data-require-bs-caller="layout_columns()" data-require-bs-version="5">
+<div class="bslib-grid-item bslib-gap-spacing html-fill-container">
+<div class="highchart html-widget html-fill-item" id="htmlwidget-598fba3ec5caa463480a" style="width:100%;height:500px;"></div>
+<script type="application/json" data-for="htmlwidget-598fba3ec5caa463480a">{"x":{"hc_opts":{"chart":{"reflow":true,"inverted":true,"height":"900px"},"title":{"text":"Najodmevnejše delo","style":{"fontSize":"16px","fontWeight":"bold"}},"yAxis":{"title":{"text":"Število citatov"},"min":0},"credits":{"enabled":false},"exporting":{"enabled":true},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0},"treemap":{"layoutAlgorithm":"squarified"}},"series":[{"data":[{"x":0,"y":11344,"color":"rgba(153, 153, 153, 0.432631578947368)","code":"P3-0352","name":"Družine s povišano ali visoko ogroženostjo za raka: svetovanje, odkrivanje mutacij in preprečevanje raka","vodja":"dr. Janez Žgajnar","kaz_fte":null,"kaz_raz":null,"hIndex":80,"cimax":11344,"fte":3.6,"raz":18,"ukc_vod":0,"kazalnik_tip":"cimax","je_citati":false},{"x":1,"y":10198,"color":"rgba(0, 81, 165, 0.53578947368421)","code":"P3-0308","name":"Ateroskleroza in tromboza","vodja":"dr. Mirza Šabovič","kaz_fte":null,"kaz_raz":null,"hIndex":76,"cimax":10198,"fte":6.4,"raz":21,"ukc_vod":1,"kazalnik_tip":"cimax","je_citati":false},{"x":2,"y":8456,"color":"rgba(0, 81, 165, 0.856315789473684)","code":"P3-0314","name":"Sistemske avtoimunske bolezni","vodja":"dr. Katja Lakota","kaz_fte":null,"kaz_raz":null,"hIndex":80,"cimax":8456,"fte":15.1,"raz":49,"ukc_vod":1,"kazalnik_tip":"cimax","je_citati":false},{"x":3,"y":3068,"color":"rgba(0, 81, 165, 0.955789473684211)","code":"P3-0343","name":"Etiologija, zgodnje odkrivanje in zdravljenje bolezni pri otrocih in mladostnikih","vodja":"dr. Tadej Battelino","kaz_fte":null,"kaz_raz":null,"hIndex":97,"cimax":3068,"fte":17.8,"raz":55,"ukc_vod":1,"kazalnik_tip":"cimax","je_citati":false},{"x":4,"y":2150,"color":"rgba(0, 81, 165, 0.591052631578947)","code":"P3-0124","name":"Metabolni in prirojeni dejavniki reproduktivnega zdravja, porod III","vodja":"dr. Tanja Premru-Sršen","kaz_fte":null,"kaz_raz":null,"hIndex":47,"cimax":2150,"fte":7.9,"raz":30,"ukc_vod":1,"kazalnik_tip":"cimax","je_citati":false},{"x":5,"y":2026,"color":"rgba(153, 153, 153, 1)","code":"P1-0389","name":"Medicinska fizika","vodja":"dr. Robert Jeraj","kaz_fte":null,"kaz_raz":null,"hIndex":58,"cimax":2026,"fte":19,"raz":46,"ukc_vod":0,"kazalnik_tip":"cimax","je_citati":false},{"x":6,"y":1822,"color":"rgba(0, 81, 165, 0.767894736842105)","code":"P3-0338","name":"Fiziološki mehanizmi nevroloških motenj in bolezni","vodja":"dr. Simon Podnar","kaz_fte":null,"kaz_raz":null,"hIndex":64,"cimax":1822,"fte":12.7,"raz":32,"ukc_vod":1,"kazalnik_tip":"cimax","je_citati":false},{"x":7,"y":1568,"color":"rgba(0, 81, 165, 0.67578947368421)","code":"P3-0296","name":"Bolezni in povzročitelji, ki jih v Sloveniji prenašajo členonožci","vodja":"dr. Franc Strle","kaz_fte":null,"kaz_raz":null,"hIndex":75,"cimax":1568,"fte":10.2,"raz":38,"ukc_vod":1,"kazalnik_tip":"cimax","je_citati":false},{"x":8,"y":1338,"color":"rgba(0, 81, 165, 0.557894736842105)","code":"I0-0056","name":"Infrastrukturna dejavnost UKC Ljubljana","vodja":"dr. Franc Strle","kaz_fte":null,"kaz_raz":null,"hIndex":60,"cimax":1338,"fte":7,"raz":27,"ukc_vod":1,"kazalnik_tip":"cimax","je_citati":false},{"x":9,"y":1338,"color":"rgba(153, 153, 153, 0.653684210526316)","code":"P5-0110","name":"Psihološki in nevroznanstveni vidiki kognicije","vodja":"dr. Anja Podlesek","kaz_fte":null,"kaz_raz":null,"hIndex":46,"cimax":1338,"fte":9.6,"raz":24,"ukc_vod":0,"kazalnik_tip":"cimax","je_citati":false},{"x":10,"y":1317,"color":"rgba(153, 153, 153, 0.506315789473684)","code":"P3-0307","name":"Rak glave in vratu - analiza bioloških značilnosti in poskus izboljšanja zdravljenja","vodja":"dr. Primož Strojan","kaz_fte":null,"kaz_raz":null,"hIndex":58,"cimax":1317,"fte":5.6,"raz":23,"ukc_vod":0,"kazalnik_tip":"cimax","je_citati":false},{"x":11,"y":1238,"color":"rgba(0, 81, 165, 0.62421052631579)","code":"P3-0298","name":"Geni, hormonske in osebnostne spremembe pri metabolnih motnjah","vodja":"dr. Andrej Janež","kaz_fte":null,"kaz_raz":null,"hIndex":65,"cimax":1238,"fte":8.800000000000001,"raz":25,"ukc_vod":1,"kazalnik_tip":"cimax","je_citati":false},{"x":12,"y":1005,"color":"rgba(0, 81, 165, 0.583684210526316)","code":"P3-0458","name":"Prirojene in pridobljene okvare imunosti","vodja":"dr. Tadej Avčin","kaz_fte":null,"kaz_raz":null,"hIndex":60,"cimax":1005,"fte":7.7,"raz":31,"ukc_vod":1,"kazalnik_tip":"cimax","je_citati":false},{"x":13,"y":823,"color":"rgba(153, 153, 153, 0.812105263157895)","code":"P3-0395","name":"Prehrana in javno zdravje","vodja":"dr. Igor Pravst","kaz_fte":null,"kaz_raz":null,"hIndex":59,"cimax":823,"fte":13.9,"raz":28,"ukc_vod":0,"kazalnik_tip":"cimax","je_citati":false},{"x":14,"y":699,"color":"rgba(153, 153, 153, 0.638947368421052)","code":"P3-0043","name":"Molekularni mehanizmi razvoja in delovanja skeletne mišice","vodja":"dr. Sergej Pirkmajer","kaz_fte":null,"kaz_raz":null,"hIndex":40,"cimax":699,"fte":9.199999999999999,"raz":26,"ukc_vod":0,"kazalnik_tip":"cimax","je_citati":false},{"x":15,"y":612,"color":"rgba(153, 153, 153, 0.672105263157895)","code":"P3-0289","name":"Značilnosti malignih neoplazem, pomembne za diagnozo ter napoved poteka bolezni in izida zdravljenja","vodja":"dr. Nikola Bešić","kaz_fte":null,"kaz_raz":null,"hIndex":50,"cimax":612,"fte":10.1,"raz":28,"ukc_vod":0,"kazalnik_tip":"cimax","je_citati":false},{"x":16,"y":394,"color":"rgba(0, 81, 165, 0.543157894736842)","code":"P3-0323","name":"Ledvične bolezni in nadomestna zdravljenja","vodja":"dr. Jadranka Buturović-Ponikvar","kaz_fte":null,"kaz_raz":null,"hIndex":35,"cimax":394,"fte":6.6,"raz":25,"ukc_vod":1,"kazalnik_tip":"cimax","je_citati":false},{"x":17,"y":391,"color":"rgba(0, 81, 165, 0.587368421052632)","code":"P3-0333","name":"Očesne bolezni odraslih in otrok","vodja":"dr. Marko Hawlina","kaz_fte":null,"kaz_raz":null,"hIndex":39,"cimax":391,"fte":7.8,"raz":29,"ukc_vod":1,"kazalnik_tip":"cimax","je_citati":false},{"x":18,"y":350,"color":"rgba(0, 81, 165, 0.837894736842105)","code":"P3-0326","name":"Ginekologija in reprodukcija: Genomika za personalizirano medicino","vodja":"dr. Borut Peterlin","kaz_fte":null,"kaz_raz":null,"hIndex":60,"cimax":350,"fte":14.6,"raz":51,"ukc_vod":1,"kazalnik_tip":"cimax","je_citati":false},{"x":19,"y":249,"color":"rgba(153, 153, 153, 0.62421052631579)","code":"P3-0171","name":"Plastičnost živčevja v fizioloških in patofizioloških razmerah","vodja":"dr. Marko Živin","kaz_fte":null,"kaz_raz":null,"hIndex":41,"cimax":249,"fte":8.800000000000001,"raz":20,"ukc_vod":0,"kazalnik_tip":"cimax","je_citati":false},{"x":20,"y":150,"color":"rgba(0, 81, 165, 0.366315789473684)","code":"P3-0457","name":"Nove strategije diagnostike in zdravljenja srčnega popuščanja","vodja":"dr. Gregor Poglajen","kaz_fte":null,"kaz_raz":null,"hIndex":24,"cimax":150,"fte":1.8,"raz":9,"ukc_vod":1,"kazalnik_tip":"cimax","je_citati":false},{"x":21,"y":82,"color":"rgba(0, 81, 165, 0.491578947368421)","code":"P3-0293","name":"Parodontalna medicina","vodja":"dr. Aleš Fidler","kaz_fte":null,"kaz_raz":null,"hIndex":23,"cimax":82,"fte":5.2,"raz":12,"ukc_vod":1,"kazalnik_tip":"cimax","je_citati":false}],"type":"bar","name":"Kazalnik","borderWidth":0,"dataLabels":{"enabled":false},"tooltip":{"pointFormatter":"function() {\n            var ukc = this.ukc_vod == 1 ? 'DA' : 'NE';\n            var kazalnik_text = '';\n            \n            // Določi oznako glede na tip podatkov (citati ali točke)\n            var metrika = this.je_citati ? 'Citati' : 'Točke';\n            \n            // Pogojni izpis glede na tip kazalnika\n            if (this.kazalnik_tip === 'kaz_fte') {\n              kazalnik_text = metrika + '/FTE: <b>' + this.kaz_fte.toFixed(0) + '<\/b><br/>';\n            } else if (this.kazalnik_tip === 'kaz_raz') {\n              kazalnik_text = metrika + '/raziskovalca: <b>' + this.kaz_raz.toFixed(0) + '<\/b><br/>';\n            } else if (this.kazalnik_tip === 'hIndex') {\n              kazalnik_text = 'H-indeks: <b>' + this.hIndex + '<\/b><br/>';\n            } else if (this.kazalnik_tip === 'cimax') {\n              kazalnik_text = 'Število citatov: <b>' + this.cimax + '<\/b><br/>';\n            }\n            \n            return '<b>' + this.code + '<\/b><br/>' +\n                   '<i>' + this.name + '<\/i><br/>' +\n                   this.vodja + '<br/><br/>' +\n                   kazalnik_text +\n                   'FTE: <b>' + this.fte.toFixed(1) + '<\/b><br/>' +\n                   'Raziskovalci: <b>' + this.raz + '<\/b><br/>' +\n                   'UKC vodilna: <b>' + ukc + '<\/b>';\n          }"}}],"xAxis":{"type":"category","categories":["P3-0352","P3-0308","P3-0314","P3-0343","P3-0124","P1-0389","P3-0338","P3-0296","I0-0056","P5-0110","P3-0307","P3-0298","P3-0458","P3-0395","P3-0043","P3-0289","P3-0323","P3-0333","P3-0326","P3-0171","P3-0457","P3-0293"],"title":{"text":""},"labels":{"style":{"fontSize":"10px"}}},"legend":{"enabled":false},"subtitle":{"text":"","useHTML":true}},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":["hc_opts.series.0.tooltip.pointFormatter"],"jsHooks":[]}</script>
+</div>
+<div class="bslib-grid-item bslib-gap-spacing html-fill-container">
+<div class="bslib-grid bslib-mb-spacing html-fill-item" data-require-bs-caller="layout_column_wrap()" data-require-bs-version="5" style="grid-template-columns:repeat(1, minmax(0, 1fr));grid-auto-rows:1fr;--bslib-grid-height:auto;--bslib-grid-height-mobile:auto;">
+<div class="bslib-grid-item bslib-gap-spacing html-fill-container">
+<div class="highchart html-widget html-fill-item" id="htmlwidget-8a0422dce9dc9e8430ba" style="width:100%;height:500px;"></div>
+<script type="application/json" data-for="htmlwidget-8a0422dce9dc9e8430ba">{"x":{"hc_opts":{"chart":{"reflow":true,"inverted":true,"height":"450px"},"title":{"text":"UKCL vodilna organizacija","style":{"fontSize":"16px","fontWeight":"bold"}},"yAxis":{"title":{"text":"Število citatov"},"min":0},"credits":{"enabled":false},"exporting":{"enabled":true},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0},"treemap":{"layoutAlgorithm":"squarified"}},"series":[{"data":[{"x":0,"y":10198,"color":"rgba(0, 81, 165, 0.551685393258427)","code":"P3-0308","name":"Ateroskleroza in tromboza","vodja":"dr. Mirza Šabovič","kaz_fte":null,"kaz_raz":null,"hIndex":76,"cimax":10198,"fte":6.4,"raz":21,"ukc_vod":1,"kazalnik_tip":"cimax","je_citati":false},{"x":1,"y":8456,"color":"rgba(0, 81, 165, 0.893820224719101)","code":"P3-0314","name":"Sistemske avtoimunske bolezni","vodja":"dr. Katja Lakota","kaz_fte":null,"kaz_raz":null,"hIndex":80,"cimax":8456,"fte":15.1,"raz":49,"ukc_vod":1,"kazalnik_tip":"cimax","je_citati":false},{"x":2,"y":3068,"color":"rgba(0, 81, 165, 1)","code":"P3-0343","name":"Etiologija, zgodnje odkrivanje in zdravljenje bolezni pri otrocih in mladostnikih","vodja":"dr. Tadej Battelino","kaz_fte":null,"kaz_raz":null,"hIndex":97,"cimax":3068,"fte":17.8,"raz":55,"ukc_vod":1,"kazalnik_tip":"cimax","je_citati":false},{"x":3,"y":2150,"color":"rgba(0, 81, 165, 0.610674157303371)","code":"P3-0124","name":"Metabolni in prirojeni dejavniki reproduktivnega zdravja, porod III","vodja":"dr. Tanja Premru-Sršen","kaz_fte":null,"kaz_raz":null,"hIndex":47,"cimax":2150,"fte":7.9,"raz":30,"ukc_vod":1,"kazalnik_tip":"cimax","je_citati":false},{"x":4,"y":1822,"color":"rgba(0, 81, 165, 0.799438202247191)","code":"P3-0338","name":"Fiziološki mehanizmi nevroloških motenj in bolezni","vodja":"dr. Simon Podnar","kaz_fte":null,"kaz_raz":null,"hIndex":64,"cimax":1822,"fte":12.7,"raz":32,"ukc_vod":1,"kazalnik_tip":"cimax","je_citati":false},{"x":5,"y":1568,"color":"rgba(0, 81, 165, 0.701123595505618)","code":"P3-0296","name":"Bolezni in povzročitelji, ki jih v Sloveniji prenašajo členonožci","vodja":"dr. Franc Strle","kaz_fte":null,"kaz_raz":null,"hIndex":75,"cimax":1568,"fte":10.2,"raz":38,"ukc_vod":1,"kazalnik_tip":"cimax","je_citati":false},{"x":6,"y":1338,"color":"rgba(0, 81, 165, 0.575280898876404)","code":"I0-0056","name":"Infrastrukturna dejavnost UKC Ljubljana","vodja":"dr. Franc Strle","kaz_fte":null,"kaz_raz":null,"hIndex":60,"cimax":1338,"fte":7,"raz":27,"ukc_vod":1,"kazalnik_tip":"cimax","je_citati":false},{"x":7,"y":1238,"color":"rgba(0, 81, 165, 0.646067415730337)","code":"P3-0298","name":"Geni, hormonske in osebnostne spremembe pri metabolnih motnjah","vodja":"dr. Andrej Janež","kaz_fte":null,"kaz_raz":null,"hIndex":65,"cimax":1238,"fte":8.800000000000001,"raz":25,"ukc_vod":1,"kazalnik_tip":"cimax","je_citati":false},{"x":8,"y":1005,"color":"rgba(0, 81, 165, 0.602808988764045)","code":"P3-0458","name":"Prirojene in pridobljene okvare imunosti","vodja":"dr. Tadej Avčin","kaz_fte":null,"kaz_raz":null,"hIndex":60,"cimax":1005,"fte":7.7,"raz":31,"ukc_vod":1,"kazalnik_tip":"cimax","je_citati":false},{"x":9,"y":394,"color":"rgba(0, 81, 165, 0.559550561797753)","code":"P3-0323","name":"Ledvične bolezni in nadomestna zdravljenja","vodja":"dr. Jadranka Buturović-Ponikvar","kaz_fte":null,"kaz_raz":null,"hIndex":35,"cimax":394,"fte":6.6,"raz":25,"ukc_vod":1,"kazalnik_tip":"cimax","je_citati":false},{"x":10,"y":391,"color":"rgba(0, 81, 165, 0.606741573033708)","code":"P3-0333","name":"Očesne bolezni odraslih in otrok","vodja":"dr. Marko Hawlina","kaz_fte":null,"kaz_raz":null,"hIndex":39,"cimax":391,"fte":7.8,"raz":29,"ukc_vod":1,"kazalnik_tip":"cimax","je_citati":false},{"x":11,"y":350,"color":"rgba(0, 81, 165, 0.874157303370786)","code":"P3-0326","name":"Ginekologija in reprodukcija: Genomika za personalizirano medicino","vodja":"dr. Borut Peterlin","kaz_fte":null,"kaz_raz":null,"hIndex":60,"cimax":350,"fte":14.6,"raz":51,"ukc_vod":1,"kazalnik_tip":"cimax","je_citati":false},{"x":12,"y":150,"color":"rgba(0, 81, 165, 0.370786516853933)","code":"P3-0457","name":"Nove strategije diagnostike in zdravljenja srčnega popuščanja","vodja":"dr. Gregor Poglajen","kaz_fte":null,"kaz_raz":null,"hIndex":24,"cimax":150,"fte":1.8,"raz":9,"ukc_vod":1,"kazalnik_tip":"cimax","je_citati":false},{"x":13,"y":82,"color":"rgba(0, 81, 165, 0.504494382022472)","code":"P3-0293","name":"Parodontalna medicina","vodja":"dr. Aleš Fidler","kaz_fte":null,"kaz_raz":null,"hIndex":23,"cimax":82,"fte":5.2,"raz":12,"ukc_vod":1,"kazalnik_tip":"cimax","je_citati":false}],"type":"bar","name":"Kazalnik","borderWidth":0,"dataLabels":{"enabled":false},"tooltip":{"pointFormatter":"function() {\n            var ukc = this.ukc_vod == 1 ? 'DA' : 'NE';\n            var kazalnik_text = '';\n            \n            // Določi oznako glede na tip podatkov (citati ali točke)\n            var metrika = this.je_citati ? 'Citati' : 'Točke';\n            \n            // Pogojni izpis glede na tip kazalnika\n            if (this.kazalnik_tip === 'kaz_fte') {\n              kazalnik_text = metrika + '/FTE: <b>' + this.kaz_fte.toFixed(0) + '<\/b><br/>';\n            } else if (this.kazalnik_tip === 'kaz_raz') {\n              kazalnik_text = metrika + '/raziskovalca: <b>' + this.kaz_raz.toFixed(0) + '<\/b><br/>';\n            } else if (this.kazalnik_tip === 'hIndex') {\n              kazalnik_text = 'H-indeks: <b>' + this.hIndex + '<\/b><br/>';\n            } else if (this.kazalnik_tip === 'cimax') {\n              kazalnik_text = 'Število citatov: <b>' + this.cimax + '<\/b><br/>';\n            }\n            \n            return '<b>' + this.code + '<\/b><br/>' +\n                   '<i>' + this.name + '<\/i><br/>' +\n                   this.vodja + '<br/><br/>' +\n                   kazalnik_text +\n                   'FTE: <b>' + this.fte.toFixed(1) + '<\/b><br/>' +\n                   'Raziskovalci: <b>' + this.raz + '<\/b><br/>' +\n                   'UKC vodilna: <b>' + ukc + '<\/b>';\n          }"}}],"xAxis":{"type":"category","categories":["P3-0308","P3-0314","P3-0343","P3-0124","P3-0338","P3-0296","I0-0056","P3-0298","P3-0458","P3-0323","P3-0333","P3-0326","P3-0457","P3-0293"],"title":{"text":""},"labels":{"style":{"fontSize":"10px"}}},"legend":{"enabled":false}},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":["hc_opts.series.0.tooltip.pointFormatter"],"jsHooks":[]}</script>
+</div>
+<div class="bslib-grid-item bslib-gap-spacing html-fill-container">
+<div class="highchart html-widget html-fill-item" id="htmlwidget-defa552cda6baabf8be0" style="width:100%;height:500px;"></div>
+<script type="application/json" data-for="htmlwidget-defa552cda6baabf8be0">{"x":{"hc_opts":{"chart":{"reflow":true,"inverted":true,"height":"350px"},"title":{"text":"UKCL sodelujoča organizacija","style":{"fontSize":"16px","fontWeight":"bold"}},"yAxis":{"title":{"text":"Število citatov"},"min":0},"credits":{"enabled":false},"exporting":{"enabled":true},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0},"treemap":{"layoutAlgorithm":"squarified"}},"series":[{"data":[{"x":0,"y":11344,"color":"rgba(153, 153, 153, 0.432631578947368)","code":"P3-0352","name":"Družine s povišano ali visoko ogroženostjo za raka: svetovanje, odkrivanje mutacij in preprečevanje raka","vodja":"dr. Janez Žgajnar","kaz_fte":null,"kaz_raz":null,"hIndex":80,"cimax":11344,"fte":3.6,"raz":18,"ukc_vod":0,"kazalnik_tip":"cimax","je_citati":false},{"x":1,"y":2026,"color":"rgba(153, 153, 153, 1)","code":"P1-0389","name":"Medicinska fizika","vodja":"dr. Robert Jeraj","kaz_fte":null,"kaz_raz":null,"hIndex":58,"cimax":2026,"fte":19,"raz":46,"ukc_vod":0,"kazalnik_tip":"cimax","je_citati":false},{"x":2,"y":1338,"color":"rgba(153, 153, 153, 0.653684210526316)","code":"P5-0110","name":"Psihološki in nevroznanstveni vidiki kognicije","vodja":"dr. Anja Podlesek","kaz_fte":null,"kaz_raz":null,"hIndex":46,"cimax":1338,"fte":9.6,"raz":24,"ukc_vod":0,"kazalnik_tip":"cimax","je_citati":false},{"x":3,"y":1317,"color":"rgba(153, 153, 153, 0.506315789473684)","code":"P3-0307","name":"Rak glave in vratu - analiza bioloških značilnosti in poskus izboljšanja zdravljenja","vodja":"dr. Primož Strojan","kaz_fte":null,"kaz_raz":null,"hIndex":58,"cimax":1317,"fte":5.6,"raz":23,"ukc_vod":0,"kazalnik_tip":"cimax","je_citati":false},{"x":4,"y":823,"color":"rgba(153, 153, 153, 0.812105263157895)","code":"P3-0395","name":"Prehrana in javno zdravje","vodja":"dr. Igor Pravst","kaz_fte":null,"kaz_raz":null,"hIndex":59,"cimax":823,"fte":13.9,"raz":28,"ukc_vod":0,"kazalnik_tip":"cimax","je_citati":false},{"x":5,"y":699,"color":"rgba(153, 153, 153, 0.638947368421052)","code":"P3-0043","name":"Molekularni mehanizmi razvoja in delovanja skeletne mišice","vodja":"dr. Sergej Pirkmajer","kaz_fte":null,"kaz_raz":null,"hIndex":40,"cimax":699,"fte":9.199999999999999,"raz":26,"ukc_vod":0,"kazalnik_tip":"cimax","je_citati":false},{"x":6,"y":612,"color":"rgba(153, 153, 153, 0.672105263157895)","code":"P3-0289","name":"Značilnosti malignih neoplazem, pomembne za diagnozo ter napoved poteka bolezni in izida zdravljenja","vodja":"dr. Nikola Bešić","kaz_fte":null,"kaz_raz":null,"hIndex":50,"cimax":612,"fte":10.1,"raz":28,"ukc_vod":0,"kazalnik_tip":"cimax","je_citati":false},{"x":7,"y":249,"color":"rgba(153, 153, 153, 0.62421052631579)","code":"P3-0171","name":"Plastičnost živčevja v fizioloških in patofizioloških razmerah","vodja":"dr. Marko Živin","kaz_fte":null,"kaz_raz":null,"hIndex":41,"cimax":249,"fte":8.800000000000001,"raz":20,"ukc_vod":0,"kazalnik_tip":"cimax","je_citati":false}],"type":"bar","name":"Kazalnik","borderWidth":0,"dataLabels":{"enabled":false},"tooltip":{"pointFormatter":"function() {\n            var ukc = this.ukc_vod == 1 ? 'DA' : 'NE';\n            var kazalnik_text = '';\n            \n            // Določi oznako glede na tip podatkov (citati ali točke)\n            var metrika = this.je_citati ? 'Citati' : 'Točke';\n            \n            // Pogojni izpis glede na tip kazalnika\n            if (this.kazalnik_tip === 'kaz_fte') {\n              kazalnik_text = metrika + '/FTE: <b>' + this.kaz_fte.toFixed(0) + '<\/b><br/>';\n            } else if (this.kazalnik_tip === 'kaz_raz') {\n              kazalnik_text = metrika + '/raziskovalca: <b>' + this.kaz_raz.toFixed(0) + '<\/b><br/>';\n            } else if (this.kazalnik_tip === 'hIndex') {\n              kazalnik_text = 'H-indeks: <b>' + this.hIndex + '<\/b><br/>';\n            } else if (this.kazalnik_tip === 'cimax') {\n              kazalnik_text = 'Število citatov: <b>' + this.cimax + '<\/b><br/>';\n            }\n            \n            return '<b>' + this.code + '<\/b><br/>' +\n                   '<i>' + this.name + '<\/i><br/>' +\n                   this.vodja + '<br/><br/>' +\n                   kazalnik_text +\n                   'FTE: <b>' + this.fte.toFixed(1) + '<\/b><br/>' +\n                   'Raziskovalci: <b>' + this.raz + '<\/b><br/>' +\n                   'UKC vodilna: <b>' + ukc + '<\/b>';\n          }"}}],"xAxis":{"type":"category","categories":["P3-0352","P1-0389","P5-0110","P3-0307","P3-0395","P3-0043","P3-0289","P3-0171"],"title":{"text":""},"labels":{"style":{"fontSize":"10px"}}},"legend":{"enabled":false}},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":["hc_opts.series.0.tooltip.pointFormatter"],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+</bslib-layout-columns>
+</div>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Opomba glede grafov (klik)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li>Modro: UKC vodilna organizacija | Sivo: UKCL sodelujoča organizacija</li>
+<li>Intenziteta barve odraža velikost skupine (FTE: temnejša -&gt; več FTE)</li>
+<li>V zgornjem desnem kotu je meni (☰) kliknite in izberite: (pogled preko celega zaslona; prenos slike; prenos podatkov)</li>
+<li>S postavitvijo kurzorja na posamezen stolpec se izpišejo rezultati za izbrani program</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<bslib-layout-columns class="bslib-grid grid bslib-mb-spacing html-fill-item" col-widths-sm="6,6" data-require-bs-caller="layout_columns()" data-require-bs-version="5">
+<div class="bslib-grid-item bslib-gap-spacing html-fill-container">
+<div class="highchart html-widget html-fill-item" id="htmlwidget-87e990e93f3f16de36f7" style="width:100%;height:500px;"></div>
+<script type="application/json" data-for="htmlwidget-87e990e93f3f16de36f7">{"x":{"hc_opts":{"chart":{"reflow":true,"inverted":true,"height":"900px"},"title":{"text":"H-indeks","style":{"fontSize":"16px","fontWeight":"bold"}},"yAxis":{"title":{"text":"H-indeks"},"min":0},"credits":{"enabled":false},"exporting":{"enabled":true},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0},"treemap":{"layoutAlgorithm":"squarified"}},"series":[{"data":[{"x":0,"y":97,"color":"rgba(0, 81, 165, 0.955789473684211)","code":"P3-0343","name":"Etiologija, zgodnje odkrivanje in zdravljenje bolezni pri otrocih in mladostnikih","vodja":"dr. Tadej Battelino","kaz_fte":null,"kaz_raz":null,"hIndex":97,"cimax":3068,"fte":17.8,"raz":55,"ukc_vod":1,"kazalnik_tip":"hIndex","je_citati":false},{"x":1,"y":80,"color":"rgba(0, 81, 165, 0.856315789473684)","code":"P3-0314","name":"Sistemske avtoimunske bolezni","vodja":"dr. Katja Lakota","kaz_fte":null,"kaz_raz":null,"hIndex":80,"cimax":8456,"fte":15.1,"raz":49,"ukc_vod":1,"kazalnik_tip":"hIndex","je_citati":false},{"x":2,"y":80,"color":"rgba(153, 153, 153, 0.432631578947368)","code":"P3-0352","name":"Družine s povišano ali visoko ogroženostjo za raka: svetovanje, odkrivanje mutacij in preprečevanje raka","vodja":"dr. Janez Žgajnar","kaz_fte":null,"kaz_raz":null,"hIndex":80,"cimax":11344,"fte":3.6,"raz":18,"ukc_vod":0,"kazalnik_tip":"hIndex","je_citati":false},{"x":3,"y":76,"color":"rgba(0, 81, 165, 0.53578947368421)","code":"P3-0308","name":"Ateroskleroza in tromboza","vodja":"dr. Mirza Šabovič","kaz_fte":null,"kaz_raz":null,"hIndex":76,"cimax":10198,"fte":6.4,"raz":21,"ukc_vod":1,"kazalnik_tip":"hIndex","je_citati":false},{"x":4,"y":75,"color":"rgba(0, 81, 165, 0.67578947368421)","code":"P3-0296","name":"Bolezni in povzročitelji, ki jih v Sloveniji prenašajo členonožci","vodja":"dr. Franc Strle","kaz_fte":null,"kaz_raz":null,"hIndex":75,"cimax":1568,"fte":10.2,"raz":38,"ukc_vod":1,"kazalnik_tip":"hIndex","je_citati":false},{"x":5,"y":65,"color":"rgba(0, 81, 165, 0.62421052631579)","code":"P3-0298","name":"Geni, hormonske in osebnostne spremembe pri metabolnih motnjah","vodja":"dr. Andrej Janež","kaz_fte":null,"kaz_raz":null,"hIndex":65,"cimax":1238,"fte":8.800000000000001,"raz":25,"ukc_vod":1,"kazalnik_tip":"hIndex","je_citati":false},{"x":6,"y":64,"color":"rgba(0, 81, 165, 0.767894736842105)","code":"P3-0338","name":"Fiziološki mehanizmi nevroloških motenj in bolezni","vodja":"dr. Simon Podnar","kaz_fte":null,"kaz_raz":null,"hIndex":64,"cimax":1822,"fte":12.7,"raz":32,"ukc_vod":1,"kazalnik_tip":"hIndex","je_citati":false},{"x":7,"y":60,"color":"rgba(0, 81, 165, 0.583684210526316)","code":"P3-0458","name":"Prirojene in pridobljene okvare imunosti","vodja":"dr. Tadej Avčin","kaz_fte":null,"kaz_raz":null,"hIndex":60,"cimax":1005,"fte":7.7,"raz":31,"ukc_vod":1,"kazalnik_tip":"hIndex","je_citati":false},{"x":8,"y":60,"color":"rgba(0, 81, 165, 0.557894736842105)","code":"I0-0056","name":"Infrastrukturna dejavnost UKC Ljubljana","vodja":"dr. Franc Strle","kaz_fte":null,"kaz_raz":null,"hIndex":60,"cimax":1338,"fte":7,"raz":27,"ukc_vod":1,"kazalnik_tip":"hIndex","je_citati":false},{"x":9,"y":60,"color":"rgba(0, 81, 165, 0.837894736842105)","code":"P3-0326","name":"Ginekologija in reprodukcija: Genomika za personalizirano medicino","vodja":"dr. Borut Peterlin","kaz_fte":null,"kaz_raz":null,"hIndex":60,"cimax":350,"fte":14.6,"raz":51,"ukc_vod":1,"kazalnik_tip":"hIndex","je_citati":false},{"x":10,"y":59,"color":"rgba(153, 153, 153, 0.812105263157895)","code":"P3-0395","name":"Prehrana in javno zdravje","vodja":"dr. Igor Pravst","kaz_fte":null,"kaz_raz":null,"hIndex":59,"cimax":823,"fte":13.9,"raz":28,"ukc_vod":0,"kazalnik_tip":"hIndex","je_citati":false},{"x":11,"y":58,"color":"rgba(153, 153, 153, 1)","code":"P1-0389","name":"Medicinska fizika","vodja":"dr. Robert Jeraj","kaz_fte":null,"kaz_raz":null,"hIndex":58,"cimax":2026,"fte":19,"raz":46,"ukc_vod":0,"kazalnik_tip":"hIndex","je_citati":false},{"x":12,"y":58,"color":"rgba(153, 153, 153, 0.506315789473684)","code":"P3-0307","name":"Rak glave in vratu - analiza bioloških značilnosti in poskus izboljšanja zdravljenja","vodja":"dr. Primož Strojan","kaz_fte":null,"kaz_raz":null,"hIndex":58,"cimax":1317,"fte":5.6,"raz":23,"ukc_vod":0,"kazalnik_tip":"hIndex","je_citati":false},{"x":13,"y":50,"color":"rgba(153, 153, 153, 0.672105263157895)","code":"P3-0289","name":"Značilnosti malignih neoplazem, pomembne za diagnozo ter napoved poteka bolezni in izida zdravljenja","vodja":"dr. Nikola Bešić","kaz_fte":null,"kaz_raz":null,"hIndex":50,"cimax":612,"fte":10.1,"raz":28,"ukc_vod":0,"kazalnik_tip":"hIndex","je_citati":false},{"x":14,"y":47,"color":"rgba(0, 81, 165, 0.591052631578947)","code":"P3-0124","name":"Metabolni in prirojeni dejavniki reproduktivnega zdravja, porod III","vodja":"dr. Tanja Premru-Sršen","kaz_fte":null,"kaz_raz":null,"hIndex":47,"cimax":2150,"fte":7.9,"raz":30,"ukc_vod":1,"kazalnik_tip":"hIndex","je_citati":false},{"x":15,"y":46,"color":"rgba(153, 153, 153, 0.653684210526316)","code":"P5-0110","name":"Psihološki in nevroznanstveni vidiki kognicije","vodja":"dr. Anja Podlesek","kaz_fte":null,"kaz_raz":null,"hIndex":46,"cimax":1338,"fte":9.6,"raz":24,"ukc_vod":0,"kazalnik_tip":"hIndex","je_citati":false},{"x":16,"y":41,"color":"rgba(153, 153, 153, 0.62421052631579)","code":"P3-0171","name":"Plastičnost živčevja v fizioloških in patofizioloških razmerah","vodja":"dr. Marko Živin","kaz_fte":null,"kaz_raz":null,"hIndex":41,"cimax":249,"fte":8.800000000000001,"raz":20,"ukc_vod":0,"kazalnik_tip":"hIndex","je_citati":false},{"x":17,"y":40,"color":"rgba(153, 153, 153, 0.638947368421052)","code":"P3-0043","name":"Molekularni mehanizmi razvoja in delovanja skeletne mišice","vodja":"dr. Sergej Pirkmajer","kaz_fte":null,"kaz_raz":null,"hIndex":40,"cimax":699,"fte":9.199999999999999,"raz":26,"ukc_vod":0,"kazalnik_tip":"hIndex","je_citati":false},{"x":18,"y":39,"color":"rgba(0, 81, 165, 0.587368421052632)","code":"P3-0333","name":"Očesne bolezni odraslih in otrok","vodja":"dr. Marko Hawlina","kaz_fte":null,"kaz_raz":null,"hIndex":39,"cimax":391,"fte":7.8,"raz":29,"ukc_vod":1,"kazalnik_tip":"hIndex","je_citati":false},{"x":19,"y":35,"color":"rgba(0, 81, 165, 0.543157894736842)","code":"P3-0323","name":"Ledvične bolezni in nadomestna zdravljenja","vodja":"dr. Jadranka Buturović-Ponikvar","kaz_fte":null,"kaz_raz":null,"hIndex":35,"cimax":394,"fte":6.6,"raz":25,"ukc_vod":1,"kazalnik_tip":"hIndex","je_citati":false},{"x":20,"y":24,"color":"rgba(0, 81, 165, 0.366315789473684)","code":"P3-0457","name":"Nove strategije diagnostike in zdravljenja srčnega popuščanja","vodja":"dr. Gregor Poglajen","kaz_fte":null,"kaz_raz":null,"hIndex":24,"cimax":150,"fte":1.8,"raz":9,"ukc_vod":1,"kazalnik_tip":"hIndex","je_citati":false},{"x":21,"y":23,"color":"rgba(0, 81, 165, 0.491578947368421)","code":"P3-0293","name":"Parodontalna medicina","vodja":"dr. Aleš Fidler","kaz_fte":null,"kaz_raz":null,"hIndex":23,"cimax":82,"fte":5.2,"raz":12,"ukc_vod":1,"kazalnik_tip":"hIndex","je_citati":false}],"type":"bar","name":"Kazalnik","borderWidth":0,"dataLabels":{"enabled":false},"tooltip":{"pointFormatter":"function() {\n            var ukc = this.ukc_vod == 1 ? 'DA' : 'NE';\n            var kazalnik_text = '';\n            \n            // Določi oznako glede na tip podatkov (citati ali točke)\n            var metrika = this.je_citati ? 'Citati' : 'Točke';\n            \n            // Pogojni izpis glede na tip kazalnika\n            if (this.kazalnik_tip === 'kaz_fte') {\n              kazalnik_text = metrika + '/FTE: <b>' + this.kaz_fte.toFixed(0) + '<\/b><br/>';\n            } else if (this.kazalnik_tip === 'kaz_raz') {\n              kazalnik_text = metrika + '/raziskovalca: <b>' + this.kaz_raz.toFixed(0) + '<\/b><br/>';\n            } else if (this.kazalnik_tip === 'hIndex') {\n              kazalnik_text = 'H-indeks: <b>' + this.hIndex + '<\/b><br/>';\n            } else if (this.kazalnik_tip === 'cimax') {\n              kazalnik_text = 'Število citatov: <b>' + this.cimax + '<\/b><br/>';\n            }\n            \n            return '<b>' + this.code + '<\/b><br/>' +\n                   '<i>' + this.name + '<\/i><br/>' +\n                   this.vodja + '<br/><br/>' +\n                   kazalnik_text +\n                   'FTE: <b>' + this.fte.toFixed(1) + '<\/b><br/>' +\n                   'Raziskovalci: <b>' + this.raz + '<\/b><br/>' +\n                   'UKC vodilna: <b>' + ukc + '<\/b>';\n          }"}}],"xAxis":{"type":"category","categories":["P3-0343","P3-0314","P3-0352","P3-0308","P3-0296","P3-0298","P3-0338","P3-0458","I0-0056","P3-0326","P3-0395","P1-0389","P3-0307","P3-0289","P3-0124","P5-0110","P3-0171","P3-0043","P3-0333","P3-0323","P3-0457","P3-0293"],"title":{"text":""},"labels":{"style":{"fontSize":"10px"}}},"legend":{"enabled":false},"subtitle":{"text":"","useHTML":true}},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":["hc_opts.series.0.tooltip.pointFormatter"],"jsHooks":[]}</script>
+</div>
+<div class="bslib-grid-item bslib-gap-spacing html-fill-container">
+<div class="bslib-grid bslib-mb-spacing html-fill-item" data-require-bs-caller="layout_column_wrap()" data-require-bs-version="5" style="grid-template-columns:repeat(1, minmax(0, 1fr));grid-auto-rows:1fr;--bslib-grid-height:auto;--bslib-grid-height-mobile:auto;">
+<div class="bslib-grid-item bslib-gap-spacing html-fill-container">
+<div class="highchart html-widget html-fill-item" id="htmlwidget-694e201de8dfc5a859b1" style="width:100%;height:500px;"></div>
+<script type="application/json" data-for="htmlwidget-694e201de8dfc5a859b1">{"x":{"hc_opts":{"chart":{"reflow":true,"inverted":true,"height":"450px"},"title":{"text":"UKCL vodilna organizacija","style":{"fontSize":"16px","fontWeight":"bold"}},"yAxis":{"title":{"text":"H-indeks"},"min":0},"credits":{"enabled":false},"exporting":{"enabled":true},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0},"treemap":{"layoutAlgorithm":"squarified"}},"series":[{"data":[{"x":0,"y":97,"color":"rgba(0, 81, 165, 1)","code":"P3-0343","name":"Etiologija, zgodnje odkrivanje in zdravljenje bolezni pri otrocih in mladostnikih","vodja":"dr. Tadej Battelino","kaz_fte":null,"kaz_raz":null,"hIndex":97,"cimax":3068,"fte":17.8,"raz":55,"ukc_vod":1,"kazalnik_tip":"hIndex","je_citati":false},{"x":1,"y":80,"color":"rgba(0, 81, 165, 0.893820224719101)","code":"P3-0314","name":"Sistemske avtoimunske bolezni","vodja":"dr. Katja Lakota","kaz_fte":null,"kaz_raz":null,"hIndex":80,"cimax":8456,"fte":15.1,"raz":49,"ukc_vod":1,"kazalnik_tip":"hIndex","je_citati":false},{"x":2,"y":76,"color":"rgba(0, 81, 165, 0.551685393258427)","code":"P3-0308","name":"Ateroskleroza in tromboza","vodja":"dr. Mirza Šabovič","kaz_fte":null,"kaz_raz":null,"hIndex":76,"cimax":10198,"fte":6.4,"raz":21,"ukc_vod":1,"kazalnik_tip":"hIndex","je_citati":false},{"x":3,"y":75,"color":"rgba(0, 81, 165, 0.701123595505618)","code":"P3-0296","name":"Bolezni in povzročitelji, ki jih v Sloveniji prenašajo členonožci","vodja":"dr. Franc Strle","kaz_fte":null,"kaz_raz":null,"hIndex":75,"cimax":1568,"fte":10.2,"raz":38,"ukc_vod":1,"kazalnik_tip":"hIndex","je_citati":false},{"x":4,"y":65,"color":"rgba(0, 81, 165, 0.646067415730337)","code":"P3-0298","name":"Geni, hormonske in osebnostne spremembe pri metabolnih motnjah","vodja":"dr. Andrej Janež","kaz_fte":null,"kaz_raz":null,"hIndex":65,"cimax":1238,"fte":8.800000000000001,"raz":25,"ukc_vod":1,"kazalnik_tip":"hIndex","je_citati":false},{"x":5,"y":64,"color":"rgba(0, 81, 165, 0.799438202247191)","code":"P3-0338","name":"Fiziološki mehanizmi nevroloških motenj in bolezni","vodja":"dr. Simon Podnar","kaz_fte":null,"kaz_raz":null,"hIndex":64,"cimax":1822,"fte":12.7,"raz":32,"ukc_vod":1,"kazalnik_tip":"hIndex","je_citati":false},{"x":6,"y":60,"color":"rgba(0, 81, 165, 0.602808988764045)","code":"P3-0458","name":"Prirojene in pridobljene okvare imunosti","vodja":"dr. Tadej Avčin","kaz_fte":null,"kaz_raz":null,"hIndex":60,"cimax":1005,"fte":7.7,"raz":31,"ukc_vod":1,"kazalnik_tip":"hIndex","je_citati":false},{"x":7,"y":60,"color":"rgba(0, 81, 165, 0.575280898876404)","code":"I0-0056","name":"Infrastrukturna dejavnost UKC Ljubljana","vodja":"dr. Franc Strle","kaz_fte":null,"kaz_raz":null,"hIndex":60,"cimax":1338,"fte":7,"raz":27,"ukc_vod":1,"kazalnik_tip":"hIndex","je_citati":false},{"x":8,"y":60,"color":"rgba(0, 81, 165, 0.874157303370786)","code":"P3-0326","name":"Ginekologija in reprodukcija: Genomika za personalizirano medicino","vodja":"dr. Borut Peterlin","kaz_fte":null,"kaz_raz":null,"hIndex":60,"cimax":350,"fte":14.6,"raz":51,"ukc_vod":1,"kazalnik_tip":"hIndex","je_citati":false},{"x":9,"y":47,"color":"rgba(0, 81, 165, 0.610674157303371)","code":"P3-0124","name":"Metabolni in prirojeni dejavniki reproduktivnega zdravja, porod III","vodja":"dr. Tanja Premru-Sršen","kaz_fte":null,"kaz_raz":null,"hIndex":47,"cimax":2150,"fte":7.9,"raz":30,"ukc_vod":1,"kazalnik_tip":"hIndex","je_citati":false},{"x":10,"y":39,"color":"rgba(0, 81, 165, 0.606741573033708)","code":"P3-0333","name":"Očesne bolezni odraslih in otrok","vodja":"dr. Marko Hawlina","kaz_fte":null,"kaz_raz":null,"hIndex":39,"cimax":391,"fte":7.8,"raz":29,"ukc_vod":1,"kazalnik_tip":"hIndex","je_citati":false},{"x":11,"y":35,"color":"rgba(0, 81, 165, 0.559550561797753)","code":"P3-0323","name":"Ledvične bolezni in nadomestna zdravljenja","vodja":"dr. Jadranka Buturović-Ponikvar","kaz_fte":null,"kaz_raz":null,"hIndex":35,"cimax":394,"fte":6.6,"raz":25,"ukc_vod":1,"kazalnik_tip":"hIndex","je_citati":false},{"x":12,"y":24,"color":"rgba(0, 81, 165, 0.370786516853933)","code":"P3-0457","name":"Nove strategije diagnostike in zdravljenja srčnega popuščanja","vodja":"dr. Gregor Poglajen","kaz_fte":null,"kaz_raz":null,"hIndex":24,"cimax":150,"fte":1.8,"raz":9,"ukc_vod":1,"kazalnik_tip":"hIndex","je_citati":false},{"x":13,"y":23,"color":"rgba(0, 81, 165, 0.504494382022472)","code":"P3-0293","name":"Parodontalna medicina","vodja":"dr. Aleš Fidler","kaz_fte":null,"kaz_raz":null,"hIndex":23,"cimax":82,"fte":5.2,"raz":12,"ukc_vod":1,"kazalnik_tip":"hIndex","je_citati":false}],"type":"bar","name":"Kazalnik","borderWidth":0,"dataLabels":{"enabled":false},"tooltip":{"pointFormatter":"function() {\n            var ukc = this.ukc_vod == 1 ? 'DA' : 'NE';\n            var kazalnik_text = '';\n            \n            // Določi oznako glede na tip podatkov (citati ali točke)\n            var metrika = this.je_citati ? 'Citati' : 'Točke';\n            \n            // Pogojni izpis glede na tip kazalnika\n            if (this.kazalnik_tip === 'kaz_fte') {\n              kazalnik_text = metrika + '/FTE: <b>' + this.kaz_fte.toFixed(0) + '<\/b><br/>';\n            } else if (this.kazalnik_tip === 'kaz_raz') {\n              kazalnik_text = metrika + '/raziskovalca: <b>' + this.kaz_raz.toFixed(0) + '<\/b><br/>';\n            } else if (this.kazalnik_tip === 'hIndex') {\n              kazalnik_text = 'H-indeks: <b>' + this.hIndex + '<\/b><br/>';\n            } else if (this.kazalnik_tip === 'cimax') {\n              kazalnik_text = 'Število citatov: <b>' + this.cimax + '<\/b><br/>';\n            }\n            \n            return '<b>' + this.code + '<\/b><br/>' +\n                   '<i>' + this.name + '<\/i><br/>' +\n                   this.vodja + '<br/><br/>' +\n                   kazalnik_text +\n                   'FTE: <b>' + this.fte.toFixed(1) + '<\/b><br/>' +\n                   'Raziskovalci: <b>' + this.raz + '<\/b><br/>' +\n                   'UKC vodilna: <b>' + ukc + '<\/b>';\n          }"}}],"xAxis":{"type":"category","categories":["P3-0343","P3-0314","P3-0308","P3-0296","P3-0298","P3-0338","P3-0458","I0-0056","P3-0326","P3-0124","P3-0333","P3-0323","P3-0457","P3-0293"],"title":{"text":""},"labels":{"style":{"fontSize":"10px"}}},"legend":{"enabled":false}},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":["hc_opts.series.0.tooltip.pointFormatter"],"jsHooks":[]}</script>
+</div>
+<div class="bslib-grid-item bslib-gap-spacing html-fill-container">
+<div class="highchart html-widget html-fill-item" id="htmlwidget-5fce0f28d1a256b72526" style="width:100%;height:500px;"></div>
+<script type="application/json" data-for="htmlwidget-5fce0f28d1a256b72526">{"x":{"hc_opts":{"chart":{"reflow":true,"inverted":true,"height":"350px"},"title":{"text":"UKCL sodelujoča organizacija","style":{"fontSize":"16px","fontWeight":"bold"}},"yAxis":{"title":{"text":"H-indeks"},"min":0},"credits":{"enabled":false},"exporting":{"enabled":true},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0},"treemap":{"layoutAlgorithm":"squarified"}},"series":[{"data":[{"x":0,"y":80,"color":"rgba(153, 153, 153, 0.432631578947368)","code":"P3-0352","name":"Družine s povišano ali visoko ogroženostjo za raka: svetovanje, odkrivanje mutacij in preprečevanje raka","vodja":"dr. Janez Žgajnar","kaz_fte":null,"kaz_raz":null,"hIndex":80,"cimax":11344,"fte":3.6,"raz":18,"ukc_vod":0,"kazalnik_tip":"hIndex","je_citati":false},{"x":1,"y":59,"color":"rgba(153, 153, 153, 0.812105263157895)","code":"P3-0395","name":"Prehrana in javno zdravje","vodja":"dr. Igor Pravst","kaz_fte":null,"kaz_raz":null,"hIndex":59,"cimax":823,"fte":13.9,"raz":28,"ukc_vod":0,"kazalnik_tip":"hIndex","je_citati":false},{"x":2,"y":58,"color":"rgba(153, 153, 153, 1)","code":"P1-0389","name":"Medicinska fizika","vodja":"dr. Robert Jeraj","kaz_fte":null,"kaz_raz":null,"hIndex":58,"cimax":2026,"fte":19,"raz":46,"ukc_vod":0,"kazalnik_tip":"hIndex","je_citati":false},{"x":3,"y":58,"color":"rgba(153, 153, 153, 0.506315789473684)","code":"P3-0307","name":"Rak glave in vratu - analiza bioloških značilnosti in poskus izboljšanja zdravljenja","vodja":"dr. Primož Strojan","kaz_fte":null,"kaz_raz":null,"hIndex":58,"cimax":1317,"fte":5.6,"raz":23,"ukc_vod":0,"kazalnik_tip":"hIndex","je_citati":false},{"x":4,"y":50,"color":"rgba(153, 153, 153, 0.672105263157895)","code":"P3-0289","name":"Značilnosti malignih neoplazem, pomembne za diagnozo ter napoved poteka bolezni in izida zdravljenja","vodja":"dr. Nikola Bešić","kaz_fte":null,"kaz_raz":null,"hIndex":50,"cimax":612,"fte":10.1,"raz":28,"ukc_vod":0,"kazalnik_tip":"hIndex","je_citati":false},{"x":5,"y":46,"color":"rgba(153, 153, 153, 0.653684210526316)","code":"P5-0110","name":"Psihološki in nevroznanstveni vidiki kognicije","vodja":"dr. Anja Podlesek","kaz_fte":null,"kaz_raz":null,"hIndex":46,"cimax":1338,"fte":9.6,"raz":24,"ukc_vod":0,"kazalnik_tip":"hIndex","je_citati":false},{"x":6,"y":41,"color":"rgba(153, 153, 153, 0.62421052631579)","code":"P3-0171","name":"Plastičnost živčevja v fizioloških in patofizioloških razmerah","vodja":"dr. Marko Živin","kaz_fte":null,"kaz_raz":null,"hIndex":41,"cimax":249,"fte":8.800000000000001,"raz":20,"ukc_vod":0,"kazalnik_tip":"hIndex","je_citati":false},{"x":7,"y":40,"color":"rgba(153, 153, 153, 0.638947368421052)","code":"P3-0043","name":"Molekularni mehanizmi razvoja in delovanja skeletne mišice","vodja":"dr. Sergej Pirkmajer","kaz_fte":null,"kaz_raz":null,"hIndex":40,"cimax":699,"fte":9.199999999999999,"raz":26,"ukc_vod":0,"kazalnik_tip":"hIndex","je_citati":false}],"type":"bar","name":"Kazalnik","borderWidth":0,"dataLabels":{"enabled":false},"tooltip":{"pointFormatter":"function() {\n            var ukc = this.ukc_vod == 1 ? 'DA' : 'NE';\n            var kazalnik_text = '';\n            \n            // Določi oznako glede na tip podatkov (citati ali točke)\n            var metrika = this.je_citati ? 'Citati' : 'Točke';\n            \n            // Pogojni izpis glede na tip kazalnika\n            if (this.kazalnik_tip === 'kaz_fte') {\n              kazalnik_text = metrika + '/FTE: <b>' + this.kaz_fte.toFixed(0) + '<\/b><br/>';\n            } else if (this.kazalnik_tip === 'kaz_raz') {\n              kazalnik_text = metrika + '/raziskovalca: <b>' + this.kaz_raz.toFixed(0) + '<\/b><br/>';\n            } else if (this.kazalnik_tip === 'hIndex') {\n              kazalnik_text = 'H-indeks: <b>' + this.hIndex + '<\/b><br/>';\n            } else if (this.kazalnik_tip === 'cimax') {\n              kazalnik_text = 'Število citatov: <b>' + this.cimax + '<\/b><br/>';\n            }\n            \n            return '<b>' + this.code + '<\/b><br/>' +\n                   '<i>' + this.name + '<\/i><br/>' +\n                   this.vodja + '<br/><br/>' +\n                   kazalnik_text +\n                   'FTE: <b>' + this.fte.toFixed(1) + '<\/b><br/>' +\n                   'Raziskovalci: <b>' + this.raz + '<\/b><br/>' +\n                   'UKC vodilna: <b>' + ukc + '<\/b>';\n          }"}}],"xAxis":{"type":"category","categories":["P3-0352","P3-0395","P1-0389","P3-0307","P3-0289","P5-0110","P3-0171","P3-0043"],"title":{"text":""},"labels":{"style":{"fontSize":"10px"}}},"legend":{"enabled":false}},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadCSV":"Download CSV","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","downloadXLS":"Download XLS","drillUpText":"◁ Back to {series.name}","exitFullscreen":"Exit from full screen","exportData":{"annotationHeader":"Annotations","categoryDatetimeHeader":"DateTime","categoryHeader":"Category"},"hideData":"Hide data table","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbolMagnitude":1000,"numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"shortWeekdays":["Sat","Sun","Mon","Tue","Wed","Thu","Fri"],"thousandsSep":" ","viewData":"View data table","viewFullscreen":"View in full screen","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":["hc_opts.series.0.tooltip.pointFormatter"],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+</bslib-layout-columns>
+</div>
+</div>
+</div>
+<div id="tabset-2-3" class="tab-pane page-columns page-full" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<div class="callout callout-style-default callout-note callout-titled" title="">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<em>S klikom na posamezen stolpec se spremeni vrstni red skupin.</em>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<div class="cell page-columns page-full">
+<div class="cell-output-display column-page">
+<div style="margin-bottom: 15px; margin-left: 80px;">
+<div id="ukcl_filter" class="form-group crosstalk-input-checkboxgroup crosstalk-input">
+<label class="control-label" for="ukcl_filter">UKCL vodilna organizacija</label>
+<div class="crosstalk-options-group">
+<label class="checkbox-inline">
+<input type="checkbox" name="ukcl_filter" value="Da">
+<span>Da</span>
+</label>
+<label class="checkbox-inline">
+<input type="checkbox" name="ukcl_filter" value="Ne">
+<span>Ne</span>
+</label>
+</div>
+<script type="application/json" data-for="ukcl_filter">{
+  "map": {
+    "Da": ["1", "2", "3", "4", "5", "6", "8", "9", "10", "11", "13", "14", "15", "16"],
+    "Ne": ["7", "12", "17", "18", "19", "20", "21", "22"]
+  },
+  "group": ["SharedData5fcb2d29"]
+}</script>
+</div>
+</div>
+<div id="htmlwidget-4cd7a61cbb977be6626f" class="reactable html-widget" style="width:auto;height:700px;"></div>
+<script type="application/json" data-for="htmlwidget-4cd7a61cbb977be6626f">{"x":{"tag":{"name":"Reactable","attribs":{"data":{" ":["","","","","","","","","","","","","","","","","","","","","",""],"Šifra prog":["P3-0457","P3-0458","P3-0296","P3-0343","I0-0056","P3-0323","P1-0389","P3-0314","P3-0338","P3-0326","P3-0124","P3-0043","P3-0293","P3-0308","P3-0298","P3-0333","P3-0171","P3-0395","P5-0110","P3-0307","P3-0289","P3-0352"],"Vodja":["Gregor Poglajen","Tadej Avčin","Franc Strle","Tadej Battelino","Franc Strle","Jadranka Buturović-Ponikvar","Robert Jeraj","Katja Lakota","Simon Podnar","Borut Peterlin","Tanja Premru-Sršen","Sergej Pirkmajer","Aleš Fidler","Mirza Šabovič","Andrej Janež","Marko Hawlina","Marko Živin","Igor Pravst","Anja Podlesek","Primož Strojan","Nikola Bešić","Janez Žgajnar"],"Naslov":["Nove strategije diagnostike in zdravljenja srčnega popuščanja","Prirojene in pridobljene okvare imunosti","Bolezni in povzročitelji, ki jih v Sloveniji prenašajo členonožci","Etiologija, zgodnje odkrivanje in zdravljenje bolezni pri otrocih in mladostnikih","Infrastrukturna dejavnost UKC Ljubljana","Ledvične bolezni in nadomestna zdravljenja","Medicinska fizika","Sistemske avtoimunske bolezni","Fiziološki mehanizmi nevroloških motenj in bolezni","Ginekologija in reprodukcija: Genomika za personalizirano medicino","Metabolni in prirojeni dejavniki reproduktivnega zdravja, porod III","Molekularni mehanizmi razvoja in delovanja skeletne mišice","Parodontalna medicina","Ateroskleroza in tromboza","Geni, hormonske in osebnostne spremembe pri metabolnih motnjah","Očesne bolezni odraslih in otrok","Plastičnost živčevja v fizioloških in patofizioloških razmerah","Prehrana in javno zdravje","Psihološki in nevroznanstveni vidiki kognicije","Rak glave in vratu - analiza bioloških značilnosti in poskus izboljšanja zdravljenja","Značilnosti malignih neoplazem, pomembne za diagnozo ter napoved poteka bolezni in izida zdravljenja","Družine s povišano ali visoko ogroženostjo za raka: svetovanje, odkrivanje mutacij in preprečevanje raka"],"Št. članov":[12,34,47,64,29,30,47,61,72,62,37,41,14,43,32,31,26,29,24,25,29,18],"Št. raz":[9,31,38,55,27,25,46,49,32,51,30,26,12,21,25,29,20,28,24,23,28,18],"FTE":[1.8,7.7,10.2,17.8,7,6.6,19,15.1,12.7,14.6,7.9,9.2,5.2,6.4,8.8,7.8,8.8,13.9,9.6,5.6,10.1,3.6],"Najodmevnejše delo":[150,1005,1568,3068,1338,394,2026,8456,1822,350,2150,699,82,10198,1238,391,249,823,1338,1317,612,11344],"H-indeks":[24,60,75,97,60,35,58,80,64,60,47,40,23,76,65,39,41,59,46,58,50,80],"UKCL vodilna org":["Da","Da","Da","Da","Da","Da","Ne","Da","Da","Da","Da","Ne","Da","Da","Da","Da","Ne","Ne","Ne","Ne","Ne","Ne"]},"columns":[{"id":" ","name":"#","type":"character","cell":"function(cellInfo) { return cellInfo.viewIndex + 1; }","align":"center","style":{"color":"#666"},"headerStyle":{"fontSize":"14px"},"sortable":false,"width":60},{"id":"Šifra prog","name":"Šifra prog","type":"character","cell":["P3-0457","P3-0458","P3-0296","P3-0343","I0-0056","P3-0323","P1-0389","P3-0314","P3-0338","P3-0326","P3-0124","P3-0043","P3-0293","P3-0308","P3-0298","P3-0333","P3-0171","P3-0395","P5-0110","P3-0307","P3-0289","P3-0352"],"align":"center","style":{"fontSize":"14px"},"headerStyle":{"fontSize":"14px"}},{"id":"Vodja","name":"Vodja","type":"character","cell":["Gregor Poglajen","Tadej Avčin","Franc Strle","Tadej Battelino","Franc Strle","Jadranka Buturović-Ponikvar","Robert Jeraj","Katja Lakota","Simon Podnar","Borut Peterlin","Tanja Premru-Sršen","Sergej Pirkmajer","Aleš Fidler","Mirza Šabovič","Andrej Janež","Marko Hawlina","Marko Živin","Igor Pravst","Anja Podlesek","Primož Strojan","Nikola Bešić","Janez Žgajnar"],"align":"left","style":{"fontSize":"14px"},"headerStyle":{"fontSize":"14px"}},{"id":"Naslov","name":"Naslov","type":"character","cell":["Nove strategije diagnostike in zdravljenja srčnega popuščanja","Prirojene in pridobljene okvare imunosti","Bolezni in povzročitelji, ki jih v Sloveniji prenašajo členonožci","Etiologija, zgodnje odkrivanje in zdravljenje bolezni pri otrocih in mladostnikih","Infrastrukturna dejavnost UKC Ljubljana","Ledvične bolezni in nadomestna zdravljenja","Medicinska fizika","Sistemske avtoimunske bolezni","Fiziološki mehanizmi nevroloških motenj in bolezni","Ginekologija in reprodukcija: Genomika za personalizirano medicino","Metabolni in prirojeni dejavniki reproduktivnega zdravja, porod III","Molekularni mehanizmi razvoja in delovanja skeletne mišice","Parodontalna medicina","Ateroskleroza in tromboza","Geni, hormonske in osebnostne spremembe pri metabolnih motnjah","Očesne bolezni odraslih in otrok","Plastičnost živčevja v fizioloških in patofizioloških razmerah","Prehrana in javno zdravje","Psihološki in nevroznanstveni vidiki kognicije","Rak glave in vratu - analiza bioloških značilnosti in poskus izboljšanja zdravljenja","Značilnosti malignih neoplazem, pomembne za diagnozo ter napoved poteka bolezni in izida zdravljenja","Družine s povišano ali visoko ogroženostjo za raka: svetovanje, odkrivanje mutacij in preprečevanje raka"],"align":"left","style":{"fontSize":"14px"},"headerStyle":{"fontSize":"14px"},"minWidth":250},{"id":"Št. članov","name":"Št. članov","type":"numeric","cell":["12","34","47","64","29","30","47","61","72","62","37","41","14","43","32","31","26","29","24","25","29","18"],"align":"center","style":{"fontSize":"14px"},"headerStyle":{"fontSize":"14px"}},{"id":"Št. raz","name":"Št. raz","type":"numeric","cell":["9","31","38","55","27","25","46","49","32","51","30","26","12","21","25","29","20","28","24","23","28","18"],"align":"center","style":{"fontSize":"14px"},"headerStyle":{"fontSize":"14px"}},{"id":"FTE","name":"FTE","type":"numeric","cell":["1,8","7,7","10,2","17,8","7","6,6","19","15,1","12,7","14,6","7,9","9,2","5,2","6,4","8,8","7,8","8,8","13,9","9,6","5,6","10,1","3,6"],"align":"center","style":{"fontSize":"14px"},"headerStyle":{"fontSize":"14px"}},{"id":"Najodmevnejše delo","name":"Najodmevnejše delo","type":"numeric","cell":["150","1.005","1.568","3.068","1.338","394","2.026","8.456","1.822","350","2.150","699","82","10.198","1.238","391","249","823","1.338","1.317","612","11.344"],"align":"center","style":{"fontSize":"14px"},"headerStyle":{"fontSize":"14px"}},{"id":"H-indeks","name":"H-indeks","type":"numeric","cell":["24","60","75","97","60","35","58","80","64","60","47","40","23","76","65","39","41","59","46","58","50","80"],"align":"center","style":{"fontSize":"14px"},"headerStyle":{"fontSize":"14px"}},{"id":"UKCL vodilna org","name":"UKCL vodilna org","type":"character","cell":["Da","Da","Da","Da","Da","Da","Ne","Da","Da","Da","Da","Ne","Da","Da","Da","Da","Ne","Ne","Ne","Ne","Ne","Ne"],"align":"center","style":{"fontSize":"14px"},"headerStyle":{"fontSize":"14px"}}],"searchable":true,"pagination":false,"highlight":true,"bordered":true,"compact":true,"height":"700px","crosstalkKey":["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22"],"crosstalkGroup":"SharedData5fcb2d29","dataKey":"e94413a6c7cf3fc8ddf3ff4aba493e3f"},"children":[]},"class":"reactR_markup"},"evals":["tag.attribs.columns.0.cell"],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>© 2026 Center za klinične raziskave UKC Ljubljana | <a href="mailto:info.ckr@kclj.si">Kontakt</a></p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

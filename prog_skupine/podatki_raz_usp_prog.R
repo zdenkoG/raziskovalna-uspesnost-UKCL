@@ -77,3 +77,21 @@ aI_prog <- izracunaj_kazalnike("aI")
 # -------------------------
 
 a12_prog <- izracunaj_kazalnike("a12")
+
+
+
+# ------------------------------
+# CI10 - število čistih citatov
+# ------------------------------
+
+ci10_prog <- izracunaj_kazalnike("ci10")
+
+
+
+# -----------------------------
+# CImax - najodmevnejše delo in
+# h-indeks 
+# -----------------------------
+
+prog_v_teku %>% 
+  select(code, vodja, name, st_clan:fte, cimax:ukc_vod) -> cit_prog

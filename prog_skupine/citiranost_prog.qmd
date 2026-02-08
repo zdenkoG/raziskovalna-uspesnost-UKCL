@@ -1,0 +1,172 @@
+---
+title: "Programske skupine"
+editor: visual
+---
+
+```{r}
+library(here)
+source(here("R/setup_paketi.R"))
+source(here("R/funkcije_num_format_reactable.R"))
+source(here("R/uvoz_podatkov.R"))
+source(here("R/osnovni_podatki.R"))
+source(here("R/podatki_st_raz_fte_leto.R"))
+source(here("R/podatki_stevilo_projektov.R"))
+source(here("R/podatki_za_tabele_grafe.R"))
+source(here("R/funkcije_tabele.R"))
+source(here("prog_skupine/podatki_raz_usp_prog.R"))
+source(here("prog_skupine/funkcija_kazalnik_tocke-citati_SLIKA.R"))
+source(here("prog_skupine/funkcija_kazalnik_tocke-citati_TABELA.R"))
+```
+
+# Citiranost
+
+Spodaj so prikazani rezultati o citiranosti za posamezno programsko skupino, kjer je aktiven raziskovalni ali infrastrukturni ARIS program. Vir podatkov je [Sicris](https://cris.cobiss.net/ecris/si/sl/organization/618){target="_blank"} (več o virih podatkov je objavljeno ["Viri podatkov"](viri_podatkov.qmd)).
+
+Prikazani so programi, kjer je ***UKC Ljubljana vodilna organizacija*** (modri stolpiči) in programi, kjer je ***UKC Ljubljana sodelujoča organizacija*** (sivi stolpiči).
+
+Prikazani so rezultati za ***citiranost [v preteklih 10 letih]{.underline}***:
+
+-   [CI10 - število čistih citatov znanstvenih del v preteklih 10 letih (2015-2025)](#ci_prog);
+
+-   [CImax - najodmevnejše delo v preteklih 10 letih (2015-2025)](#ci_max_prog);
+
+-   [h-indeks v preteklih 10 letih (2015-2025)](#h_ind_prog).
+
+Pri številu čistih citatov, so izračunani tudi kazalniki uspešnosti:
+
+-   število citatov na FTE (full time eqvivalent = delež zaposlitve za raziskovalno dejavnost) in
+
+-   število citatov na skupno število raziskovalcev (število zaposlenih, ki so pri ARIS-u registrirani kot raziskovalci).
+
+Za podrobnejši opis metodologije izračuna kazalnikov glej (["Izračuni kazalnikov"](izracuni_kazalnikov.qmd)).
+
+
+## CI10     
+
+_**CI10 - število čistih citatov znanstvenih del v preteklih 10 letih (2015-2025).**_
+
+
+:::::: panel-tabset
+### Citati/FTE
+
+::: {.callout-note collapse="true"}
+##### Opomba glede grafov (klik)
+
+-   Modro: UKC vodilna organizacija \| Sivo: UKCL sodelujoča organizacija
+-   Intenziteta barve odraža velikost skupine (FTE: temnejša -\> več FTE)
+-   V zgornjem desnem kotu je meni (☰) kliknite in izberite: (pogled preko celega zaslona; prenos slike; prenos podatkov)
+-   S postavitvijo kurzorja na posamezen stolpec se izpišejo rezultati za izbrani program
+:::
+
+```{r}
+# Uporaba:
+graf_panel_programi(
+  podatki = ci10_prog,
+  kazalnik = "kaz_fte",
+  naslov_levi = "Citati/FTE",
+  naslov_ukc = "UKCL vodilna organizacija",
+  naslov_zunanji = "UKCL sodelujoča organizacija",
+  vir_podatkov = "ci10_prog"
+)
+```
+
+### Točke/raziskovalec
+
+::: {.callout-note collapse="true"}
+##### Opomba glede grafov (klik)
+
+-   Modro: UKC vodilna organizacija \| Sivo: UKCL sodelujoča organizacija
+-   Intenziteta barve odraža velikost skupine (FTE: temnejša -\> več FTE)
+-   V zgornjem desnem kotu je meni (☰) kliknite in izberite: (pogled preko celega zaslona; prenos slike; prenos podatkov)
+-   S postavitvijo kurzorja na posamezen stolpec se izpišejo rezultati za izbrani program
+:::
+
+```{r}
+# Uporaba:
+graf_panel_programi(
+  podatki = ci10_prog,
+  kazalnik = "kaz_raz",
+  naslov_levi = "Citati/Raziskovalec",
+  naslov_ukc = "UKCL vodilna organizacija",
+  naslov_zunanji = "UKCL sodelujoča organizacija",
+  vir_podatkov = "ci10_prog"
+)
+```
+
+### Tabela s podatki
+
+::: {.callout-note collapse="true" title=""}
+#### *S klikom na posamezen stolpec se spremeni vrstni red skupin.*
+:::
+
+```{r}
+#| column: page
+
+izpis_tab_prog_us(ci10_prog, kaj = "Čisti citati", kaz1 = "Citati/FTE", kaz2 = "Citati/raz")
+```
+::::::
+
+## CImax in H-indeks
+
+_**Najodmevnejše delo (najbolj citirano) in h-indeks v preteklih 10 letih (2015-2025).**_         
+
+:::::: panel-tabset
+### Najodmevnejše delo
+
+::: {.callout-note collapse="true"}
+##### Opomba glede grafov (klik)
+
+-   Modro: UKC vodilna organizacija \| Sivo: UKCL sodelujoča organizacija
+-   Intenziteta barve odraža velikost skupine (FTE: temnejša -\> več FTE)
+-   V zgornjem desnem kotu je meni (☰) kliknite in izberite: (pogled preko celega zaslona; prenos slike; prenos podatkov)
+-   S postavitvijo kurzorja na posamezen stolpec se izpišejo rezultati za izbrani program
+:::
+
+```{r}
+# Uporaba:
+graf_panel_programi(
+  podatki = cit_prog,
+  kazalnik = "cimax",
+  naslov_levi = "Najodmevnejše delo",
+  naslov_ukc = "UKCL vodilna organizacija",
+  naslov_zunanji = "UKCL sodelujoča organizacija",
+  vir_podatkov = "cit_prog"
+)
+```
+
+### H-indeks
+
+::: {.callout-note collapse="true"}
+##### Opomba glede grafov (klik)
+
+-   Modro: UKC vodilna organizacija \| Sivo: UKCL sodelujoča organizacija
+-   Intenziteta barve odraža velikost skupine (FTE: temnejša -\> več FTE)
+-   V zgornjem desnem kotu je meni (☰) kliknite in izberite: (pogled preko celega zaslona; prenos slike; prenos podatkov)
+-   S postavitvijo kurzorja na posamezen stolpec se izpišejo rezultati za izbrani program
+:::
+
+```{r}
+# Uporaba:
+graf_panel_programi(
+  podatki = cit_prog,
+  kazalnik = "hIndex",
+  naslov_levi = "H-indeks",
+  naslov_ukc = "UKCL vodilna organizacija",
+  naslov_zunanji = "UKCL sodelujoča organizacija",
+  vir_podatkov = "cit_prog"
+)
+```
+
+### Tabela s podatki
+
+::: {.callout-note collapse="true" title=""}
+#### *S klikom na posamezen stolpec se spremeni vrstni red skupin.*
+:::
+
+```{r}
+#| column: page
+
+tabela_citati_programi(cit_prog)
+```
+::::::
+
